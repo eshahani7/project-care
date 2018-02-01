@@ -10,14 +10,13 @@ import Foundation
 import HealthKit
 
 class HealthStore {
-    let store: HKHealthStore?
-    
+    let store:HKHealthStore?
     init() {
         if HKHealthStore.isHealthDataAvailable() {
             store = HKHealthStore();
         } else {
             store = nil;
-            //throw an error
+            //throw error message
         }
     }
 }
