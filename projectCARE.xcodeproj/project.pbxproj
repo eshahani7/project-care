@@ -22,8 +22,8 @@
 		9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */; };
 		9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */; };
 		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
-		9F1968982023BB8A00C1D0B4 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968972023BB8A00C1D0B4 /* HealthStore.swift */; };
 		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
+		9F487A252023C9CC007F9DBE /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A242023C9CC007F9DBE /* HealthStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,9 +107,9 @@
 		9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F1968972023BB8A00C1D0B4 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthStore.swift; path = ../HealthStore.swift; sourceTree = "<group>"; };
 		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		9F487A242023C9CC007F9DBE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthStore.swift; path = ../HealthStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
 				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
 				9F1968402023BA7D00C1D0B4 /* ViewController.swift */,
-				9F1968972023BB8A00C1D0B4 /* HealthStore.swift */,
+				9F487A242023C9CC007F9DBE /* HealthStore.swift */,
 				9F1968422023BA7D00C1D0B4 /* Main.storyboard */,
 				9F1968452023BA7D00C1D0B4 /* Assets.xcassets */,
 				9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */,
@@ -446,7 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
-				9F1968982023BB8A00C1D0B4 /* HealthStore.swift in Sources */,
+				9F487A252023C9CC007F9DBE /* HealthStore.swift in Sources */,
 				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
