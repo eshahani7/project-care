@@ -17,8 +17,8 @@ Trello: https://trello.com/invite/b/jZlqlUs6/6d86dc614c78040d4e15ca54b032a7fc/cs
 * Give user insights on bringing an abnormal resting heart rate back to normal.
 
 ## Contributors:
-Ekta Shahani - Heart rate and Workout analysis
-Richa Wadaskar - Activity Level and Sleep Analysis
-Anu Polisetty - Visualizations and Project Design
-Aditya Nadkarni - Heart rate and Workout analysis
-Cindy Lu - Design, Activity Level and Sleep Analysis
+* Ekta Shahani - Heart rate and Workout analysis
+* Richa Wadaskar - Activity Level and Sleep Analysis
+* Anu Polisetty - Visualizations and Project Design
+* Aditya Nadkarni - Heart rate and Workout analysis
+* Cindy Lu - Design, Activity Level and Sleep Analysis
