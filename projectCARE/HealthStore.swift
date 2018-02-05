@@ -10,6 +10,15 @@ import Foundation
 import HealthKit
 
 class HealthStore {
+    
+    let store:HKHealthStore
+    
+    enum HealthStoreErrors : Error {
+        case noHealthDataFound
+        case noAgeFound
+        case noSexEntered
+    }
+    
     private enum HealthkitSetupError: Error {
         case notAvailableOnDevice
         case dataTypeNotAvailable
@@ -56,4 +65,60 @@ class HealthStore {
         })
     }
     
+    init() throws {
+        if(HKHealthStore.isHealthDataAvailable()) {
+            store = HKHealthStore()
+        } else {
+            print("no data")
+            throw HealthStoreErrors.noHealthDataFound
+        }
+    }
+    
+    
+    //Params: sample type, start date, end date, callback
+    //Returns: array of samples if not nil, error if nil
+    func getSample(sampleType: HKSampleType, startDate: Date, endDate: Date,
+                   completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, results, error) in
+            
+            DispatchQueue.main.async {
+                guard let samples = results as? [HKQuantitySample] else {
+                    completion(nil, error)
+                    return
+                }
+                
+                completion(samples, nil)
+                
+            }
+        }
+        
+        store.execute(query)
+    }
+    
+    func getAge() -> Int {
+        do {
+            let dob = try store.dateOfBirthComponents()
+            let today = Date()
+            let calendar = Calendar.current
+            let todayDateComponents = calendar.dateComponents([.year],
+                                                              from: today)
+            let thisYear = todayDateComponents.year!
+            let age = thisYear - dob.year!
+            return age
+        } catch {
+            print("can't get dob")
+        }
+        
+        return 0
+    }
+    
+    func getBiologicalSex() -> HKBiologicalSexObject? {
+        do {
+            return try store.biologicalSex()
+        } catch {
+            print("Can't get biological sex")
+            return nil
+        }
+    }
 }
