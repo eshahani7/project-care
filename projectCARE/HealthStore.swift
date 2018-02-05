@@ -11,7 +11,7 @@ import HealthKit
 
 class HealthStore {
     
-    let store:HKHealthStore
+    let store:HKHealthStore?
     
     enum HealthStoreErrors : Error {
         case noHealthDataFound
@@ -65,12 +65,13 @@ class HealthStore {
         })
     }
     
-    init() throws {
+    init() {
         if(HKHealthStore.isHealthDataAvailable()) {
             store = HKHealthStore()
+            print("data found")
         } else {
             print("no data")
-            throw HealthStoreErrors.noHealthDataFound
+            store = nil
         }
     }
     
@@ -93,18 +94,18 @@ class HealthStore {
             }
         }
         
-        store.execute(query)
+        store?.execute(query)
     }
     
     func getAge() -> Int {
         do {
-            let dob = try store.dateOfBirthComponents()
+            let dob = try store?.dateOfBirthComponents()
             let today = Date()
             let calendar = Calendar.current
             let todayDateComponents = calendar.dateComponents([.year],
                                                               from: today)
             let thisYear = todayDateComponents.year!
-            let age = thisYear - dob.year!
+            let age = thisYear - (dob?.year!)!
             return age
         } catch {
             print("can't get dob")
@@ -115,7 +116,7 @@ class HealthStore {
     
     func getBiologicalSex() -> HKBiologicalSexObject? {
         do {
-            return try store.biologicalSex()
+            return try store?.biologicalSex()
         } catch {
             print("Can't get biological sex")
             return nil

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import HealthKit
 
 class ViewController: UIViewController {
+    
+    let store:HealthStore = HealthStore()
     
     private func authorizeHealthKit() {
         HealthStore.authorizeHealthKit { (authorized, error) in
@@ -34,6 +37,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         authorizeHealthKit()
+        print(store.getAge())
+        print(store.getBiologicalSex()) //need a toString
+        
+        store.getSample(sampleType: HKObjectType.quantityType(forIdentifier: .stepCount)!,
+                        startDate: Date(), endDate: Date()) { (sample, error) in
+            guard let sample = sample else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            print(sample)
+        }
     }
 
     override func didReceiveMemoryWarning() {
