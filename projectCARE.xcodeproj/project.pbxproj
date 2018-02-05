@@ -346,7 +346,7 @@
 				TargetAttributes = {
 					9F19683A2023BA7C00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = ULDWKKPVBU;
+						DevelopmentTeam = BA5W6527X2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -366,10 +366,12 @@
 					};
 					9F1968622023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = BA5W6527X2;
 						ProvisioningStyle = Automatic;
 					};
 					9F1968712023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = BA5W6527X2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -627,9 +629,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -643,9 +646,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -660,9 +664,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -677,9 +682,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -695,10 +701,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ULDWKKPVBU;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -710,10 +716,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ULDWKKPVBU;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -39,9 +39,12 @@ class ViewController: UIViewController {
         authorizeHealthKit()
         print(store.getAge())
         print(store.getBiologicalSex()) //need a toString
-        
+       
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+
         store.getSample(sampleType: HKObjectType.quantityType(forIdentifier: .stepCount)!,
-                        startDate: Date(), endDate: Date()) { (sample, error) in
+                        startDate: startOfDay, endDate: now) { (sample, error) in
             guard let sample = sample else {
                 if let error = error {
                     print(error)
