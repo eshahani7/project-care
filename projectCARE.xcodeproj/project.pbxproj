@@ -340,6 +340,9 @@
 		9F1968332023BA7C00C1D0B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					stepLabel,
+				);
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Ekta Shahani";

@@ -122,4 +122,50 @@ class HealthStore {
             return nil
         }
     }
+    
+    func retrieveMostRecentStepCountSample(completionHandler: @escaping (HKQuantitySample) -> Void) {
+        let sampleType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        let predicate = HKQuery.predicateForSamples(withStart: NSDate.distantPast, end: NSDate() as Date, options:[])
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        
+        let query = HKSampleQuery(sampleType: sampleType!, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor])
+        { (query, results, error) in
+            if error != nil {
+                print("An error has occured with the following description: \(String(describing: error?.localizedDescription))")
+            } else {
+                let mostRecentSample = results![0] as! HKQuantitySample
+                print("Retrieved most recent step count.")
+                completionHandler(mostRecentSample)
+            }
+        }
+        store?.execute(query)
+    }
+    
+    var observeQuery: HKObserverQuery!
+    
+    public var steps = 0.0
+    
+    func startObservingForStepCountSamples() {
+        print("startObservingForStepCountSamples")
+        let sampleType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        
+        if observeQuery != nil {
+            store?.stop(observeQuery)
+        }
+        
+        observeQuery = HKObserverQuery(sampleType: sampleType!, predicate: nil) {
+            (query, completionHandler, error) in
+            
+            if error != nil {
+                print("An error has occured with the following description: \(String(describing: error?.localizedDescription))")
+            } else {
+                self.retrieveMostRecentStepCountSample {
+                    (sample) in
+                    print("New steps: \(sample.quantity.doubleValue(for: HKUnit.count()))")
+                    self.steps += sample.quantity.doubleValue(for: HKUnit.count())
+                }
+            }
+        }
+        store?.execute(observeQuery)
+    }
 }
