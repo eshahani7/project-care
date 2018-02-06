@@ -1,0 +1,77 @@
+Notes from: http://matteomanferdini.com/the-complete-guide-to-understanding-swift-optionals/
+->Int? means the return val might be nil or an int
+func factorial(number: Int) -> Int? {
+	if (number < 0) {
+		return nil
+	}
+	var result = 1
+	for var factor = 1; factor <= number; ++factor {
+		result = result * factor
+	}
+	return result
+}]
+
+Forced unwrapping: I know optional has a value, use it
+factorial(3)!
+Int? and Int are different types to the compiler
+
+Optional binding: check optional and extract value in single action:
+if let result = factorial(3) {
+	result + 7
+}
+
+If fact has a value, use it, otherwise use 0
+5 + (fact ?? 0)
+
+Optional chaining: if value exits, access, otherwise return nil
+let john = Person()
+if let numberOfBorrowedBooks = john.libraryCard?.numberOfBorrowedBooks {
+	println("John has borrowed \(numberOfBorrowedBooks) books")
+} else
+	println("John does not have a library card")
+}
+
+Optional chaining on methods: addBook returns Void but through chaining returns Void?
+if (john.libraryCard?.addBook(book)) != nil {
+	println("John has borrowed \(book.title)")
+} else {
+	println("John has not a library card and cannot borrow books")
+}
+
+Multiple levels of chaining:
+if let bookTitle = john.libraryCard?.lastBorrowedBook?.title {
+	println("The last book John has borrowed is \(book.title)")
+} else {
+	println("John has not borrowed any books")
+}
+
+lastBorrowedBook returns Book?, useful if user has not borrowed a books
+
+Implicitly unwrapped optionals**
+let num:Int! = nil
+Allows optional to start with nil, and use as though it's not an optionals
+
+Swift doesn't allow init to return until all properties are initialized -->
+implicitly unwrapped optionals solve this
+
+Downcasting: cast to specific subclass
+ask object for its types with as? if you don't know what it will be
+use as if you know the type
+for item in catalog {
+	if let book = item as? Book {
+		println("Book: \(book.title), written by \(book.author)")
+	} else if let movie = item as? Movie {
+		println("Movie: \(movie.title), directed by \(movie.director)")
+	}
+}
+
+Faliable initializers: use when initialization of object might return nil
+class Animal {
+	let species: String! //need to implicitly unwrap b/c species can't be init until after check
+	init?(species: String) {
+		if species.isEmpty {
+			return nil
+		}
+		self.species = species
+	}
+}
