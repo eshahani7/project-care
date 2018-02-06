@@ -9,6 +9,20 @@
 import Foundation
 import HealthKit
 
+//use for first parameter of getSamples()
+struct HealthValues {
+    static let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth)
+    static let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex)
+    static let bodyMassIndex = HKObjectType.quantityType(forIdentifier: .bodyMassIndex)
+    static let height = HKObjectType.quantityType(forIdentifier: .height)
+    static let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass)
+    static let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)
+    static let exerciseTime = HKObjectType.quantityType(forIdentifier: .appleExerciseTime)
+    static let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount)
+    static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
+    static let respRate = HKObjectType.quantityType(forIdentifier: .respiratoryRate)
+}
+
 class HealthStore {
     
     let store:HKHealthStore?
@@ -30,23 +44,23 @@ class HealthStore {
             return
         }
         
-        guard   let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
-                let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex),
-                let bodyMassIndex = HKObjectType.quantityType(forIdentifier: .bodyMassIndex),
-                let height = HKObjectType.quantityType(forIdentifier: .height),
-                let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass),
-                let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned),
-                let exerciseTime = HKObjectType.quantityType(forIdentifier: .appleExerciseTime),
-                let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount),
-                let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate),
-                let respRate = HKObjectType.quantityType(forIdentifier: .respiratoryRate) else {
-                
+        guard   let dateOfBirth = HealthValues.dateOfBirth,
+                let biologicalSex = HealthValues.biologicalSex,
+                let bodyMassIndex = HealthValues.bodyMassIndex,
+                let height = HealthValues.height,
+                let bodyMass = HealthValues.bodyMass,
+                let activeEnergy = HealthValues.activeEnergy,
+                let exerciseTime = HealthValues.exerciseTime,
+                let stepCount = HealthValues.stepCount,
+                let heartRate = HealthValues.heartRate,
+                let respRate = HealthValues.respRate else {
+                    
                     completion(false, HealthkitSetupError.dataTypeNotAvailable)
                     return
         }
         
         let writeTypes: Set<HKSampleType> = [stepCount,
-                                        HKObjectType.workoutType()]
+                                             HKObjectType.workoutType()]
         
         let readTypes: Set<HKObjectType> = [activeEnergy,
                                             dateOfBirth,
@@ -75,10 +89,9 @@ class HealthStore {
         }
     }
     
-    
     //Params: sample type, start date, end date, callback
     //Returns: array of samples if not nil, error if nil
-    func getSample(sampleType: HKSampleType, startDate: Date, endDate: Date,
+    func getSamples(sampleType: HKSampleType, startDate: Date, endDate: Date,
                    completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, results, error) in

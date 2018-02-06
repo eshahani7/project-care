@@ -40,13 +40,17 @@ class ViewController: UIViewController {
         print(store.getAge())
         print(store.getBiologicalSex()) //need a toString
         
-        store.getSample(sampleType: HKObjectType.quantityType(forIdentifier: .stepCount)!,
-                        startDate: Date(), endDate: Date()) { (sample, error) in
+        store.getSamples(sampleType: HealthValues.stepCount!, startDate: Date().addingTimeInterval(-86400), endDate: Date()) { (sample, error) in
+            
             guard let sample = sample else {
                 if let error = error {
                     print(error)
                 }
                 return
+            }
+            
+            for s in sample {
+                print(s.quantity)
             }
             print(sample)
         }
