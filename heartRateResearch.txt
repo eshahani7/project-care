@@ -1,0 +1,10 @@
+Max heart rate: 220 - age
+Zone details: https://help.fitbit.com/articles/en_US/Help_article/1565 
+
+Resting heart rate: Calculate your resting heart rate by counting your heart beats per minute when you are at rest, such as first thing in the morning. It's usually somewhere between 60 and 100 beats per minute for the average adult.
+Calculate your heart rate reserve (HRR) by subtracting your resting heart rate from your maximum heart rate. Multiply your HRR by 0.7 (70 percent). Add your resting heart rate to this number. Multiply your HRR by 0.85 (85 percent). Add your resting heart rate to this number.
+These two numbers are your training zone heart rate. Your heart rate during exercise should be between these two numbers.
+
+How long should we spend in each?
+Can we correlate with calories burned (how does the Apple Watch judge that?) ?
+looks like it calculates calories based on heart rate but not sure, so comparing the two over a duration of a workout should work well
