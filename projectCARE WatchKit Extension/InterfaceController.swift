@@ -7,6 +7,7 @@
 //
 
 import WatchKit
+import HealthKit
 import Foundation
 
 
@@ -16,6 +17,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        
     }
     
     override func willActivate() {

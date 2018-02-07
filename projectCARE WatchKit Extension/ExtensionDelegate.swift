@@ -12,6 +12,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        
+        //set up session
+        //let manager:WatchSessionManager = WatchSessionManager()
     }
 
     func applicationDidBecomeActive() {

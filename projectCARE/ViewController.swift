@@ -77,6 +77,7 @@ class ViewController: UIViewController {
     
     @IBAction func startWorkoutButtonPressed(_ sender: Any) {
         //Start workout
+        
     }
     
     override func didReceiveMemoryWarning() {
