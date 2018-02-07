@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import WatchConnectivity
 import HealthKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
+    
     //MARK: Properties
     
     @IBOutlet weak var stepLabel: UILabel!
@@ -41,6 +43,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         authorizeHealthKit()
+        
+//        var session: WCSession?
+//        if WCSession.isSupported() {
+//            session = WCSession.default()
+//            session?.delegate = self as? WCSessionDelegate
+//            session?.activate()
+//        }
+        
         print(store.getAge())
         print(store.getBiologicalSex()) //need a toString
         
@@ -49,6 +59,7 @@ class ViewController: UIViewController {
         let now = Date()
         let startOfDay = Calendar.current.startOfDay(for: now)
 
+        print ("Getting steps.")
         store.getSample(sampleType: HKObjectType.quantityType(forIdentifier: .stepCount)!,
                         startDate: startOfDay, endDate: now) { (samples, error) in
             guard let samples = samples else {
@@ -66,7 +77,7 @@ class ViewController: UIViewController {
             self.stepLabel.text = "Steps: \(steps)"
         }
         
-        store.startObservingForStepCountSamples()
+        //store.startObservingForStepCountSamples()
         
         steps += store.steps
         
@@ -76,7 +87,7 @@ class ViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func startWorkoutButtonPressed(_ sender: Any) {
-        //Start workout
+        
         
     }
     
@@ -86,4 +97,3 @@ class ViewController: UIViewController {
     }
 
 }
-

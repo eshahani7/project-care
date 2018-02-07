@@ -133,6 +133,7 @@ class HealthStore {
             if error != nil {
                 print("An error has occured with the following description: \(String(describing: error?.localizedDescription))")
             } else {
+                print("gonna get something")
                 let mostRecentSample = results![0] as! HKQuantitySample
                 print("Retrieved most recent step count.")
                 completionHandler(mostRecentSample)
@@ -168,4 +169,5 @@ class HealthStore {
         }
         store?.execute(observeQuery)
     }
+
 }
