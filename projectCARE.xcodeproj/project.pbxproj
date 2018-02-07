@@ -23,6 +23,7 @@
 		9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */; };
 		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
 		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
+		9F215914202AA80D00FBB293 /* HRCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F215913202AA80D00FBB293 /* HRCalculations.swift */; };
 		9F487A272023CA82007F9DBE /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A262023CA82007F9DBE /* HealthStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		9F215913202AA80D00FBB293 /* HRCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRCalculations.swift; sourceTree = "<group>"; };
 		9F487A262023CA82007F9DBE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 				9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */,
 				9F19684A2023BA7D00C1D0B4 /* Info.plist */,
 				9F487A262023CA82007F9DBE /* HealthStore.swift */,
+				9F215913202AA80D00FBB293 /* HRCalculations.swift */,
 			);
 			path = projectCARE;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
 				9F487A272023CA82007F9DBE /* HealthStore.swift in Sources */,
 				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
+				9F215914202AA80D00FBB293 /* HRCalculations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

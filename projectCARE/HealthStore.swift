@@ -118,7 +118,7 @@ class HealthStore {
             let todayDateComponents = calendar.dateComponents([.year],
                                                               from: today)
             let thisYear = todayDateComponents.year!
-            let age = thisYear - (dob?.year!)!
+            let age = thisYear - (dob?.year!)! - 1
             return age
         } catch {
             print("can't get dob")
