@@ -22,8 +22,10 @@
 		9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */; };
 		9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */; };
 		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
-		9F1968982023BB8A00C1D0B4 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968972023BB8A00C1D0B4 /* HealthStore.swift */; };
+		9F1968982023BB8A00C1D0B4 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968972023BB8A00C1D0B4 /*  */; };
 		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
+		F1134799202BEFEB00B7494D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1134796202BEF5A00B7494D /* Charts.framework */; };
+		F113479A202BEFEB00B7494D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1134796202BEF5A00B7494D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,27 @@
 			remoteGlobalIDString = 9F1968712023BA7D00C1D0B4;
 			remoteInfo = "projectCARE WatchKit Extension";
 		};
+		F1134795202BEF5A00B7494D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1134790202BEF5A00B7494D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		F1134797202BEF5A00B7494D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1134790202BEF5A00B7494D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+		F113479B202BEFEB00B7494D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1134790202BEF5A00B7494D /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +101,17 @@
 				9F1968642023BA7D00C1D0B4 /* projectCARE WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F113479D202BEFEB00B7494D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F113479A202BEFEB00B7494D /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -107,9 +141,10 @@
 		9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F1968972023BB8A00C1D0B4 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthStore.swift; path = ../HealthStore.swift; sourceTree = "<group>"; };
+		9F1968972023BB8A00C1D0B4 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		F1134790202BEF5A00B7494D /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */,
+				F1134799202BEFEB00B7494D /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +190,7 @@
 				9F1968672023BA7D00C1D0B4 /* projectCARE WatchKit App */,
 				9F1968762023BA7D00C1D0B4 /* projectCARE WatchKit Extension */,
 				9F19683C2023BA7D00C1D0B4 /* Products */,
+				F1134790202BEF5A00B7494D /* Charts.xcodeproj */,
 				9F19689A2023BD2400C1D0B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -176,7 +213,7 @@
 				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
 				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
 				9F1968402023BA7D00C1D0B4 /* ViewController.swift */,
-				9F1968972023BB8A00C1D0B4 /* HealthStore.swift */,
+				9F1968972023BB8A00C1D0B4 /*  */,
 				9F1968422023BA7D00C1D0B4 /* Main.storyboard */,
 				9F1968452023BA7D00C1D0B4 /* Assets.xcassets */,
 				9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */,
@@ -242,6 +279,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F1134791202BEF5A00B7494D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1134796202BEF5A00B7494D /* Charts.framework */,
+				F1134798202BEF5A00B7494D /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,11 +299,13 @@
 				9F1968382023BA7C00C1D0B4 /* Frameworks */,
 				9F1968392023BA7C00C1D0B4 /* Resources */,
 				9F19688B2023BA7D00C1D0B4 /* Embed Watch Content */,
+				F113479D202BEFEB00B7494D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				9F1968662023BA7D00C1D0B4 /* PBXTargetDependency */,
+				F113479C202BEFEB00B7494D /* PBXTargetDependency */,
 			);
 			name = projectCARE;
 			productName = projectCARE;
@@ -341,12 +389,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Ekta Shahani";
 				TargetAttributes = {
 					9F19683A2023BA7C00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = ULDWKKPVBU;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -385,6 +432,12 @@
 			mainGroup = 9F1968322023BA7C00C1D0B4;
 			productRefGroup = 9F19683C2023BA7D00C1D0B4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F1134791202BEF5A00B7494D /* Products */;
+					ProjectRef = F1134790202BEF5A00B7494D /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9F19683A2023BA7C00C1D0B4 /* projectCARE */,
@@ -395,6 +448,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F1134796202BEF5A00B7494D /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = F1134795202BEF5A00B7494D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1134798202BEF5A00B7494D /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = F1134797202BEF5A00B7494D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9F1968392023BA7C00C1D0B4 /* Resources */ = {
@@ -446,7 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
-				9F1968982023BB8A00C1D0B4 /* HealthStore.swift in Sources */,
+				9F1968982023BB8A00C1D0B4 /*  in Sources */,
 				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +570,11 @@
 			target = 9F1968712023BA7D00C1D0B4 /* projectCARE WatchKit Extension */;
 			targetProxy = 9F1968742023BA7D00C1D0B4 /* PBXContainerItemProxy */;
 		};
+		F113479C202BEFEB00B7494D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = F113479B202BEFEB00B7494D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -539,7 +614,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -547,7 +624,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -589,7 +671,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -597,7 +681,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -692,10 +781,11 @@
 		9F19688D2023BA7D00C1D0B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ULDWKKPVBU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE;
@@ -707,10 +797,11 @@
 		9F19688E2023BA7D00C1D0B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ULDWKKPVBU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE;

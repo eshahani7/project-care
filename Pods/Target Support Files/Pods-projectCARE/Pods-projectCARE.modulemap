@@ -1,0 +1,6 @@
+framework module Pods_projectCARE {
+  umbrella header "Pods-projectCARE-umbrella.h"
+
+  export *
+  module * { export * }
+}
