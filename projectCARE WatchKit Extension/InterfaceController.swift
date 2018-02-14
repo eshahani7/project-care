@@ -14,16 +14,18 @@ class InterfaceController: WKInterfaceController {
 
     //MARK: Properties
     @IBOutlet var timePicker: WKInterfacePicker!
-    @IBAction func timePickerDidChange(_ value: Int) {        
+    @IBAction func timePickerDidChange(_ value: Int) {
+        
     }
     
     @IBOutlet var intensityPicker: WKInterfacePicker!
     @IBAction func intensityPickerDidChange(_ value: Int) {
+   
     }
     
 
     
-    @IBOutlet var sessionButton: WKInterfaceButton!
+ 
     
     var times: [(String, String)] = [
         ("Item 1", "10"),
@@ -39,6 +41,8 @@ class InterfaceController: WKInterfaceController {
         ("Item 3", "HIGH"),
     ]
    
+    @IBAction func nextButton() {
+    }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -52,13 +56,13 @@ class InterfaceController: WKInterfaceController {
         }
         timePicker.setItems(timePickerItems)
         
-        let intensityPickerItems: [WKPickerItem] = intensities.map {
-            let pickerItem = WKPickerItem()
-            pickerItem.caption = $0.0
-            pickerItem.title = $0.1
-            return pickerItem
-        }
-        intensityPicker.setItems(intensityPickerItems)
+//        let intensityPickerItems: [WKPickerItem] = intensities.map {
+//            let pickerItem = WKPickerItem()
+//            pickerItem.caption = $0.0
+//            pickerItem.title = $0.1
+//            return pickerItem
+//        }
+//        intensityPicker.setItems(intensityPickerItems)
     }
     
     override func willActivate() {
