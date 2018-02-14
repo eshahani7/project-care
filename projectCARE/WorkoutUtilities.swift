@@ -10,11 +10,11 @@ import Foundation
 import HealthKit
 
 class WorkoutUtilities {
-    var maxHR:Int = 0
-    var peakZone:Double = 0
-    var cardioZone:Double = 0
-    var fatBurnZone:Double = 0
-    let store:HealthStore?
+    private var maxHR:Int = 0
+    private var peakZone:Double = 0
+    private var cardioZone:Double = 0
+    private var fatBurnZone:Double = 0
+    private let store:HealthStore?
     
     init(store:HealthStore) {
         self.store = store

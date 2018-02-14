@@ -56,8 +56,8 @@ class ViewController: UIViewController {
 //        }
 //        
         let wu:WorkoutUtilities = WorkoutUtilities(store: store)
-        let cals = wu.predictCalorieBurn(level: 3, workoutMins: 20)
-        print(cals)
+//        let cals = wu.predictCalorieBurn(level: 3, workoutMins: 20)
+//        print(cals)
     }
 
     override func didReceiveMemoryWarning() {
