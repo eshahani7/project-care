@@ -1,21 +1,19 @@
 //
-//  HRCalculations.swift
+//  WorkoutUtilities.swift
 //  projectCARE
 //
-//  Created by Ekta Shahani on 2/6/18.
+//  Created by Ekta Shahani on 2/13/18.
 //  Copyright © 2018 Ekta Shahani. All rights reserved.
 //
 
 import Foundation
 import HealthKit
 
-class HRCalculations {
+class WorkoutUtilities {
     var maxHR:Int = 0
-    let restingHR:Int?
     var peakZone:Double = 0
     var cardioZone:Double = 0
     var fatBurnZone:Double = 0
-    let outOfZone:Double = 0
     let store:HealthStore?
     
     init(store:HealthStore) {
@@ -24,8 +22,6 @@ class HRCalculations {
         peakZone = Double(maxHR) * 0.85
         cardioZone = Double(maxHR) * 0.7
         fatBurnZone = Double(maxHR)  * 0.5
-        //init restingHR by sampling and averaging HR over 24 hours
-        
     }
     
     func inPeakZone(currHR:Double) -> Bool {
@@ -50,5 +46,30 @@ class HRCalculations {
         return 70;
     }
     
-    
+    func predictCalorieBurn(level:Int, workoutMins:Double, weight:Double) -> Double {
+        var met:Double = 1;
+        if level == 1 {
+            met = 6;
+        } else if level == 2 {
+            met = 8;
+        } else {
+            met = 11;
+        }
+        
+        return weight/2.2 * met * workoutMins/60
+        
+        //ADITYA: use this when starting a workout
+        
+//        store.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date.distantPast, endDate: Date()) { (sample, error) in
+//            
+//            guard let sample = sample else {
+//                if let error = error {
+//                    print(error)
+//                }
+//                return
+//            }
+//            weight = sample[sample.count-1].quantity.doubleValue(for: HKUnit.pound())
+//            workoutUtilities.predictCalorieBurn(level, mins, weight)
+//        }
+    }
 }

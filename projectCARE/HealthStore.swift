@@ -26,6 +26,7 @@ struct HealthValues {
 class HealthStore {
     
     let store:HKHealthStore?
+    var weight:Double = 0
     
     enum HealthStoreErrors : Error {
         case noHealthDataFound
@@ -83,7 +84,8 @@ class HealthStore {
         if(HKHealthStore.isHealthDataAvailable()) {
             store = HKHealthStore()
             print("data found")
-        } else {
+        }
+        else {
             print("no data")
             store = nil
         }
@@ -94,6 +96,7 @@ class HealthStore {
     func getSamples(sampleType: HKSampleType, startDate: Date, endDate: Date,
                    completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, results, error) in
             
             DispatchQueue.main.async {
@@ -135,4 +138,5 @@ class HealthStore {
             return nil
         }
     }
+    
 }

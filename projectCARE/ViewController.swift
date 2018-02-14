@@ -40,20 +40,24 @@ class ViewController: UIViewController {
         print(store.getAge())
         print(store.getBiologicalSex()) //need a toString
         
-        store.getSamples(sampleType: HealthValues.stepCount!, startDate: Date().addingTimeInterval(-86400), endDate: Date()) { (sample, error) in
-            
-            guard let sample = sample else {
-                if let error = error {
-                    print(error)
-                }
-                return
-            }
-            
-            for s in sample {
-                print(s.quantity)
-            }
-            print(sample)
-        }
+//        store.getSamples(sampleType: HealthValues.stepCount!, startDate: Date().addingTimeInterval(-86400), endDate: Date()) { (sample, error) in
+//            
+//            guard let sample = sample else {
+//                if let error = error {
+//                    print(error)
+//                }
+//                return
+//            }
+//            
+//            for s in sample {
+//                print(s.quantity)
+//            }
+//            print(sample)
+//        }
+//        
+        let wu:WorkoutUtilities = WorkoutUtilities(store: store)
+        let cals = wu.predictCalorieBurn(level: 3, workoutMins: 20)
+        print(cals)
     }
 
     override func didReceiveMemoryWarning() {
