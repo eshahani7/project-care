@@ -1,24 +1,29 @@
 # project-care
-CS 48 Repo
-Trello: https://trello.com/invite/b/jZlqlUs6/6d86dc614c78040d4e15ca54b032a7fc/cs-48-project 
+##HealthStore Usage
 
-### CARE is an iOS compatible fitness app that pairs with an Apple Watch. Using real-time heart rate data from the Apple Watch, CARE provides cues to the user on when to increase or decrease exercise intensity during their workout. The app also actively watches out for anomalies in heart rate, and suggests fixes for health and exercise routines. It can provide insights into the relationship between activity level and other metrics like sleep patterns and heart rate while exercising, predicting which factors can lead to better REM sleep. All of this is displayed to the user in overlain graphs.
+HealthStore is a singleton class. In order to create a reference to the global HealthStore object, use the following:
+~~~~
+let store:HealthStore = HealthStore.getInstance()
+~~~~
 
-## Accomplishments to date: 
-* Learned Swift
-* Completed UI for Iphone and Apple Watch interfaces
-* Explored Xcode and its functionalities
-* Researched libraries for graphing data points
-* Figured out how to access health data and Apple Watch sensors
-* Found volunteers to share their health data
+getSamples() is an async function, results will be returned in the callback you provide
+Params: sample type, start date, end date, callback
+Returns: array of samples if not nil, error if nil
+See HealthValues struct in HealthStore.swift for types of samples that can be queried
 
-## Long Term Goals
-* Notify user best times to workout during the day to optimize workout/calories burned.
-* Give user insights on bringing an abnormal resting heart rate back to normal.
+Sample query: (queries for weight samples from as far back as possible to today)
+~~~~
+store.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date.distantPast, endDate: Date()) { (sample, error) in
 
-## Contributors:
-* Ekta Shahani - Heart rate and Workout analysis
-* Richa Wadaskar - Activity Level and Sleep Analysis
-* Anu Polisetty - Visualizations and Project Design
-* Aditya Nadkarni - Heart rate and Workout analysis
-* Cindy Lu - Design, Activity Level and Sleep Analysis
+    guard let samples = sample else {
+        if let error = error {
+            print(error)
+        }
+        return
+    }
+
+    //samples is an array, use to pass into another function or whatever you need
+    weight = samples[samples.count-1].quantity.doubleValue(for: HKUnit.pound())
+    workoutUtilities.predictCalorieBurn(level, mins, weight)
+}
+~~~~        

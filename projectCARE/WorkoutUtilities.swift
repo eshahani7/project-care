@@ -58,18 +58,6 @@ class WorkoutUtilities {
         
         return weight/2.2 * met * workoutMins/60
         
-        //ADITYA: use this when starting a workout
-        
-//        store.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date.distantPast, endDate: Date()) { (sample, error) in
-//            
-//            guard let sample = sample else {
-//                if let error = error {
-//                    print(error)
-//                }
-//                return
-//            }
-//            weight = sample[sample.count-1].quantity.doubleValue(for: HKUnit.pound())
-//            workoutUtilities.predictCalorieBurn(level, mins, weight)
-//        }
+        //ADITYA: see README.md
     }
 }
