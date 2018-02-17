@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             print(sample)
         }
         
-        let wu:WorkoutUtilities = WorkoutUtilities(store: store)
+        let wu:WorkoutUtilities = WorkoutUtilities()
 //        let cals = wu.predictCalorieBurn(level: 3, workoutMins: 20)
 //        print(cals)
     }

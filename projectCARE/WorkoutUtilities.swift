@@ -15,10 +15,11 @@ class WorkoutUtilities {
     private var cardioZone:Double = 0
     private var fatBurnZone:Double = 0
     private let store:HealthStore?
+    private var calorieGoal:Double = 0;
     
-    init(store:HealthStore) {
-        self.store = store
-        maxHR = 220 - store.getAge()
+    init() {
+        self.store = HealthStore.getInstance()
+        maxHR = 220 - (store?.getAge())!
         peakZone = Double(maxHR) * 0.85
         cardioZone = Double(maxHR) * 0.7
         fatBurnZone = Double(maxHR)  * 0.5
@@ -56,8 +57,12 @@ class WorkoutUtilities {
             met = 11;
         }
         
-        return weight/2.2 * met * workoutMins/60
+        calorieGoal = weight/2.2 * met * workoutMins/60
+        
+        return calorieGoal
         
         //ADITYA: see README.md
     }
+    
+    func getPrevCalorieGoal() -> Double { return calorieGoal }
 }
