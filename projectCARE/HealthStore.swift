@@ -25,10 +25,11 @@ struct HealthValues {
 
 class HealthStore {
     
-    let store:HKHealthStore?
-    var weight:Double = 0
+    static var shared:HealthStore? = nil
     
-    enum HealthStoreErrors : Error {
+    let store:HKHealthStore?
+    
+    private enum HealthStoreErrors : Error {
         case noHealthDataFound
         case noAgeFound
         case noSexEntered
@@ -39,7 +40,7 @@ class HealthStore {
         case dataTypeNotAvailable
     }
     
-    class func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
+    private static func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
             completion(false, HealthkitSetupError.notAvailableOnDevice)
             return
@@ -80,20 +81,44 @@ class HealthStore {
         })
     }
     
-    init() {
+    private init() {
+        HealthStore.authorizeHealthKit { (authorized, error) in
+            
+            guard authorized else {
+                
+                let baseMessage = "HealthKit Authorization Failed"
+                
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                
+                return
+            }
+            
+            print("HealthKit Successfully Authorized.")
+        }
+        
         if(HKHealthStore.isHealthDataAvailable()) {
             store = HKHealthStore()
             print("data found")
-        }
-        else {
+        } else {
             print("no data")
             store = nil
         }
     }
     
+    public static func getInstance() -> HealthStore {
+        if shared == nil {
+            shared = HealthStore()
+        }
+        return shared!
+    }
+    
     //Params: sample type, start date, end date, callback
     //Returns: array of samples if not nil, error if nil
-    func getSamples(sampleType: HKSampleType, startDate: Date, endDate: Date,
+    public func getSamples(sampleType: HKSampleType, startDate: Date, endDate: Date,
                    completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
 
@@ -113,7 +138,7 @@ class HealthStore {
         store?.execute(query)
     }
     
-    func getAge() -> Int {
+    public func getAge() -> Int {
         do {
             let dob = try store?.dateOfBirthComponents()
             let today = Date()
@@ -130,7 +155,7 @@ class HealthStore {
         return 0
     }
     
-    func getBiologicalSex() -> HKBiologicalSexObject? {
+    public func getBiologicalSex() -> HKBiologicalSexObject? {
         do {
             return try store?.biologicalSex()
         } catch {
