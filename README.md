@@ -1,5 +1,5 @@
 # project-care
-##HealthStore Usage
+## HealthStore Usage
 
 HealthStore is a singleton class. In order to create a reference to the global HealthStore object, use the following:
 ~~~~
@@ -7,8 +7,11 @@ let store:HealthStore = HealthStore.getInstance()
 ~~~~
 
 getSamples() is an async function, results will be returned in the callback you provide
+
 Params: sample type, start date, end date, callback
+
 Returns: array of samples if not nil, error if nil
+
 See HealthValues struct in HealthStore.swift for types of samples that can be queried
 
 Sample query: (queries for weight samples from as far back as possible to today)
