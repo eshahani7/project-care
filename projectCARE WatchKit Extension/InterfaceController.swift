@@ -9,7 +9,6 @@ import WatchKit
 import HealthKit
 import Foundation
 
-
 class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
     //MARK: Properties
@@ -100,6 +99,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             self.workoutActive = false
             self.sessionButton.setTitle("Start")
             if let workout = self.session {
+                endWorkout();
                 healthStore.end(workout)
             }
         } else {
@@ -148,6 +148,81 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         }
         
         healthStore.start(self.session!)
+    }
+    
+    func endWorkout() {
+        guard let activeEnergyType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
+            fatalError("*** Unable to create the active energy burned type ***")
+        }
+        
+        let device = HKDevice.local()
+        
+        let datePredicate = HKQuery.predicateForSamples(withStart: session?.startDate, end: session?.endDate)
+        let devicePredicate = HKQuery.predicateForObjects(from: [device])
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate, devicePredicate])
+        
+        let sortByDate = NSSortDescriptor(key:HKSampleSortIdentifierStartDate , ascending: true)
+        
+        let healthStore = self.healthStore
+        
+        let query = HKSampleQuery(sampleType: activeEnergyType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortByDate]) { (query, returnedSamples, error) -> Void in
+            
+            guard let samples = returnedSamples as? [HKQuantitySample] else {
+                // Add proper error handling here...
+                print("*** an error occurred: \(String(describing: error?.localizedDescription)) ***")
+                return
+            }
+            
+            // create the workout here
+            let energyUnit = HKUnit.kilocalorie()
+            var totalActiveEnergy : Double = 0.0
+            
+            for sample in samples {
+                totalActiveEnergy += sample.quantity.doubleValue(for: energyUnit)
+            }
+            
+            let startDate = self.session?.startDate ?? NSDate() as Date
+            let endDate = self.session?.endDate ?? NSDate() as Date
+            
+            let totalActiveEnergyQuantity = HKQuantity(unit: energyUnit, doubleValue: totalActiveEnergy)
+            
+            let workout = HKWorkout(activityType: HKWorkoutActivityType.running,
+                                    start: startDate,
+                                    end: Date(),
+                                    duration: Date().timeIntervalSince(startDate),
+                                    totalEnergyBurned: totalActiveEnergyQuantity,
+                                    totalDistance: nil,
+                                    device: HKDevice.local(),
+                                    metadata: [HKMetadataKeyIndoorWorkout : true])
+            
+            guard healthStore.authorizationStatus(for: HKObjectType.workoutType()) == .sharingAuthorized else {
+                print("*** the app does not have permission to save workout samples ***")
+                return
+            }
+            
+            healthStore.save(workout, withCompletion: { (success, error) -> Void in
+                guard success else {
+                    // Add proper error handling here...
+                    print("*** an error occurred: \(String(describing: error?.localizedDescription)) ***")
+                    self.displayNotAllowed()
+                    return
+                }
+                
+                healthStore.add(samples, to: workout, completion: { (success, error) -> Void in
+                    guard success else {
+                        // Add proper error handling here...
+                        print("*** an error occurred: \(String(describing: error?.localizedDescription)) ***")
+                        return
+                    }
+                    
+                    // Provide clear feedback that the workout saved successfully here…
+                    print("Workout saved!")
+                    self.label.setText("Workout Saved!")
+                })
+            })
+        }
+        
+        healthStore.execute(query)
     }
     
     func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
