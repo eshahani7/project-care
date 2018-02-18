@@ -167,7 +167,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         
         let query = HKSampleQuery(sampleType: activeEnergyType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortByDate]) { (query, returnedSamples, error) -> Void in
             
-            guard let samples = returnedSamples as? [HKQuantitySample] else {
+            guard var samples = returnedSamples as? [HKQuantitySample] else {
                 // Add proper error handling here...
                 print("*** an error occurred: \(String(describing: error?.localizedDescription)) ***")
                 return
@@ -207,6 +207,19 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
                     self.displayNotAllowed()
                     return
                 }
+                
+                guard let heartRateType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else {
+                    fatalError("*** Unable to create a heart rate type ***")
+                }
+                
+                let heartRateForInterval = HKQuantity(unit: HKUnit(from: "count/min"),
+                                                      doubleValue: 95.0)
+                
+                let heartRateForIntervalSample =
+                    HKQuantitySample(type: heartRateType, quantity: heartRateForInterval,
+                                     start: startDate, end: Date())
+                
+                samples.append(heartRateForIntervalSample)
                 
                 healthStore.add(samples, to: workout, completion: { (success, error) -> Void in
                     guard success else {

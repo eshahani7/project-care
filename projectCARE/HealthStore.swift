@@ -45,7 +45,7 @@ class HealthStore {
                     return
         }
         
-        let writeTypes: Set<HKSampleType> = [stepCount, activeEnergy,
+        let writeTypes: Set<HKSampleType> = [stepCount, activeEnergy, heartRate,
                                         HKObjectType.workoutType()]
         
         let readTypes: Set<HKObjectType> = [activeEnergy,
