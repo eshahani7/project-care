@@ -17,6 +17,13 @@ class WorkoutUtilities {
     private let store:HealthStore?
     private var calorieGoal:Double = 0;
     
+    public enum Zone {
+        case peakZone
+        case cardioZone
+        case fatBurnZone
+        case outOfZone
+    }
+    
     init() {
         self.store = HealthStore.getInstance()
         maxHR = 220 - (store?.getAge())!
@@ -25,29 +32,29 @@ class WorkoutUtilities {
         fatBurnZone = Double(maxHR)  * 0.5
     }
     
-    func inPeakZone(currHR:Double) -> Bool {
-        return currHR >= peakZone
-    }
-    
-    func inCardioZone(currHR:Double) -> Bool {
-        return currHR >= cardioZone && currHR < peakZone
-    }
-    
-    func inFatBurnZone(currHR:Double) -> Bool {
-        return currHR >= fatBurnZone && currHR < cardioZone
-    }
-    
-    func calcBestZone(workoutMins:Int) -> Int {
-        if workoutMins < 20 {
-            return 85;
+    public func getCurrentZone(currHR:Double) -> Zone {
+        if currHR >= peakZone {
+            return Zone.peakZone
+        } else if currHR >= cardioZone {
+            return Zone.cardioZone
+        } else if currHR >= fatBurnZone {
+            return Zone.fatBurnZone
         }
-        else if workoutMins > 30 {
-            return 50;
-        }
-        return 70;
+        
+        return Zone.outOfZone
     }
     
-    func predictCalorieBurn(level:Int, workoutMins:Double, weight:Double) -> Double {
+    public func getBestZone(workoutMins:Int) -> Zone {
+        if workoutMins < 15 {
+            return Zone.peakZone
+        }
+        else if workoutMins > 35 {
+            return Zone.fatBurnZone;
+        }
+        return Zone.cardioZone
+    }
+    
+    public func predictCalorieBurn(level:Int, workoutMins:Double, weight:Double) -> Double {
         var met:Double = 1;
         if level == 1 {
             met = 6;
@@ -64,5 +71,5 @@ class WorkoutUtilities {
         //ADITYA: see README.md
     }
     
-    func getPrevCalorieGoal() -> Double { return calorieGoal }
+    public func getPrevCalorieGoal() -> Double { return calorieGoal }
 }

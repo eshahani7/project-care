@@ -112,7 +112,7 @@
 		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutUtilities.swift; path = ../projectCARE/WorkoutUtilities.swift; sourceTree = "<group>"; };
+		9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilities.swift; sourceTree = "<group>"; };
 		9F487A262023CA82007F9DBE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,7 +177,7 @@
 		9F19683D2023BA7D00C1D0B4 /* projectCARE */ = {
 			isa = PBXGroup;
 			children = (
-				9F487A262023CA82007F9DBE /* HealthStore.swift */,
+				9FCE82F0203A31E800612B60 /* Services */,
 				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
 				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
 				9F1968402023BA7D00C1D0B4 /* ViewController.swift */,
@@ -220,7 +220,6 @@
 		9F1968762023BA7D00C1D0B4 /* projectCARE WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */,
 				9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */,
 				9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */,
 				9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */,
@@ -245,6 +244,15 @@
 				9F19689B2023BD2400C1D0B4 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9FCE82F0203A31E800612B60 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F487A262023CA82007F9DBE /* HealthStore.swift */,
+				9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
