@@ -21,13 +21,6 @@ class WorkoutUtilities {
     private var workoutMins:Double
     private var intensityLevel:Int
     
-    public enum Zone {
-        case peakZone
-        case cardioZone
-        case fatBurnZone
-        case outOfZone
-    }
-    
     init(workoutMins:Double, intensityLevel:Int) {
         self.store = HealthStore.getInstance()
         maxHR = 220 - (store?.getAge())!
