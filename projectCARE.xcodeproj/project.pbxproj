@@ -27,6 +27,9 @@
 		9FCE82ED203A2EC900612B60 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */; };
 		9FCE82EE203A2ED600612B60 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A262023CA82007F9DBE /* HealthStore.swift */; };
 		9FCE82EF203A30BA00612B60 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */; };
+		9FCE82F2203A618400612B60 /* WorkoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE82F1203A618400612B60 /* WorkoutBuilder.swift */; };
+		9FCE82F4203A61D400612B60 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE82F3203A61D400612B60 /* Workout.swift */; };
+		9FCE82F6203A61E900612B60 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE82F5203A61E900612B60 /* WorkoutList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,9 @@
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilities.swift; sourceTree = "<group>"; };
 		9F487A262023CA82007F9DBE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		9FCE82F1203A618400612B60 /* WorkoutBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutBuilder.swift; sourceTree = "<group>"; };
+		9FCE82F3203A61D400612B60 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9FCE82F5203A61E900612B60 /* WorkoutList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,8 @@
 		9F19683D2023BA7D00C1D0B4 /* projectCARE */ = {
 			isa = PBXGroup;
 			children = (
+				9FCE82F8203A628600612B60 /* Insights */,
+				9FCE82F7203A620300612B60 /* Workouts */,
 				9FCE82F0203A31E800612B60 /* Services */,
 				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
 				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
@@ -253,6 +261,23 @@
 				9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		9FCE82F7203A620300612B60 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				9FCE82F1203A618400612B60 /* WorkoutBuilder.swift */,
+				9FCE82F3203A61D400612B60 /* Workout.swift */,
+				9FCE82F5203A61E900612B60 /* WorkoutList.swift */,
+			);
+			name = Workouts;
+			sourceTree = "<group>";
+		};
+		9FCE82F8203A628600612B60 /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Insights;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,10 +488,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FCE82F6203A61E900612B60 /* WorkoutList.swift in Sources */,
 				9FCE82EF203A30BA00612B60 /* WorkoutUtilities.swift in Sources */,
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
+				9FCE82F2203A618400612B60 /* WorkoutBuilder.swift in Sources */,
 				9F487A272023CA82007F9DBE /* HealthStore.swift in Sources */,
 				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
+				9FCE82F4203A61D400612B60 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@ class WorkoutUtilities {
     private var calorieGoal:Double = 0
     private var workoutMins:Double
     private var intensityLevel:Int
+    private var weight:Double?
     
     init(workoutMins:Double, intensityLevel:Int) {
         self.store = HealthStore.getInstance()
@@ -40,7 +41,26 @@ class WorkoutUtilities {
         return getCurrentZone(currHR: currHR) > getBestZone()
     }
     
-    public func predictCalorieBurn(weight:Double) -> Double {
+    public func predictCalorieBurn() -> Double {
+        let group = DispatchGroup()
+        group.enter()
+        
+        store?.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date.distantPast, endDate: Date()) { (sample, error) in
+            
+            guard let samples = sample else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            
+            //samples is an array, use to pass into another function or whatever you need
+            self.weight = samples[samples.count-1].quantity.doubleValue(for: HKUnit.pound())
+            group.leave()
+        }
+        
+        group.wait()
+        
         var met:Double = 1;
         if intensityLevel == 1 {
             met = 6;
@@ -50,11 +70,9 @@ class WorkoutUtilities {
             met = 11;
         }
         
-        calorieGoal = weight/2.2 * met * workoutMins/60
+        calorieGoal = weight!/2.2 * met * workoutMins/60
         
         return calorieGoal
-        
-        //ADITYA: see README.md
     }
     
     public func getPrevCalorieGoal() -> Double { return calorieGoal }

@@ -18,26 +18,27 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
   
         print(store.getAge())
-        print(store.getBiologicalSex()) //need a toString
+//        print(store.getBiologicalSex()) //need a toString
+//        
+//        store.getSamples(sampleType: HealthValues.stepCount!, startDate: Date().addingTimeInterval(-86400), endDate: Date()) { (sample, error) in
+//            
+//            guard let sample = sample else {
+//                if let error = error {
+//                    print(error)
+//                }
+//                return
+//            }
+//
+//            for s in sample {
+//                print(s.quantity)
+//            }
+//            print(sample)
+//        }
         
-        store.getSamples(sampleType: HealthValues.stepCount!, startDate: Date().addingTimeInterval(-86400), endDate: Date()) { (sample, error) in
-            
-            guard let sample = sample else {
-                if let error = error {
-                    print(error)
-                }
-                return
-            }
-
-            for s in sample {
-                print(s.quantity)
-            }
-            print(sample)
-        }
-        
-        let wu:WorkoutUtilities = WorkoutUtilities()
-//        let cals = wu.predictCalorieBurn(level: 3, workoutMins: 20)
-//        print(cals)
+        let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 3)
+        let cals = wu.predictCalorieBurn()
+        print(cals)
+        print("done")
     }
 
     override func didReceiveMemoryWarning() {

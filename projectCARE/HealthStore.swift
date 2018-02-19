@@ -21,6 +21,7 @@ struct HealthValues {
     static let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount)
     static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
     static let respRate = HKObjectType.quantityType(forIdentifier: .respiratoryRate)
+    static let workouts = HKObjectType.workoutType()
 }
 
 class HealthStore {
@@ -124,8 +125,24 @@ class HealthStore {
 
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, results, error) in
             
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 guard let samples = results as? [HKQuantitySample] else {
+                    completion(nil, error)
+                    return
+                }
+                
+                completion(samples, nil)
+                
+            }
+        }
+        
+        store?.execute(query)
+    }
+    
+    public func getWorkouts(completion: @escaping([HKWorkout]?, Error?) -> Void) {
+        let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {(query, results, error) in
+            DispatchQueue.main.async {
+                guard let samples = results as? [HKWorkout] else {
                     completion(nil, error)
                     return
                 }
