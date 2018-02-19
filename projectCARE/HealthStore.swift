@@ -163,7 +163,7 @@ class HealthStore {
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
         
         let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: 10, sortDescriptors: [sortDescriptor]) {(query, results, error) in
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 guard let samples = results as? [HKWorkout] else {
                     completion(nil, error)
                     return
