@@ -12,7 +12,7 @@ class Workout {
     private var avgHeartRate:Double = 0
     private var calsBurned:Double = 0
     private var distTraveled:Double = 0
-    private var duration:Int = 0
+    private var duration:Double = 0
     private var goalMet:Bool = false
     
     init(builder:WorkoutBuilder) {
@@ -35,7 +35,7 @@ class Workout {
         return distTraveled
     }
     
-    public func getDuration() -> Int {
+    public func getDuration() -> Double {
         return duration
     }
     

@@ -139,8 +139,30 @@ class HealthStore {
         store?.execute(query)
     }
     
+    //same as above but enter your own predicate and limit
+    public func getSamples(sampleType: HKSampleType, predicate: NSPredicate, limit: Int,
+                           completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
+        
+        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: limit, sortDescriptors: nil) { (query, results, error) in
+            
+            DispatchQueue.global().async {
+                guard let samples = results as? [HKQuantitySample] else {
+                    completion(nil, error)
+                    return
+                }
+                
+                completion(samples, nil)
+                
+            }
+        }
+        
+        store?.execute(query)
+    }
+    
     public func getWorkouts(completion: @escaping([HKWorkout]?, Error?) -> Void) {
-        let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: 10, sortDescriptors: nil) {(query, results, error) in
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        
+        let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: 10, sortDescriptors: [sortDescriptor]) {(query, results, error) in
             DispatchQueue.main.async {
                 guard let samples = results as? [HKWorkout] else {
                     completion(nil, error)
