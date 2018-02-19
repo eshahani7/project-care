@@ -150,6 +150,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         healthStore.start(self.session!)
     }
     
+    var samples = [HKSample]();
+    
     func endWorkout() {
         guard let activeEnergyType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
             fatalError("*** Unable to create the active energy burned type ***")
