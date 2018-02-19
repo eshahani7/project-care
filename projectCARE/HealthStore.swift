@@ -140,7 +140,7 @@ class HealthStore {
     }
     
     public func getWorkouts(completion: @escaping([HKWorkout]?, Error?) -> Void) {
-        let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {(query, results, error) in
+        let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: 10, sortDescriptors: nil) {(query, results, error) in
             DispatchQueue.main.async {
                 guard let samples = results as? [HKWorkout] else {
                     completion(nil, error)

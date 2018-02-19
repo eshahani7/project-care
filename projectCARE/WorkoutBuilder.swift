@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import HealthKit
+
+class WorkoutBuilder {
+    public var avgHeartRate:Double = 0
+    public var calsBurned:Double = 0
+    public var distTraveled:Double = 0
+    public var duration:Int = 0
+    public var goalMet:Bool = false
+    
+    private let hkworkout:HKWorkout
+    
+    init(workout:HKWorkout) {
+        hkworkout = workout
+    }
+    
+    
+}
