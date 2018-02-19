@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
   
-        print(store.getAge())
+//        print(store.getAge())
 //        print(store.getBiologicalSex()) //need a toString
 //        
 //        store.getSamples(sampleType: HealthValues.stepCount!, startDate: Date().addingTimeInterval(-86400), endDate: Date()) { (sample, error) in
@@ -35,9 +35,15 @@ class ViewController: UIViewController {
 //            print(sample)
 //        }
         
-        let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 3)
-        let cals = wu.predictCalorieBurn()
-        print(cals)
+//        let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 3)
+//        let cals = wu.predictCalorieBurn()
+//        print(cals)
+        
+        let list = WorkoutList().getWorkoutList()
+        print(list.count)
+        for w in list {
+            print(w.getAvgHeartRate())
+        }
         print("done")
     }
 
