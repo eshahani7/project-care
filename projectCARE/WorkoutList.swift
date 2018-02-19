@@ -27,10 +27,11 @@ class WorkoutList {
             }
             for s in samples {
                 let builder = WorkoutBuilder(workout: s)
-                let w = Workout(builder: builder)
+                let w = builder.build()
                 self.workouts.append(w)
             }
             group.leave()
+            
         }
         
         group.wait()

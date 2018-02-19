@@ -16,6 +16,10 @@ class WorkoutBuilder {
     public var duration:Double = 0
     public var goalMet:Bool = false
     
+    public var intensity:Int = 0
+    public var userEnteredTime:Int = 0
+    public var calorieBurnGoal:Double = 0
+    
     private let hkworkout:HKWorkout
     private let store = HealthStore.getInstance()
     
@@ -24,15 +28,22 @@ class WorkoutBuilder {
         self.duration = hkworkout.duration / 60.0
         self.distTraveled = (hkworkout.totalDistance?.doubleValue(for: HKUnit.mile()))!
         self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))!
+        print(self.distTraveled)
     }
     
-//    public func setGoalsMet() -> WorkoutBuilder {
-//        
-//    }
+    public func setGoalValues() -> Void {
+        intensity = hkworkout.metadata?["IntensityLevel"] as! Int
+        userEnteredTime = hkworkout.metadata?["UserEnteredDuration"] as! Int
+        calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
+    }
     
-    public func calculateAvgHR() -> Void {
+    public func setAvgHR() -> Void {
         let predicateHR = HKQuery.predicateForObjects(from: hkworkout)
         let heartRateUnit = HKUnit(from: "count/min")
+        
+        let group = DispatchGroup()
+        group.enter()
+        
         store.getSamples(sampleType: HealthValues.bodyMass!, predicate: predicateHR, limit: Int(HKObjectQueryNoLimit)) { (sample, error) in
             
             guard let samples = sample else {
@@ -49,7 +60,23 @@ class WorkoutBuilder {
             
             avg /= Double(samples.count)
             self.avgHeartRate = avg
+            group.leave()
+        }
+        
+        group.wait()
+    }
+    
+    //use https://developer.apple.com/documentation/healthkit/hkobject/1615598-metadata
+    public func setWorkoutGoalMet() -> Void {
+        if calsBurned >= calorieBurnGoal {
+            goalMet = true
         }
     }
     
+    public func build() -> Workout {
+        setGoalValues()
+        setAvgHR()
+        setWorkoutGoalMet()
+        return Workout(builder: self)
+    }
 }

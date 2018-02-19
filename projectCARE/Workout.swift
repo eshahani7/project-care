@@ -15,12 +15,18 @@ class Workout {
     private var duration:Double = 0
     private var goalMet:Bool = false
     
+    private var userEnteredTime:Int = 0
+    private var calorieBurnGoal:Double = 0
+    
     init(builder:WorkoutBuilder) {
         self.avgHeartRate = builder.avgHeartRate
         self.calsBurned = builder.calsBurned
         self.distTraveled = builder.distTraveled
         self.duration = builder.duration
         self.goalMet = builder.goalMet
+        
+        self.userEnteredTime = builder.userEnteredTime
+        self.calorieBurnGoal = builder.calorieBurnGoal
     }
     
     public func getAvgHeartRate() -> Double {
@@ -41,5 +47,13 @@ class Workout {
     
     public func wasGoalMet() -> Bool {
         return goalMet
+    }
+    
+    public func getUserEnteredTime() -> Int {
+        return userEnteredTime
+    }
+    
+    public func getCalorieBurnGoal() -> Double {
+        return calorieBurnGoal
     }
 }
