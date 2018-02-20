@@ -7,53 +7,69 @@
 //
 
 import Foundation
+import HealthKit
 
 class Workout {
-    private var avgHeartRate:Double = 0
-    private var calsBurned:Double = 0
-    private var distTraveled:Double = 0
-    private var duration:Double = 0
-    private var goalMet:Bool = false
+    public var avgHeartRate:Double = 0
+    public var calsBurned:Double = 0
+    public var distTraveled:Double = 0
+    public var duration:Double = 0
+    public var goalMet:Bool = false
     
-    private var userEnteredTime:Int = 0
-    private var calorieBurnGoal:Double = 0
+    public var intensity:Int = 0
+    public var userEnteredTime:Int = 0
+    public var calorieBurnGoal:Double = 0
     
-    init(builder:WorkoutBuilder) {
-        self.avgHeartRate = builder.avgHeartRate
-        self.calsBurned = builder.calsBurned
-        self.distTraveled = builder.distTraveled
-        self.duration = builder.duration
-        self.goalMet = builder.goalMet
+    private let hkworkout:HKWorkout
+    private let store = HealthStore.getInstance()
+    
+    init(workout:HKWorkout) {
+        hkworkout = workout
+        self.duration = hkworkout.duration / 60.0
+        self.distTraveled = (hkworkout.totalDistance?.doubleValue(for: HKUnit.mile()))!
+        self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))!
+        print(self.distTraveled)
+    }
+    
+    public func setGoalValues() -> Void {
+        intensity = hkworkout.metadata?["IntensityLevel"] as! Int
+        userEnteredTime = hkworkout.metadata?["UserEnteredDuration"] as! Int
+        calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
+    }
+    
+    public func queryAvgHR() -> Void {
+        let predicateHR = HKQuery.predicateForObjects(from: hkworkout)
+        let heartRateUnit = HKUnit(from: "count/min")
         
-        self.userEnteredTime = builder.userEnteredTime
-        self.calorieBurnGoal = builder.calorieBurnGoal
+        let group = DispatchGroup()
+        group.enter()
+        
+        store.getSamples(sampleType: HealthValues.bodyMass!, predicate: predicateHR, limit: Int(HKObjectQueryNoLimit)) { (sample, error) in
+            
+            guard let samples = sample else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            
+            var avg:Double = 0
+            for s in samples {
+                avg += s.quantity.doubleValue(for: heartRateUnit)
+            }
+            
+            avg /= Double(samples.count)
+            self.avgHeartRate = avg
+            group.leave()
+        }
+        
+        group.wait()
     }
     
-    public func getAvgHeartRate() -> Double {
-        return avgHeartRate
-    }
-    
-    public func getCalsBurned() -> Double {
-        return calsBurned
-    }
-    
-    public func getDistTraveled() -> Double {
-        return distTraveled
-    }
-    
-    public func getDuration() -> Double {
-        return duration
-    }
-    
-    public func wasGoalMet() -> Bool {
-        return goalMet
-    }
-    
-    public func getUserEnteredTime() -> Int {
-        return userEnteredTime
-    }
-    
-    public func getCalorieBurnGoal() -> Double {
-        return calorieBurnGoal
+    //use https://developer.apple.com/documentation/healthkit/hkobject/1615598-metadata
+    public func setWorkoutGoalMet() -> Void {
+        if calsBurned >= calorieBurnGoal {
+            goalMet = true
+        }
     }
 }

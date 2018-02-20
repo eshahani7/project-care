@@ -10,10 +10,10 @@ import Foundation
 import HealthKit
 
 class WorkoutList {
-    private var workouts = [Workout]()
+    private var workouts = [WorkoutFacade]()
     private let store = HealthStore.getInstance()
     
-    public func getWorkoutList() -> [Workout] {
+    public func getWorkoutList() -> [WorkoutFacade] {
         let group = DispatchGroup()
         group.enter()
         
@@ -26,8 +26,8 @@ class WorkoutList {
                 return
             }
             for s in samples {
-                let builder = WorkoutBuilder(workout: s)
-                let w = builder.build()
+                let workout = Workout(workout: s)
+                let w = WorkoutFacade(w: workout)
                 self.workouts.append(w)
             }
             group.leave()
