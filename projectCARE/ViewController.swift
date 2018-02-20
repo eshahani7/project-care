@@ -10,53 +10,107 @@ import UIKit
 import SwiftCharts
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let chartPoints: [ChartPoint] = [(2, 2), (4, 4), (6, 6), (8, 8), (8, 10), (15, 15)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
+        
         let font = UIFont(name: "Avenir", size: 17)
         let labelSettings = ChartLabelSettings(font: font!)
         
-        let generator = ChartAxisGeneratorMultiplier(2)
+        // Get the data for the past 7 days and put into correct format for barsData.
+        
+        // Use Statistics HK to calculate mean step counts for the past 7 days.
+        
+        let barsData: [(title: String, min: Double, max: Double)] = [
+            ("A", 0, 40),
+            ("B", 0, 50),
+            ("C", 0, 35),
+            ("D", 0, 40),
+            ("E", 0, 30),
+            ("F", 0, 47),
+            ("G", 0, 60)
+        ]
+        
+        let alpha: CGFloat = 0.5
+        let color = UIColor.gray.withAlphaComponent(alpha)
+        let zero = ChartAxisValueDouble(0)
+        let bars: [ChartBarModel] = barsData.enumerated().flatMap {index, tuple in
+            [
+                ChartBarModel(constant: ChartAxisValueDouble(index), axisValue1: zero, axisValue2: ChartAxisValueDouble(tuple.max), bgColor: color)
+            ]
+        }
+        
+        // THe generator represents the scale for the charts
+        let xGenerator = ChartAxisGeneratorMultiplier(1)
+        let yGenerator = ChartAxisGeneratorMultiplier(20)
+        
+        
         let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
             return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
         }
         
-        let xGenerator = ChartAxisGeneratorMultiplier(2)
+        // These models define specifics for each of the axes, and define the bounds
+        let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "X AXIS title", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsGenerator)
+        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 80, axisTitleLabels: [ChartAxisLabel(text: "Y Axis title", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsGenerator)
         
-        let xModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 16, axisTitleLabels: [ChartAxisLabel(text: "Axis title", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsGenerator)
+        // Sets the frame size of the chart
+        //        var iPhoneChartSettings: ChartSettings {
+        //            var chartSettings = ChartSettings()
+        //            chartSettings.leading = 10
+        //            chartSettings.top = 10
+        //            chartSettings.trailing = 10
+        //            chartSettings.bottom = 10
+        //            chartSettings.labelsToAxisSpacingX = 5
+        //            chartSettings.labelsToAxisSpacingY = 5
+        //            chartSettings.axisTitleLabelsToLabelsSpacing = 4
+        //            chartSettings.axisStrokeWidth = 0.2
+        //            chartSettings.spacingBetweenAxesX = 8
+        //            chartSettings.spacingBetweenAxesY = 8
+        //            chartSettings.labelsSpacing = 0
+        //            chartSettings.zoomPan.panEnabled = true
+        //            chartSettings.zoomPan.zoomEnabled = true
+        //            return chartSettings
+        //        }
         
-        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 16, axisTitleLabels: [ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical())], axisValuesGenerator: generator, labelsGenerator: labelsGenerator)
+        let chartFrame = CGRect(x: 0, y: 70, width: view.bounds.size.width - 50, height: view.bounds.size.height - 80)
+        //let chartFrame = view.bounds
         
-        let chartFrame = view.bounds
-        
-        
-        
-        // generate axes layers and calculate chart inner frame, based on the axis models
-        
+        // Defines the coordinate layer
         let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ChartSettings(), chartFrame: chartFrame, xModel: xModel, yModel: yModel)
         let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
         
-        // create layer with guidelines
-        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth: 3)
-        let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: guidelinesLayerSettings)
+        // Actual bars on the chart
+        let barViewSettings = ChartBarViewSettings(animDuration: 0.5)
+        let barsLayer = ChartBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, bars: bars, horizontal: false, barWidth: 25, settings: barViewSettings)
         
-        // view generator - this is a function that creates a view for each chartpoint
-        let viewGenerator = {(chartPointModel: ChartPointLayerModel, layer: ChartPointsViewsLayer, chart: Chart) -> UIView? in
-            let viewSize: CGFloat = 20
-            let center = chartPointModel.screenLoc
-            let label = UILabel(frame: CGRect(x: center.x - viewSize / 2, y: center.y - viewSize / 2, width: viewSize, height: viewSize))
-            label.backgroundColor = UIColor.green
-            label.textAlignment = NSTextAlignment.center
-            label.text = chartPointModel.chartPoint.y.description
-            label.font = font
-            return label
+        let labelToBarSpace: Double = 3 // domain units
+        let labelChartPoints = bars.map {bar in
+            ChartPoint(x: bar.constant, y: bar.axisValue2.copy(bar.axisValue2.scalar + (bar.axisValue2.scalar > 0 ? labelToBarSpace : -labelToBarSpace)))
         }
         
-        // create layer that uses viewGenerator to display chartpoints
-        let chartPointsLayer = ChartPointsViewsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: chartPoints, viewGenerator: viewGenerator, mode: .translate)
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        let labelsLayer = ChartPointsViewsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: labelChartPoints, viewGenerator: {(chartPointModel, layer, chart) -> UIView? in
+            let label = HandlingLabel()
+            
+            let pos = chartPointModel.chartPoint.y.scalar > 0
+            
+            label.text = "\(formatter.string(from: NSNumber(value: chartPointModel.chartPoint.y.scalar - labelToBarSpace))!)%"
+            label.font = font!
+            label.sizeToFit()
+            label.center = CGPoint(x: chartPointModel.screenLoc.x, y: pos ? innerFrame.origin.y : innerFrame.origin.y + innerFrame.size.height)
+            label.alpha = 0
+            
+            label.movedToSuperViewHandler = {[weak label] in
+                UIView.animate(withDuration: 0.3, animations: {
+                    label?.alpha = 1
+                    label?.center.y = chartPointModel.screenLoc.y
+                })
+            }
+            return label
+            
+        }, displayDelay: 0.5, mode: .translate) // show after bars animation
         
-        // create chart instance with frame and layers
         let chart = Chart(
             frame: chartFrame,
             innerFrame: innerFrame,
@@ -64,20 +118,19 @@ class ViewController: UIViewController {
             layers: [
                 xAxisLayer,
                 yAxisLayer,
-                guidelinesLayer,
-                chartPointsLayer
+                barsLayer,
+                labelsLayer
             ]
         )
         
         view.addSubview(chart.view)
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
