@@ -9,11 +9,28 @@
 import Foundation
 import HealthKit
 
+//use for first parameter of getSamples()
+struct HealthValues {
+    static let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth)
+    static let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex)
+    static let bodyMassIndex = HKObjectType.quantityType(forIdentifier: .bodyMassIndex)
+    static let height = HKObjectType.quantityType(forIdentifier: .height)
+    static let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass)
+    static let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)
+    static let exerciseTime = HKObjectType.quantityType(forIdentifier: .appleExerciseTime)
+    static let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount)
+    static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
+    static let respRate = HKObjectType.quantityType(forIdentifier: .respiratoryRate)
+    static let workouts = HKObjectType.workoutType()
+}
+
 class HealthStore {
+    
+    static var shared:HealthStore? = nil
     
     let store:HKHealthStore?
     
-    enum HealthStoreErrors : Error {
+    private enum HealthStoreErrors : Error {
         case noHealthDataFound
         case noAgeFound
         case noSexEntered
@@ -24,29 +41,29 @@ class HealthStore {
         case dataTypeNotAvailable
     }
     
-    class func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
+    private static func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
             completion(false, HealthkitSetupError.notAvailableOnDevice)
             return
         }
         
-        guard   let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
-                let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex),
-                let bodyMassIndex = HKObjectType.quantityType(forIdentifier: .bodyMassIndex),
-                let height = HKObjectType.quantityType(forIdentifier: .height),
-                let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass),
-                let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned),
-                let exerciseTime = HKObjectType.quantityType(forIdentifier: .appleExerciseTime),
-                let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount),
-                let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate),
-                let respRate = HKObjectType.quantityType(forIdentifier: .respiratoryRate) else {
+        guard   let dateOfBirth = HealthValues.dateOfBirth,
+            let biologicalSex = HealthValues.biologicalSex,
+            let bodyMassIndex = HealthValues.bodyMassIndex,
+            let height = HealthValues.height,
+            let bodyMass = HealthValues.bodyMass,
+            let activeEnergy = HealthValues.activeEnergy,
+            let exerciseTime = HealthValues.exerciseTime,
+            let stepCount = HealthValues.stepCount,
+            let heartRate = HealthValues.heartRate,
+            let respRate = HealthValues.respRate else {
                 
-                    completion(false, HealthkitSetupError.dataTypeNotAvailable)
-                    return
+                completion(false, HealthkitSetupError.dataTypeNotAvailable)
+                return
         }
         
-        let writeTypes: Set<HKSampleType> = [stepCount, activeEnergy, heartRate,
-                                        HKObjectType.workoutType()]
+        let writeTypes: Set<HKSampleType> = [stepCount,
+                                             HKObjectType.workoutType()]
         
         let readTypes: Set<HKObjectType> = [activeEnergy,
                                             dateOfBirth,
@@ -65,7 +82,25 @@ class HealthStore {
         })
     }
     
-    init() {
+    private init() {
+        HealthStore.authorizeHealthKit { (authorized, error) in
+            
+            guard authorized else {
+                
+                let baseMessage = "HealthKit Authorization Failed"
+                
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                
+                return
+            }
+            
+            print("HealthKit Successfully Authorized.")
+        }
+        
         if(HKHealthStore.isHealthDataAvailable()) {
             store = HKHealthStore()
             print("data found")
@@ -75,15 +110,22 @@ class HealthStore {
         }
     }
     
+    public static func getInstance() -> HealthStore {
+        if shared == nil {
+            shared = HealthStore()
+        }
+        return shared!
+    }
     
     //Params: sample type, start date, end date, callback
     //Returns: array of samples if not nil, error if nil
-    func getSample(sampleType: HKSampleType, startDate: Date, endDate: Date,
-                   completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
+    public func getSamples(sampleType: HKSampleType, startDate: Date, endDate: Date,
+                           completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+        
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (query, results, error) in
             
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 guard let samples = results as? [HKQuantitySample] else {
                     completion(nil, error)
                     return
@@ -97,7 +139,45 @@ class HealthStore {
         store?.execute(query)
     }
     
-    func getAge() -> Int {
+    //same as above but enter your own predicate and limit
+    public func getSamples(sampleType: HKSampleType, predicate: NSPredicate, limit: Int,
+                           completion: @escaping([HKQuantitySample]?, Error?) -> Void) {
+        
+        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: limit, sortDescriptors: nil) { (query, results, error) in
+            
+            DispatchQueue.global().async {
+                guard let samples = results as? [HKQuantitySample] else {
+                    completion(nil, error)
+                    return
+                }
+                
+                completion(samples, nil)
+                
+            }
+        }
+        
+        store?.execute(query)
+    }
+    
+    public func getWorkouts(completion: @escaping([HKWorkout]?, Error?) -> Void) {
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        
+        let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: 10, sortDescriptors: [sortDescriptor]) {(query, results, error) in
+            DispatchQueue.global().async {
+                guard let samples = results as? [HKWorkout] else {
+                    completion(nil, error)
+                    return
+                }
+                
+                completion(samples, nil)
+                
+            }
+        }
+        
+        store?.execute(query)
+    }
+    
+    public func getAge() -> Int {
         do {
             let dob = try store?.dateOfBirthComponents()
             let today = Date()
@@ -105,7 +185,7 @@ class HealthStore {
             let todayDateComponents = calendar.dateComponents([.year],
                                                               from: today)
             let thisYear = todayDateComponents.year!
-            let age = thisYear - (dob?.year!)!
+            let age = thisYear - (dob?.year!)! - 1
             return age
         } catch {
             print("can't get dob")
@@ -114,7 +194,7 @@ class HealthStore {
         return 0
     }
     
-    func getBiologicalSex() -> HKBiologicalSexObject? {
+    public func getBiologicalSex() -> HKBiologicalSexObject? {
         do {
             return try store?.biologicalSex()
         } catch {
@@ -123,51 +203,5 @@ class HealthStore {
         }
     }
     
-    func retrieveMostRecentStepCountSample(completionHandler: @escaping (HKQuantitySample) -> Void) {
-        let sampleType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
-        let predicate = HKQuery.predicateForSamples(withStart: NSDate.distantPast, end: NSDate() as Date, options:[])
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-        
-        let query = HKSampleQuery(sampleType: sampleType!, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor])
-        { (query, results, error) in
-            if error != nil {
-                print("An error has occured with the following description: \(String(describing: error?.localizedDescription))")
-            } else {
-                print("gonna get something")
-                let mostRecentSample = results![0] as! HKQuantitySample
-                print("Retrieved most recent step count.")
-                completionHandler(mostRecentSample)
-            }
-        }
-        store?.execute(query)
-    }
-    
-    var observeQuery: HKObserverQuery!
-    
-    public var steps = 0.0
-    
-    func startObservingForStepCountSamples() {
-        print("startObservingForStepCountSamples")
-        let sampleType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
-        
-        if observeQuery != nil {
-            store?.stop(observeQuery)
-        }
-        
-        observeQuery = HKObserverQuery(sampleType: sampleType!, predicate: nil) {
-            (query, completionHandler, error) in
-            
-            if error != nil {
-                print("An error has occured with the following description: \(String(describing: error?.localizedDescription))")
-            } else {
-                self.retrieveMostRecentStepCountSample {
-                    (sample) in
-                    print("New steps: \(sample.quantity.doubleValue(for: HKUnit.count()))")
-                    self.steps += sample.quantity.doubleValue(for: HKUnit.count())
-                }
-            }
-        }
-        store?.execute(observeQuery)
-    }
-
 }
+

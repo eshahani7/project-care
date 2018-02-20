@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     @IBOutlet var titleLabel: WKInterfaceLabel!
     
     @IBOutlet var label: WKInterfaceLabel!
-    let store:HealthStore = HealthStore()
+    let store:HealthStore = HealthStore.getInstance()
     
     let healthStore = HKHealthStore()
     
@@ -29,6 +29,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     let heartRateUnit = HKUnit(from: "count/min")
     //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     var currenQuery : HKQuery?
+    
+    var workoutUtilities:WorkoutUtilities?
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -106,6 +108,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             //start a new workout
             self.workoutActive = true
             self.sessionButton.setTitle("Stop")
+            workoutUtilities = WorkoutUtilities(workoutMins: 10.0, intensityLevel: 3)
             startWorkout()
         }
 //        print("Button pressed!")
@@ -260,6 +263,16 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         DispatchQueue.main.async {
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
+            
+            if (self.workoutUtilities?.isTooFast(currHR: value))!{
+                print ("Going too fast!!!")
+            }
+            else if (self.workoutUtilities?.isTooSlow(currHR: value))!{
+                print ("Going too SLOW.")
+            }
+            else {
+                print ("Going at a good pace!")
+            }
             
             let heartRateForIntervalSample = sample
             self.heartRateIntervalSamples.append(heartRateForIntervalSample)
