@@ -26,8 +26,7 @@ class WorkoutList {
                 return
             }
             for s in samples {
-                let workout = Workout(workout: s)
-                let w = WorkoutFacade(w: workout)
+                let w = WorkoutFacade(w: s)
                 self.workouts.append(w)
             }
             group.leave()

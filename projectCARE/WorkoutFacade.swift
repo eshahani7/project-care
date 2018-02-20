@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import HealthKit
 
 class WorkoutFacade {
     
     private let workout:Workout
     
-    init(w:Workout) {
-        self.workout = w
+    init(w:HKWorkout) {
+        self.workout = Workout(workout: w)
         workout.setGoalValues()
     }
     
