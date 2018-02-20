@@ -150,7 +150,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         healthStore.start(self.session!)
     }
     
-    var samples = [HKSample]();
+    var heartRateIntervalSamples = [HKQuantitySample]();
     
     func endWorkout() {
         guard let activeEnergyType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
@@ -190,7 +190,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             
             let workout = HKWorkout(activityType: HKWorkoutActivityType.running,
                                     start: startDate,
-                                    end: Date(),
+                                    end: endDate,
                                     duration: Date().timeIntervalSince(startDate),
                                     totalEnergyBurned: totalActiveEnergyQuantity,
                                     totalDistance: nil,
@@ -210,18 +210,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
                     return
                 }
                 
-                guard let heartRateType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else {
-                    fatalError("*** Unable to create a heart rate type ***")
+                for sample in self.heartRateIntervalSamples {
+                    samples.append(sample)
+                    print("Added to workout: \(sample.quantity.doubleValue(for: self.heartRateUnit))")
                 }
-                
-                let heartRateForInterval = HKQuantity(unit: HKUnit(from: "count/min"),
-                                                      doubleValue: 95.0)
-                
-                let heartRateForIntervalSample =
-                    HKQuantitySample(type: heartRateType, quantity: heartRateForInterval,
-                                     start: startDate, end: Date())
-                
-                samples.append(heartRateForIntervalSample)
                 
                 healthStore.add(samples, to: workout, completion: { (success, error) -> Void in
                     guard success else {
@@ -268,6 +260,11 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         DispatchQueue.main.async {
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
+            
+            let heartRateForIntervalSample = sample
+            self.heartRateIntervalSamples.append(heartRateForIntervalSample)
+            print("Added heart rate sample. \(heartRateForIntervalSample.quantity.doubleValue(for: self.heartRateUnit))")
+            
             self.label.setText(String(UInt16(value)))
             
             // retrieve source from sample
