@@ -21,6 +21,21 @@ class IntensityInterfaceController: WKInterfaceController {
         ("Item 3", "HIGH"),
     ]
     
+    struct MyVariables {
+        static var timePickerValue = 0
+        static var intensityPickerValue = 0
+    }
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        if segueIdentifier == "intensityNext" {
+            return ["time":  MyVariables.timePickerValue,
+                    "intensity": MyVariables.intensityPickerValue]
+        }
+        else {
+            return ""
+        }
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -36,7 +51,7 @@ class IntensityInterfaceController: WKInterfaceController {
         if let val: String = context as? String {
             self.timeValue.setText(val)
         } else {
-            self.timeValue.setText("")
+            self.timeValue.setText("no value")
         }
         
     }
@@ -52,6 +67,7 @@ class IntensityInterfaceController: WKInterfaceController {
     }
     @IBAction func pickerChanged(_ value: Int) {
         print(value)
+        MyVariables.intensityPickerValue = value
     }
     
 }

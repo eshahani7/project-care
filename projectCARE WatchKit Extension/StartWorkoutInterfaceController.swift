@@ -40,7 +40,11 @@ class StartWorkoutInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        
+        var dict = context as? NSDictionary
+        if dict != nil {
+            var time = dict!["time"] as! String
+            var intensity = dict!["intensity"] as! String
+        }
     }
 
     override func willActivate() {
