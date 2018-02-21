@@ -9,7 +9,7 @@
 import UIKit
 
 class SleepAnalysisViewController: UIViewController {
-
+    let store:HealthStore = HealthStore.getInstance()
     override func viewDidLoad() {
         super.viewDidLoad()
 
