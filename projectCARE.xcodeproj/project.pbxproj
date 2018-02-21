@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
+		016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+		016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016B2587203D80C60037FBCC /* HealthKit.framework */; };
 		2C0C5D4A203D5EBF0053B6F9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C0C5D48203D5EBF0053B6F9 /* Interface.storyboard */; };
 		2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */; };
 		2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */; };
@@ -92,6 +95,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "projectCARE WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		016B2587203D80C60037FBCC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		2C0C5D49203D5EBF0053B6F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityInterfaceController.swift; sourceTree = "<group>"; };
 		2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutInterfaceController.swift; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +243,7 @@
 		9F1968762023BA7D00C1D0B4 /* projectCARE WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */,
 				9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */,
 				2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */,
 				2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */,
@@ -251,6 +258,7 @@
 		9F19689A2023BD2400C1D0B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				016B2587203D80C60037FBCC /* HealthKit.framework */,
 				9F19689B2023BD2400C1D0B4 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -410,6 +418,11 @@
 						DevelopmentTeam = BA5W6527X2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -518,6 +531,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */,
+				016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */,
+				016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */,
 				2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */,
 				2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */,
 				9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */,
@@ -689,6 +704,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -707,6 +723,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
