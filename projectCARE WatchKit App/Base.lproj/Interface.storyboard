@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="projectCARE_WatchKit_Extension">
+                    <items>
+                        <label width="44" height="17" alignment="center" text="CARE:)" id="GRY-4K-UQ3">
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
+                        <picker height="84" alignment="left" id="umx-wC-B7P">
+                            <connections>
+                                <action selector="pickerChanged:" destination="AgC-eL-Hgc" id="uOd-86-yRg"/>
+                            </connections>
+                        </picker>
+                        <button width="51" height="51" alignment="center" verticalAlignment="bottom" title="NEXT" backgroundImage="ring" id="DMF-2p-bYR">
+                            <connections>
+                                <segue destination="V1a-nR-mUW" kind="push" id="bWW-Wa-vRe"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="timePicker" destination="umx-wC-B7P" id="ZPo-LT-Xl5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="247.5"/>
+        </scene>
+        <!--Intensity Interface Controller-->
+        <scene sceneID="wO5-Lg-ooX">
+            <objects>
+                <controller id="V1a-nR-mUW" customClass="IntensityInterfaceController" customModule="projectCARE_WatchKit_Extension">
+                    <items>
+                        <label height="18" alignment="center" text="CARE" id="6pR-ap-3DY">
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
+                        <picker height="84" alignment="left" id="ll1-jQ-3HF">
+                            <connections>
+                                <action selector="pickerChanged:" destination="V1a-nR-mUW" id="5N5-A0-ASM"/>
+                            </connections>
+                        </picker>
+                        <button width="51" height="51" alignment="center" title="NEXT" backgroundImage="ring" id="JcJ-YR-mBf">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <segue destination="Tqx-Vp-Rb5" kind="push" id="AsV-YM-OJz"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="Label" id="xIC-s8-Jg8"/>
+                    </items>
+                    <connections>
+                        <outlet property="intensityPicker" destination="ll1-jQ-3HF" id="rdI-Th-fOS"/>
+                        <outlet property="timeValue" destination="xIC-s8-Jg8" id="OVN-BO-g1Z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="476" y="248"/>
+        </scene>
+        <!--Start Workout Interface Controller-->
+        <scene sceneID="a3V-Bs-imN">
+            <objects>
+                <controller id="Tqx-Vp-Rb5" customClass="StartWorkoutInterfaceController" customModule="projectCARE_WatchKit_Extension">
+                    <items>
+                        <button width="101" height="101" alignment="center" title="START" backgroundImage="ring" id="3ss-b3-tEX">
+                            <fontDescription key="font" type="system" pointSize="22"/>
+                            <connections>
+                                <action selector="StartEndAction" destination="Tqx-Vp-Rb5" id="Sjs-Os-XNI"/>
+                            </connections>
+                        </button>
+                        <label width="67" height="17" alignment="left" text="Heart Rate: " numberOfLines="4" minimumScaleFactor="0.80000000000000004" id="FFo-dG-KzY">
+                            <fontDescription key="font" type="system" pointSize="12"/>
+                        </label>
+                        <timer alignment="left" id="Wit-X8-Ezu">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                    </items>
+                    <connections>
+                        <outlet property="HeartRateLabel" destination="FFo-dG-KzY" id="goi-Cd-Q9q"/>
+                        <outlet property="StartEndButton" destination="3ss-b3-tEX" id="QhA-XG-A2e"/>
+                        <outlet property="WorkoutTimer" destination="Wit-X8-Ezu" id="ZM8-yC-DBu"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="742" y="205"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="projectCARE_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
