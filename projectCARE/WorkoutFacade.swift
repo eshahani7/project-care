@@ -20,27 +20,25 @@ class WorkoutFacade {
     
     public func getAvgHeartRate() -> Double {
         workout.queryAvgHR()
-        return workout.avgHeartRate
+        if(workout.avgHeartRate > 0) {
+            return workout.avgHeartRate
+        }
+        return -1
     }
     
-    public func getCalsBurned() -> Double {
-        if(workout.calsBurned != nil) {
-            return workout.calsBurned!
-        }
-        return 0
+    public func getCalsBurned() -> Double? {
+        return workout.calsBurned
     }
     
-    public func getDistTraveled() -> Double {
-        if(workout.distTraveled != nil) {
-            return workout.distTraveled!
-        }
-        return 0
+    public func getDistTraveled() -> Double? {
+        return workout.distTraveled
     }
     
     public func getDuration() -> Double {
         return workout.duration
     }
     
+    //-----these don't work yet-------//
     public func wasGoalMet() -> Bool {
         workout.setWorkoutGoalMet()
         return workout.goalMet
