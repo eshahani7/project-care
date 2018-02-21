@@ -15,7 +15,7 @@ class WorkoutFacade {
     
     init(w:HKWorkout) {
         self.workout = Workout(workout: w)
-        workout.setGoalValues()
+        //workout.setGoalValues()
     }
     
     public func getAvgHeartRate() -> Double {
@@ -24,11 +24,17 @@ class WorkoutFacade {
     }
     
     public func getCalsBurned() -> Double {
-        return workout.calsBurned
+        if(workout.calsBurned != nil) {
+            return workout.calsBurned!
+        }
+        return 0
     }
     
     public func getDistTraveled() -> Double {
-        return workout.distTraveled
+        if(workout.distTraveled != nil) {
+            return workout.distTraveled!
+        }
+        return 0
     }
     
     public func getDuration() -> Double {

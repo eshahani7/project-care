@@ -42,7 +42,9 @@ class ViewController: UIViewController {
         let list = WorkoutList().getWorkoutList()
         print(list.count)
         for w in list {
-            print(w.getAvgHeartRate())
+            print("Calories: \(w.getCalsBurned())")
+            print("Duration: \(w.getDuration())")
+            print("Heart rate: \(w.getAvgHeartRate())")
         }
         print("done")
     }

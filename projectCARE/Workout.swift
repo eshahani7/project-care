@@ -30,11 +30,11 @@ class Workout {
         self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))
     }
     
-    public func setGoalValues() -> Void {
-        intensity = hkworkout.metadata?["IntensityLevel"] as! Int
-        userEnteredTime = hkworkout.metadata?["UserEnteredDuration"] as! Int
-        calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
-    }
+//    public func setGoalValues() -> Void {
+//        intensity = hkworkout.metadata?["IntensityLevel"] as! Int
+//        userEnteredTime = hkworkout.metadata?["UserEnteredDuration"] as! Int
+//        calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
+//    }
     
     public func queryAvgHR() -> Void {
         let predicateHR = HKQuery.predicateForObjects(from: hkworkout)
@@ -43,7 +43,7 @@ class Workout {
         let group = DispatchGroup()
         group.enter()
         
-        store.getSamples(sampleType: HealthValues.bodyMass!, predicate: predicateHR, limit: Int(HKObjectQueryNoLimit)) { (sample, error) in
+        store.getSamples(sampleType: HealthValues.heartRate!, predicate: predicateHR, limit: Int(HKObjectQueryNoLimit)) { (sample, error) in
             
             guard let samples = sample else {
                 if let error = error {
