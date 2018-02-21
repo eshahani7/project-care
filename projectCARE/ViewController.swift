@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBAction func previousWorkoutStatistics(_ sender: UIButton) {
-        performSegue(withIdentifier: "PreviousWorkoutStatistics", sender: self)
-    }
+    let store:HealthStore = HealthStore.getInstance()
+    
+    
     @IBAction func SleepAnalysis(_ sender: UIButton) {
         performSegue(withIdentifier: "SleepAnalysis", sender: self)
     }

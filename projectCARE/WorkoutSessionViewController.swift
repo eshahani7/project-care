@@ -9,7 +9,7 @@
 import UIKit
 
 class WorkoutSessionViewController: UIViewController {
-
+    let store:HealthStore = HealthStore.getInstance()
     override func viewDidLoad() {
         super.viewDidLoad()
 
