@@ -30,6 +30,9 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     var currenQuery : HKQuery?
     
+    var startDate:Date = Date()
+    var endDate:Date = Date()
+    
     var workoutUtilities:WorkoutUtilities?
     
     override func awake(withContext context: Any?) {
@@ -138,6 +141,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             return
         }
         
+        startDate = Date()
+        
         // Configure the workout session.
         let workoutConfiguration = HKWorkoutConfiguration()
         workoutConfiguration.activityType = .crossTraining
@@ -156,6 +161,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     var heartRateIntervalSamples = [HKQuantitySample]();
     
     func endWorkout() {
+        endDate = Date()
+        
         guard let activeEnergyType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
             fatalError("*** Unable to create the active energy burned type ***")
         }
@@ -186,15 +193,21 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
                 totalActiveEnergy += sample.quantity.doubleValue(for: energyUnit)
             }
             
-            let startDate = self.session?.startDate ?? NSDate() as Date
-            let endDate = self.session?.endDate ?? NSDate() as Date
+//            let startDate = self.session?.startDate ?? NSDate() as Date
+//            let endDate = self.session?.endDate ?? NSDate() as Date
+            
+            var duration: TimeInterval {
+                return (self.endDate.timeIntervalSince((self.startDate)))
+            }
+            
+            print ("Duration: \(duration)")
             
             let totalActiveEnergyQuantity = HKQuantity(unit: energyUnit, doubleValue: totalActiveEnergy)
             
             let workout = HKWorkout(activityType: HKWorkoutActivityType.running,
-                                    start: startDate,
-                                    end: endDate,
-                                    duration: Date().timeIntervalSince(startDate),
+                                    start: self.startDate,
+                                    end: self.endDate,
+                                    duration: duration,
                                     totalEnergyBurned: totalActiveEnergyQuantity,
                                     totalDistance: nil,
                                     device: HKDevice.local(),
@@ -214,6 +227,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
                 }
                 
                 for sample in self.heartRateIntervalSamples {
+                    print("Sample Type: \(sample.quantityType)")
                     samples.append(sample)
                     print("Added to workout: \(sample.quantity.doubleValue(for: self.heartRateUnit))")
                 }
