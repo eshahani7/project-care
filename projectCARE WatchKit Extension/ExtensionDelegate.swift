@@ -7,13 +7,35 @@
 //
 
 import WatchKit
+import UserNotifications
 import HealthKit
 
-class ExtensionDelegate: NSObject {
-
+class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        print("Watch app started.")
         
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        center.requestAuthorization(options: options) { (granted, error) in
+            if (error != nil){
+                print("There was an error \(error.debugDescription)")
+            }
+            else if granted {
+                print("Notifications Authorized!")
+            }
+        }
+        
+      let generalCategory = UNNotificationCategory(identifier: "GENERAL",
+                                                     actions: [],
+                                                     intentIdentifiers: [],
+                                                     options: .customDismissAction)
+        
+        
+        // Register the category.
+        center.setNotificationCategories([generalCategory])
+
         //set up session
         //let manager:WatchSessionManager = WatchSessionManager()
     }

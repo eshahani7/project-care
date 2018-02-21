@@ -8,6 +8,7 @@
 import WatchKit
 import HealthKit
 import Foundation
+import UserNotifications
 
 class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
@@ -273,16 +274,35 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
     func updateHeartRate(_ samples: [HKSample]?) {
         guard let heartRateSamples = samples as? [HKQuantitySample] else {return}
-        
+
         DispatchQueue.main.async {
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
             
+            let content = UNMutableNotificationContent()
+            content.title = NSString.localizedUserNotificationString(forKey: "GOING TOO SLOW!", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "Hello_message_body", arguments: nil)
+            content.sound = UNNotificationSound.default()
+            // Deliver the notification in five seconds.
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger) // Schedule the notification.
+            let center = UNUserNotificationCenter.current()
+            center.add(request) { (error : Error?) in
+                if let theError = error {
+                    // Handle any errors
+                }
+            }
+
+
+            //self.sendNotification(title: "NOTIFICATION", message: "testing")
+
             if (self.workoutUtilities?.isTooFast(currHR: value))!{
                 print ("Going too fast!!!")
+                //self.sendNotification(title: "GOING TOO FAST!", message: "Slow down!")
             }
             else if (self.workoutUtilities?.isTooSlow(currHR: value))!{
                 print ("Going too SLOW.")
+                //self.sendNotification(title: "GOING TOO SLOW!", message: "Go faster!")
             }
             else {
                 print ("Going at a good pace!")
@@ -297,6 +317,24 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             // retrieve source from sample
 //            let name = sample.sourceRevision.source.name
 //            self.updateDeviceName(name)
+        }
+        
+    }
+    
+    func sendNotification(title: String, message: String) {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)
+        content.sound = UNNotificationSound.default()
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "oneSecond", content: content, trigger: trigger) // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error : Error?) in
+            if let theError = error {
+                // Handle any errors
+                print("There was a notification error: \(theError.localizedDescription)")
+            }
         }
     }
     

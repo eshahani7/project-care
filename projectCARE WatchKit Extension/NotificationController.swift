@@ -37,7 +37,8 @@ class NotificationController: WKUserNotificationInterfaceController {
         // Populate your dynamic notification interface as quickly as possible.
         //
         // After populating your dynamic notification interface call the completion block.
+        print ("We in here!")
         completionHandler(.custom)
     }
-    */
+     */
 }
