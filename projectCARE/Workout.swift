@@ -11,8 +11,8 @@ import HealthKit
 
 class Workout {
     public var avgHeartRate:Double = 0
-    public var calsBurned:Double = 0
-    public var distTraveled:Double = 0
+    public var calsBurned:Double? = 0
+    public var distTraveled:Double? = 0
     public var duration:Double = 0
     public var goalMet:Bool = false
     
@@ -26,9 +26,8 @@ class Workout {
     init(workout:HKWorkout) {
         hkworkout = workout
         self.duration = hkworkout.duration / 60.0
-        self.distTraveled = (hkworkout.totalDistance?.doubleValue(for: HKUnit.mile()))!
-        self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))!
-        print(self.distTraveled)
+        self.distTraveled = (hkworkout.totalDistance?.doubleValue(for: HKUnit.mile()))
+        self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))
     }
     
     public func setGoalValues() -> Void {
@@ -68,8 +67,10 @@ class Workout {
     
     //use https://developer.apple.com/documentation/healthkit/hkobject/1615598-metadata
     public func setWorkoutGoalMet() -> Void {
-        if calsBurned >= calorieBurnGoal {
-            goalMet = true
+        if(calsBurned != nil) {
+            if calsBurned! >= calorieBurnGoal {
+                goalMet = true
+            }
         }
     }
 }
