@@ -28,6 +28,11 @@
 		9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */; };
 		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
 		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
+		9F4C7DA2203D635A00E834DE /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
+		9F4C7DA3203D635A00E834DE /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9E203D635A00E834DE /* Workout.swift */; };
+		9F4C7DA4203D635A00E834DE /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */; };
+		9F4C7DA5203D635A00E834DE /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA0203D635A00E834DE /* WorkoutList.swift */; };
+		9F4C7DA6203D635A00E834DE /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +122,11 @@
 		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		9F4C7D9D203D635A00E834DE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		9F4C7D9E203D635A00E834DE /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFacade.swift; sourceTree = "<group>"; };
+		9F4C7DA0203D635A00E834DE /* WorkoutList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
+		9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +190,8 @@
 		9F19683D2023BA7D00C1D0B4 /* projectCARE */ = {
 			isa = PBXGroup;
 			children = (
+				9F4C7DA8203D638500E834DE /* Workouts */,
+				9F4C7DA7203D637300E834DE /* Services */,
 				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
 				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
 				9F1968402023BA7D00C1D0B4 /* ViewController.swift */,
@@ -242,6 +254,25 @@
 				9F19689B2023BD2400C1D0B4 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F4C7DA7203D637300E834DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */,
+				9F4C7D9D203D635A00E834DE /* HealthStore.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		9F4C7DA8203D638500E834DE /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				9F4C7D9E203D635A00E834DE /* Workout.swift */,
+				9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */,
+				9F4C7DA0203D635A00E834DE /* WorkoutList.swift */,
+			);
+			name = Workouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,8 +485,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
+				9F4C7DA2203D635A00E834DE /* HealthStore.swift in Sources */,
+				9F4C7DA3203D635A00E834DE /* Workout.swift in Sources */,
 				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
+				9F4C7DA6203D635A00E834DE /* WorkoutUtilities.swift in Sources */,
 				2C735F3D203C898000FCB804 /* PreviousWorkoutStatisticsViewController.swift in Sources */,
+				9F4C7DA4203D635A00E834DE /* WorkoutFacade.swift in Sources */,
+				9F4C7DA5203D635A00E834DE /* WorkoutList.swift in Sources */,
 				2C735F41203C912F00FCB804 /* SleepAnalysisViewController.swift in Sources */,
 				2C735F3F203C89D500FCB804 /* WorkoutSessionViewController.swift in Sources */,
 			);
