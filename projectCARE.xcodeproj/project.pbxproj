@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C735F35203B8FAD00FCB804 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C735F34203B8FAC00FCB804 /* Interface.storyboard */; };
+		2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */; };
+		2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */; };
+		2C735F3D203C898000FCB804 /* PreviousWorkoutStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F3C203C898000FCB804 /* PreviousWorkoutStatisticsViewController.swift */; };
+		2C735F3F203C89D500FCB804 /* WorkoutSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F3E203C89D500FCB804 /* WorkoutSessionViewController.swift */; };
+		2C735F41203C912F00FCB804 /* SleepAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F40203C912F00FCB804 /* SleepAnalysisViewController.swift */; };
 		9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */; };
 		9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968402023BA7D00C1D0B4 /* ViewController.swift */; };
 		9F1968442023BA7D00C1D0B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968422023BA7D00C1D0B4 /* Main.storyboard */; };
@@ -15,14 +21,12 @@
 		9F1968542023BA7D00C1D0B4 /* projectCARETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */; };
 		9F19685F2023BA7D00C1D0B4 /* projectCAREUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19685E2023BA7D00C1D0B4 /* projectCAREUITests.swift */; };
 		9F1968642023BA7D00C1D0B4 /* projectCARE WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9F1968632023BA7D00C1D0B4 /* projectCARE WatchKit App.app */; };
-		9F19686A2023BA7D00C1D0B4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968682023BA7D00C1D0B4 /* Interface.storyboard */; };
 		9F19686C2023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19686B2023BA7D00C1D0B4 /* Assets.xcassets */; };
 		9F1968732023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9F1968722023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9F19687A2023BA7D00C1D0B4 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */; };
 		9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */; };
 		9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */; };
 		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
-		9F1968982023BB8A00C1D0B4 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968972023BB8A00C1D0B4 /* HealthStore.swift */; };
 		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +87,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C735F34203B8FAC00FCB804 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Interface.storyboard; path = ../../../.Trash/Interface.storyboard; sourceTree = "<group>"; };
+		2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityInterfaceController.swift; sourceTree = "<group>"; };
+		2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutInterfaceController.swift; sourceTree = "<group>"; };
+		2C735F3C203C898000FCB804 /* PreviousWorkoutStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousWorkoutStatisticsViewController.swift; sourceTree = "<group>"; };
+		2C735F3E203C89D500FCB804 /* WorkoutSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewController.swift; sourceTree = "<group>"; };
+		2C735F40203C912F00FCB804 /* SleepAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAnalysisViewController.swift; sourceTree = "<group>"; };
 		9F19683B2023BA7D00C1D0B4 /* projectCARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectCARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F1968402023BA7D00C1D0B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,17 +107,14 @@
 		9F19685E2023BA7D00C1D0B4 /* projectCAREUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectCAREUITests.swift; sourceTree = "<group>"; };
 		9F1968602023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1968632023BA7D00C1D0B4 /* projectCARE WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "projectCARE WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F1968692023BA7D00C1D0B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		9F19686B2023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F19686D2023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1968722023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "projectCARE WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F1968782023BA7D00C1D0B4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F1968972023BB8A00C1D0B4 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthStore.swift; path = ../HealthStore.swift; sourceTree = "<group>"; };
 		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -176,7 +183,9 @@
 				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
 				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
 				9F1968402023BA7D00C1D0B4 /* ViewController.swift */,
-				9F1968972023BB8A00C1D0B4 /* HealthStore.swift */,
+				2C735F3C203C898000FCB804 /* PreviousWorkoutStatisticsViewController.swift */,
+				2C735F3E203C89D500FCB804 /* WorkoutSessionViewController.swift */,
+				2C735F40203C912F00FCB804 /* SleepAnalysisViewController.swift */,
 				9F1968422023BA7D00C1D0B4 /* Main.storyboard */,
 				9F1968452023BA7D00C1D0B4 /* Assets.xcassets */,
 				9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */,
@@ -206,9 +215,9 @@
 		9F1968672023BA7D00C1D0B4 /* projectCARE WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				9F1968682023BA7D00C1D0B4 /* Interface.storyboard */,
 				9F19686B2023BA7D00C1D0B4 /* Assets.xcassets */,
 				9F19686D2023BA7D00C1D0B4 /* Info.plist */,
+				2C735F34203B8FAC00FCB804 /* Interface.storyboard */,
 			);
 			path = "projectCARE WatchKit App";
 			sourceTree = "<group>";
@@ -217,21 +226,14 @@
 			isa = PBXGroup;
 			children = (
 				9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */,
+				2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */,
+				2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */,
 				9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */,
 				9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */,
 				9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */,
 				9F1968812023BA7D00C1D0B4 /* Info.plist */,
-				9F1968772023BA7D00C1D0B4 /* Supporting Files */,
 			);
 			path = "projectCARE WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		9F1968772023BA7D00C1D0B4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9F1968782023BA7D00C1D0B4 /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9F19689A2023BD2400C1D0B4 /* Frameworks */ = {
@@ -341,12 +343,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Ekta Shahani";
 				TargetAttributes = {
 					9F19683A2023BA7C00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = ULDWKKPVBU;
+						DevelopmentTeam = 7Z37KT3ZNX;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -356,20 +359,25 @@
 					};
 					9F19684E2023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9F19683A2023BA7C00C1D0B4;
 					};
 					9F1968592023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9F19683A2023BA7C00C1D0B4;
 					};
 					9F1968622023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7Z37KT3ZNX;
 						ProvisioningStyle = Automatic;
 					};
 					9F1968712023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7Z37KT3ZNX;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -425,8 +433,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C735F35203B8FAD00FCB804 /* Interface.storyboard in Resources */,
 				9F19686C2023BA7D00C1D0B4 /* Assets.xcassets in Resources */,
-				9F19686A2023BA7D00C1D0B4 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,8 +454,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
-				9F1968982023BB8A00C1D0B4 /* HealthStore.swift in Sources */,
 				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
+				2C735F3D203C898000FCB804 /* PreviousWorkoutStatisticsViewController.swift in Sources */,
+				2C735F41203C912F00FCB804 /* SleepAnalysisViewController.swift in Sources */,
+				2C735F3F203C89D500FCB804 /* WorkoutSessionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +482,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */,
+				2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */,
+				2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */,
 				9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */,
 				9F19687A2023BA7D00C1D0B4 /* InterfaceController.swift in Sources */,
 			);
@@ -519,14 +531,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		9F1968682023BA7D00C1D0B4 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9F1968692023BA7D00C1D0B4 /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -539,7 +543,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -547,7 +553,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -589,7 +600,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -597,7 +610,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -627,13 +645,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -643,13 +663,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -660,9 +682,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -677,9 +700,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -695,12 +719,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ULDWKKPVBU;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -710,12 +735,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ULDWKKPVBU;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -728,7 +754,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/projectCARE.app/projectCARE";
 			};
 			name = Debug;
@@ -742,7 +769,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/projectCARE.app/projectCARE";
 			};
 			name = Release;
@@ -755,7 +783,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = projectCARE;
 			};
 			name = Debug;
@@ -768,7 +797,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = projectCARE;
 			};
 			name = Release;
