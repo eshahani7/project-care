@@ -82,7 +82,7 @@ class InterfaceController: WKInterfaceController {
     }
 
     @IBAction func pickerChanged(_ value: Int) {
-        print(value)
+        //print(value)
         MyVariables.timePickerValue = value
     }
     

@@ -55,7 +55,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
         //         Configure interface objects here.
         let dict = context as? NSDictionary
         if dict != nil {
-            time = 10.0*(dict!["time"] as! Double) + 10
+            time = Double (10*(dict!["time"] as! Int)) + 10
             intensity = (dict!["intensity"] as! Int) + 1
         }
         
