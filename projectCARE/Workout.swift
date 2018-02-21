@@ -20,6 +20,8 @@ class Workout {
     public var userEnteredTime:Int = 0
     public var calorieBurnGoal:Double = 0
     
+    public var dateOfWorkout:Date
+    
     private let hkworkout:HKWorkout
     private let store = HealthStore.getInstance()
     
@@ -28,6 +30,7 @@ class Workout {
         self.duration = hkworkout.duration / 60.0
         self.distTraveled = (hkworkout.totalDistance?.doubleValue(for: HKUnit.mile()))
         self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))
+        self.dateOfWorkout = hkworkout.startDate
     }
     
 //    public func setGoalValues() -> Void {

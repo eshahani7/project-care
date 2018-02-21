@@ -18,6 +18,7 @@ class WorkoutFacade {
         //workout.setGoalValues()
     }
     
+    //Cindy: don't display if -1 returned
     public func getAvgHeartRate() -> Double {
         workout.queryAvgHR()
         if(workout.avgHeartRate > 0) {
@@ -38,6 +39,11 @@ class WorkoutFacade {
         return workout.duration
     }
     
+    //Cindy: will have to look up how to format a date to display
+    public func getWorkoutDate() -> Date {
+        return workout.dateOfWorkout
+    }
+    
     //-----these don't work yet-------//
     public func wasGoalMet() -> Bool {
         workout.setWorkoutGoalMet()
@@ -51,7 +57,5 @@ class WorkoutFacade {
     public func getCalorieBurnGoal() -> Double {
         return workout.calorieBurnGoal
     }
-
-    
     
 }
