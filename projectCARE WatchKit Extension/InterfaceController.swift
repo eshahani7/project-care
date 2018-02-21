@@ -13,19 +13,12 @@ import Foundation
 class InterfaceController: WKInterfaceController {
 
     //MARK: Properties
-    @IBOutlet var timePicker: WKInterfacePicker!
-    @IBAction func timePickerDidChange(_ value: Int) {
+    //@IBOutlet var timePicker: WKInterfacePicker!
+   // @IBAction func timePickerDidChange(_ value: Int) {
         
-    }
-    
-    @IBOutlet var intensityPicker: WKInterfacePicker!
-    @IBAction func intensityPickerDidChange(_ value: Int) {
-   
-    }
-    
+ //   }
 
-    
- 
+    @IBOutlet var timePicker: WKInterfacePicker!
     
     var times: [(String, String)] = [
         ("Item 1", "10"),
@@ -35,34 +28,46 @@ class InterfaceController: WKInterfaceController {
         ("Item 5", "50"),
         ("Item 6", "60")
     ]
-    var intensities: [(String, String)] = [
-        ("Item 1", "LOW"),
-        ("Item 2", "MEDIUM"),
-        ("Item 3", "HIGH"),
-    ]
-   
-    @IBAction func nextButton() {
+    
+    struct MyVariables {
+        static var timePickerValue = 0
     }
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        if segueIdentifier == "timeNext" {
+             return MyVariables.timePickerValue
+        }
+        else {
+            return ""
+        }
+    }
+    
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        
+//        let item1 = WKPickerItem()
+//        item1.title = "10"
+//
+//        let item2 = WKPickerItem()
+//        item2.title = "20"
+//
+//        let item3 = WKPickerItem()
+//        item3.title = "30"
+//
+//        let itemsArray = [item1, item2, item3]
+//        timePicker.setItems(itemsArray)
+        
         let timePickerItems: [WKPickerItem] = times.map {
-            let pickerItem = WKPickerItem()
-            pickerItem.caption = $0.0
-            pickerItem.title = $0.1
-            return pickerItem
+            let timePickerItem = WKPickerItem()
+            timePickerItem.caption = $0.0
+            timePickerItem.title = $0.1
+            return timePickerItem
         }
         timePicker.setItems(timePickerItems)
         
-//        let intensityPickerItems: [WKPickerItem] = intensities.map {
-//            let pickerItem = WKPickerItem()
-//            pickerItem.caption = $0.0
-//            pickerItem.title = $0.1
-//            return pickerItem
-//        }
-//        intensityPicker.setItems(intensityPickerItems)
     }
     
     override func willActivate() {
@@ -76,4 +81,9 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    @IBAction func pickerChanged(_ value: Int) {
+        print(value)
+        MyVariables.timePickerValue = value
+    }
+    
 }
