@@ -20,6 +20,14 @@
 		2C7AC482203D906500C4A9FB /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */; };
 		2C7AC485203D995E00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */; };
 		2C7AC486203D995E00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */; };
+		9F0B517F203E929800C6B4E2 /* HealthStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */; };
+		9F0B5181203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */; };
+		9F0B5183203E92CE00C6B4E2 /* WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */; };
+		9F0B5184203E92E600C6B4E2 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9E203D635A00E834DE /* Workout.swift */; };
+		9F0B5185203E92E900C6B4E2 /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */; };
+		9F0B5186203E92EC00C6B4E2 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA0203D635A00E834DE /* WorkoutList.swift */; };
+		9F0B5187203E92EF00C6B4E2 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+		9F0B5188203E92F200C6B4E2 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
 		9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */; };
 		9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968402023BA7D00C1D0B4 /* ViewController.swift */; };
 		9F1968442023BA7D00C1D0B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968422023BA7D00C1D0B4 /* Main.storyboard */; };
@@ -111,6 +119,9 @@
 		2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEOTERICc - Bold DEMO VERSION.ttf"; sourceTree = "<group>"; };
 		2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEOTERICc - Regular DEMO VERSION.ttf"; sourceTree = "<group>"; };
+		9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreTests.swift; sourceTree = "<group>"; };
+		9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilitiesTests.swift; sourceTree = "<group>"; };
+		9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTests.swift; sourceTree = "<group>"; };
 		9F19683B2023BA7D00C1D0B4 /* projectCARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectCARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F1968402023BA7D00C1D0B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +239,9 @@
 			children = (
 				9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */,
 				9F1968552023BA7D00C1D0B4 /* Info.plist */,
+				9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */,
+				9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */,
+				9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */,
 			);
 			path = projectCARETests;
 			sourceTree = "<group>";
@@ -530,7 +544,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F0B5187203E92EF00C6B4E2 /* WorkoutUtilities.swift in Sources */,
+				9F0B5186203E92EC00C6B4E2 /* WorkoutList.swift in Sources */,
 				9F1968542023BA7D00C1D0B4 /* projectCARETests.swift in Sources */,
+				9F0B5181203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift in Sources */,
+				9F0B517F203E929800C6B4E2 /* HealthStoreTests.swift in Sources */,
+				9F0B5184203E92E600C6B4E2 /* Workout.swift in Sources */,
+				9F0B5183203E92CE00C6B4E2 /* WorkoutTests.swift in Sources */,
+				9F0B5188203E92F200C6B4E2 /* HealthStore.swift in Sources */,
+				9F0B5185203E92E900C6B4E2 /* WorkoutFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
