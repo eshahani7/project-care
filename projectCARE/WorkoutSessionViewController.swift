@@ -14,7 +14,7 @@ class WorkoutSessionViewController: UIViewController {
     
     let store:HealthStore = HealthStore.getInstance()
     let wl:WorkoutList = WorkoutList()
-    var index:Int = 0
+    var index:Int=0
     
     @IBOutlet weak var AvgHeartRate: UILabel!
     @IBOutlet weak var CaloriesBurned: UILabel!
@@ -33,7 +33,6 @@ class WorkoutSessionViewController: UIViewController {
         AvgHeartRate.text = String(mapThis.getAvgHeartRate())
         CaloriesBurned.text = String(describing: mapThis.getCalsBurned())
         DistTraveled.text = String(describing: mapThis.getDistTraveled())
-        print(mapThis.getDistTraveled())
         Duration.text = String(mapThis.getDuration())
         WorkoutDate.text = String(describing: mapThis.getWorkoutDate())
         

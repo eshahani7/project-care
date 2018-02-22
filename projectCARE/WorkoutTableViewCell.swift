@@ -16,6 +16,8 @@ class WorkoutTableViewCell: UITableViewCell {
     
     @IBAction func WorkoutSessionSelected(_ sender: Any) {
     }
+    @IBOutlet weak var WorkoutSessionSelected: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

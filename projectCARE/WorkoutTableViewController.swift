@@ -10,6 +10,11 @@ import UIKit
 
 class WorkoutTableViewController: UITableViewController {
 
+    @IBAction func workoutSessionPressed(_ sender: Any) {
+        var button = sender as! UIButton
+        print("PRESSED HA \(button.tag)")
+        performSegue(withIdentifier: "workoutSessionPicked", sender: button.tag)
+    }
     
     var list:[WorkoutFacade]?
     let store:HealthStore = HealthStore.getInstance()
@@ -51,10 +56,13 @@ class WorkoutTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "workoutSessionPicked") {
+            var row = sender as! Int
+            print("Row index: \(String(describing: row))")
+            
             let receiverVC = segue.destination as! WorkoutSessionViewController
-            var blogIndex = tableView.indexPathForSelectedRow?.row    // get the selected indexPath
-            if(blogIndex != nil) {
-                receiverVC.index = blogIndex!
+            
+            if(row != nil) {
+                receiverVC.index = row
             }
         
         }
@@ -83,6 +91,7 @@ class WorkoutTableViewController: UITableViewController {
         
         cell.dateLabel.text = myDate
         cell.dayLabel.text = dayString
+        cell.WorkoutSessionSelected.tag = indexPath.row
         
         
         

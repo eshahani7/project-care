@@ -98,7 +98,7 @@
                                             <state key="normal" title="Button" image="workout sesh"/>
                                             <connections>
                                                 <action selector="WorkoutSessionSelected:" destination="yIJ-nQ-ZfS" eventType="touchUpInside" id="qBc-Lu-KSb"/>
-                                                <segue destination="31X-Uq-5K7" kind="show" identifier="workoutSessionPicked" id="pBY-f4-8DQ"/>
+                                                <action selector="workoutSessionPressed:" destination="bTK-Qc-Du9" eventType="touchUpInside" id="R7J-TL-EBX"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02-01-2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wc-Zf-2dO">
@@ -119,6 +119,7 @@
                                     <color key="backgroundColor" red="0.15962809319999999" green="0.18665030599999999" blue="0.2654784322" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="WorkoutSessionSelected" destination="GbV-yt-nIm" id="Bxf-6w-1U8"/>
                                     <outlet property="dateLabel" destination="7wc-Zf-2dO" id="EHl-bU-dwY"/>
                                     <outlet property="dayLabel" destination="6iT-F9-41e" id="trK-av-mkm"/>
                                 </connections>
@@ -130,10 +131,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="kK7-IR-kBw"/>
+                    <connections>
+                        <segue destination="31X-Uq-5K7" kind="show" identifier="workoutSessionPicked" id="g7I-4W-Fi4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMB-B5-ki2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="-325"/>
+            <point key="canvasLocation" x="1006" y="-358"/>
         </scene>
         <!--Workout Session View Controller-->
         <scene sceneID="Gsg-Yj-glY">
