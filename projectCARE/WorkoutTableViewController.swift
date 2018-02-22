@@ -10,12 +10,14 @@ import UIKit
 
 class WorkoutTableViewController: UITableViewController {
 
+    
     var list:[WorkoutFacade]?
     let store:HealthStore = HealthStore.getInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //getting workoutlist from WorkoutList class
         let w = WorkoutList()
         list = w.getWorkoutList() //[WorkoutFacade]
         
@@ -26,7 +28,7 @@ class WorkoutTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,9 +49,21 @@ class WorkoutTableViewController: UITableViewController {
         return 0
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "workoutSessionPicked") {
+            let receiverVC = segue.destination as! WorkoutSessionViewController
+            var blogIndex = tableView.indexPathForSelectedRow?.row    // get the selected indexPath
+            if(blogIndex != nil) {
+                receiverVC.index = blogIndex!
+            }
+        
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         let cellIdentifier = "WorkoutTableViewCell"
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WorkoutTableViewCell  else {
             fatalError("The dequeued cell is not an instance of WorkoutTableViewCell.")
         }
@@ -70,11 +84,13 @@ class WorkoutTableViewController: UITableViewController {
         cell.dateLabel.text = myDate
         cell.dayLabel.text = dayString
         
+        
+        
         // Configure the cell...
         
         return cell
     }
-    
+
 
     /*
     // Override to support conditional editing of the table view.
