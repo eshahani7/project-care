@@ -3,7 +3,7 @@
 //  projectCARE
 //
 //  Created by Cindy Lu on 2/20/18.
-//  Copyright © 2018 Ekta Shahani. All rights reserved.
+//  Copyright © 2018    q1 Ekta Shahani. All rights reserved.
 //
 
 import UIKit

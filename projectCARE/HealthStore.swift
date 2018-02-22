@@ -159,6 +159,37 @@ class HealthStore {
         store?.execute(query)
     }
     
+    func retrieveStepCount(completion: @escaping (_ stepRetrieved: [Double]) -> Void) {
+        let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        let newDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+        var interval = DateComponents()
+        interval.day = 1
+        let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
+        query.initialResultsHandler = { query, results, error in
+            if error != nil {
+                print("nooo")
+                return
+            }
+            let statsCollection = results
+            let endDate = Date()
+            let startDate = Calendar.current.date(byAdding: .day, value: -7, to: endDate as Date)
+            
+            var arr = [Double]()
+            // Plot the weekly step counts over the past 3 months
+            statsCollection?.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
+                if let quantity = statistics.sumQuantity() {
+                    //                    let date = statistics.startDate
+                    let value = quantity.doubleValue(for: HKUnit.count())
+                    // Call a custom method to plot each data point.
+                    arr.append(value)
+                }
+            }
+            completion(arr)
+        }
+        store?.execute(query)
+    }
+    
     public func getWorkouts(completion: @escaping([HKWorkout]?, Error?) -> Void) {
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
         
