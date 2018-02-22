@@ -17,7 +17,7 @@ class Workout {
     public var goalMet:Bool = false
     
     public var intensity:Int = 0
-    public var userEnteredTime:Int = 0
+    public var userEnteredTime:Double = 0.0
     public var calorieBurnGoal:Double = 0
     
     public var dateOfWorkout:Date
@@ -31,13 +31,31 @@ class Workout {
         self.distTraveled = (hkworkout.totalDistance?.doubleValue(for: HKUnit.mile()))
         self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))
         self.dateOfWorkout = hkworkout.startDate
+        setGoalValues()
     }
     
-    //    public func setGoalValues() -> Void {
-    //        intensity = hkworkout.metadata?["IntensityLevel"] as! Int
-    //        userEnteredTime = hkworkout.metadata?["UserEnteredDuration"] as! Int
-    //        calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
-    //    }
+    public func setGoalValues() -> Void {
+        print("Getting metadata")
+        if hkworkout.metadata?["IntensityLevel"] != nil {
+            intensity = hkworkout.metadata?["IntensityLevel"] as! Int
+        }
+        else{
+            print("No intensity level")
+        }
+        if hkworkout.metadata?["UserEnteredDuration"] != nil{
+            userEnteredTime = hkworkout.metadata?["UserEnteredDuration"] as! Double
+        }
+        else{
+            print("No user entered duration")
+        }
+        if hkworkout.metadata?["CalorieBurnGoal"] != nil{
+            calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
+        }
+        else{
+            print("No calorie burn goal")
+        }
+        
+    }
     
     public func queryAvgHR() -> Void {
         let predicateHR = HKQuery.predicateForObjects(from: hkworkout)

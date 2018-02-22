@@ -55,6 +55,10 @@ class WorkoutTableViewController: UITableViewController {
         }
         let workout = list![indexPath.row]
         
+        print("Calorie Burn Goal: \(workout.getCalorieBurnGoal())")
+        print("User Entered Time: \(workout.getUserEnteredTime())")
+        print("Was goal met?: \(workout.wasGoalMet())")
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let myString = formatter.string(from: workout.getWorkoutDate())
