@@ -21,8 +21,11 @@ class Workout {
     public var calorieBurnGoal:Double = 0
     
     public var dateOfWorkout:Date
+    public var hrTuples:[(heartRate: Double, timeSinceStart:Double)] = [(heartRate: Double, timeSinceStart:Double)]()
     
     private let hkworkout:HKWorkout
+    private var heartRateSamples:[HKQuantitySample]?
+    private let heartRateUnit = HKUnit(from: "count/min")
     private let store = HealthStore.getInstance()
     
     init(workout:HKWorkout) {
@@ -41,7 +44,6 @@ class Workout {
     
     public func queryAvgHR() -> Void {
         let predicateHR = HKQuery.predicateForObjects(from: hkworkout)
-        let heartRateUnit = HKUnit(from: "count/min")
         
         let group = DispatchGroup()
         group.enter()
@@ -55,9 +57,11 @@ class Workout {
                 return
             }
             
+            self.heartRateSamples = samples
+            
             var avg:Double = 0
             for s in samples {
-                avg += s.quantity.doubleValue(for: heartRateUnit)
+                avg += s.quantity.doubleValue(for: self.heartRateUnit)
             }
             
             avg /= Double(samples.count)
@@ -66,6 +70,18 @@ class Workout {
         }
         
         group.wait()
+    }
+    
+    public func constructTimeSamples() -> Void {
+        let start:Date = heartRateSamples![0].startDate
+        for s in heartRateSamples! {
+            let timeInterval = s.startDate.timeIntervalSince(start)
+            hrTuples.append((heartRate: s.quantity.doubleValue(for: heartRateUnit), timeSinceStart: timeInterval))
+        }
+    }
+    
+    public func isHRAvailable() -> Bool {
+        return heartRateSamples != nil
     }
     
     //use https://developer.apple.com/documentation/healthkit/hkobject/1615598-metadata
