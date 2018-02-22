@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         let height = view.bounds.size.height
         
         var chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height)
+        
         let group = DispatchGroup()
         group.enter()
 

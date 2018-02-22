@@ -34,8 +34,6 @@ class generateCharts {
             return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
         }
         
-        // For the horizontal axis, the labels should be the days of the week along with the date range of the week for the past week.
-        
         // These models define specifics for each of the axes, and define the bounds
         let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "Days", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsGenerator)
         let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 6400, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsGenerator)
@@ -47,7 +45,7 @@ class generateCharts {
         let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
         
         // Actual bars on the chart
-        let barViewSettings = ChartBarViewSettings(animDuration: 0.5)
+        let barViewSettings = ChartBarViewSettings()
         let barsLayer = ChartBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, bars: bars, horizontal: false, barWidth: 25, settings: barViewSettings)
         
         let labelToBarSpace: Double = 3 // domain units
@@ -69,14 +67,14 @@ class generateCharts {
             label.alpha = 0
             
             label.movedToSuperViewHandler = {[weak label] in
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0, animations: {
                     label?.alpha = 1
                     label?.center.y = chartPointModel.screenLoc.y
                 })
             }
             return label
             
-        }, displayDelay: 0.5, mode: .translate) // show after bars animation
+        }, displayDelay: 0, mode: .translate) // show after bars animation
         
         let chart = Chart(
             frame: chartFrame,
