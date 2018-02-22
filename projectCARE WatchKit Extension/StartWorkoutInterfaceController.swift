@@ -46,6 +46,10 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
     
     var workoutUtilities:WorkoutUtilities?
     
+    //initialize audio player to play air horn sound
+    //let audioPlayer = WKAudioFilePlayer(playerItem: WKAudioFilePlayerItem(asset: WKAudioFileAsset(url: URL(fileURLWithPath: "./airHornSound.wav"))))
+
+    
     //MARK: ACTIONS
     
     override func awake(withContext context: Any?) {
@@ -150,7 +154,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
         
         // Configure the workout session.
         let workoutConfiguration = HKWorkoutConfiguration()
-        workoutConfiguration.activityType = .crossTraining
+        workoutConfiguration.activityType = .running
         workoutConfiguration.locationType = .indoor
         
         do {
@@ -169,6 +173,10 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
         endDate = Date()
         
         guard let activeEnergyType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
+            fatalError("*** Unable to create the active energy burned type ***")
+        }
+        
+        guard let distanceTraveledType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning) else {
             fatalError("*** Unable to create the active energy burned type ***")
         }
         
@@ -192,6 +200,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
             
             // create the workout here
             let energyUnit = HKUnit.kilocalorie()
+            let distanceUnit = HKUnit.foot()
             var totalActiveEnergy : Double = 0.0
             
             for sample in samples {
@@ -208,6 +217,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
             print ("Duration: \(duration)")
             
             let totalActiveEnergyQuantity = HKQuantity(unit: energyUnit, doubleValue: totalActiveEnergy)
+            let calorieBurnGoal = self.workoutUtilities?.predictCalorieBurn()
             
             let workout = HKWorkout(activityType: HKWorkoutActivityType.running,
                                     start: self.startDate,
@@ -216,7 +226,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
                                     totalEnergyBurned: totalActiveEnergyQuantity,
                                     totalDistance: nil,
                                     device: HKDevice.local(),
-                                    metadata: [HKMetadataKeyIndoorWorkout : true])
+                                    metadata: [HKMetadataKeyIndoorWorkout : true, "IntensityLevel" : self.intensity, "UserEnteredDuration" : self.time, "CalorieBurnGoal" : calorieBurnGoal ?? 0.0])
             
             guard healthStore.authorizationStatus(for: HKObjectType.workoutType()) == .sharingAuthorized else {
                 print("*** the app does not have permission to save workout samples ***")
@@ -248,7 +258,6 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
                 })
             })
         }
-        
         healthStore.execute(query)
     }
     
@@ -281,39 +290,35 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
             
-            let notificationDelegate = ExtensionDelegate()
-            
-//            let soundURL = URL(fileURLWithPath: "./airHornSound.wav")
-            
-          
-//            let fileAsset:WKAudioFileAsset = WKAudioFileAsset(url: soundURL)
-//            let playerItem = WKAudioFilePlayerItem(asset: fileAsset)
-//            let audioPlayer = WKAudioFilePlayer(playerItem: playerItem)
-//
-//            if(audioPlayer.status == WKAudioFilePlayerStatus.readyToPlay){
-//                audioPlayer.play()
-//                print("Sound played!")
-//            }
-            
-            if (self.workoutUtilities?.isTooFast(currHR: value))!{
-                print ("Going too fast!!!")
-                self.paceLabel.setText("GOING TOO FAST!")
-                //notificationDelegate.sendNotification(title: "GOING TOO FAST!", message: "going fast boi")
-            }
-            else if (self.workoutUtilities?.isTooSlow(currHR: value))!{
-                print ("Going too SLOW.")
-                self.paceLabel.setText("GOING TOO SLOW!")
-                //notificationDelegate.sendNotification(title: "GOING TOO SLOW!", message: "going slow boi")
-            }
-            else {
-                print ("Going at a good pace!")
-            }
+            //let notificationDelegate = ExtensionDelegate()
             
             let heartRateForIntervalSample = sample
             self.heartRateIntervalSamples.append(heartRateForIntervalSample)
             print("Added heart rate sample. \(heartRateForIntervalSample.quantity.doubleValue(for: self.heartRateUnit))")
             
             self.HeartRateLabel.setText("Heart Rate: " + String(UInt16(value)))
+            
+            if (self.workoutUtilities?.isTooFast(currHR: value))!{
+                print ("Going too fast!!!")
+                self.paceLabel.setText("GOING TOO FAST!")
+//                if(self.audioPlayer.status == WKAudioFilePlayerStatus.readyToPlay){
+//                    self.audioPlayer.play()
+//                    print("Sound played!")
+//                }
+                //notificationDelegate.sendNotification(title: "GOING TOO FAST!", message: "going fast boi")
+            }
+            else if (self.workoutUtilities?.isTooSlow(currHR: value))!{
+                print ("Going too SLOW.")
+                self.paceLabel.setText("GOING TOO SLOW!")
+//                if(self.audioPlayer.status == WKAudioFilePlayerStatus.readyToPlay){
+//                    self.audioPlayer.play()
+//                    print("Sound played!")
+//                }
+                //notificationDelegate.sendNotification(title: "GOING TOO SLOW!", message: "going slow boi")
+            }
+            else {
+                print ("Going at a good pace!")
+            }
             
             // retrieve source from sample
             //            let name = sample.sourceRevision.source.name

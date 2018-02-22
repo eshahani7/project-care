@@ -54,11 +54,11 @@ class WorkoutFacade {
     
     //-----these don't work yet-------//
     public func wasGoalMet() -> Bool {
-        workout.setWorkoutGoalMet()
+        //workout.setWorkoutGoalMet()
         return workout.goalMet
     }
     
-    public func getUserEnteredTime() -> Int {
+    public func getUserEnteredTime() -> Double {
         return workout.userEnteredTime
     }
     
