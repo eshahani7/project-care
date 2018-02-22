@@ -11,7 +11,7 @@ import UIKit
 import SwiftCharts
 
 class generateCharts {
-    public static func createStepsChart(barsData: [(title: String, min: Int, max: Int)], view: UIView) -> Chart {
+    public static func createStepsChart(barsData: [(title: String, min: Int, max: Int)], width: CGFloat, height: CGFloat) -> Chart {
         
         let font = UIFont(name: "Avenir", size: 17)
         let labelSettings = ChartLabelSettings(font: font!)
@@ -38,9 +38,9 @@ class generateCharts {
         
         // These models define specifics for each of the axes, and define the bounds
         let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "Days", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsGenerator)
-        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 6500, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsGenerator)
+        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 6400, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsGenerator)
         
-        let chartFrame = CGRect(x: 0, y: 40, width: view.bounds.size.width - 10, height: view.bounds.size.height - 40)
+        let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
         
         // Defines the coordinate layer
         let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ChartSettings(), chartFrame: chartFrame, xModel: xModel, yModel: yModel)
@@ -89,7 +89,7 @@ class generateCharts {
                 labelsLayer
             ]
         )
-        
+    
         return chart
     }
 }

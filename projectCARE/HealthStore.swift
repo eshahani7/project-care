@@ -167,7 +167,7 @@ class HealthStore {
         let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
         query.initialResultsHandler = { query, results, error in
             if error != nil {
-                print("nooooo")
+                print("nooo")
                 return
             }
             let statsCollection = results
@@ -198,9 +198,7 @@ class HealthStore {
                     completion(nil, error)
                     return
                 }
-                
                 completion(samples, nil)
-                
             }
         }
         
