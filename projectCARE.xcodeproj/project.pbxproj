@@ -26,6 +26,14 @@
 		9F487A272023CA82007F9DBE /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A262023CA82007F9DBE /* HealthStore.swift */; };
 		9F5096BD203BF96600F6D497 /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5096BC203BF96600F6D497 /* WorkoutFacade.swift */; };
 		9F5096BF203BFB4200F6D497 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5096BE203BFB4200F6D497 /* Workout.swift */; };
+		9F93751A203E50EE00493C29 /* HealthStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F937519203E50EE00493C29 /* HealthStoreTests.swift */; };
+		9F93751C203E510A00493C29 /* WorkoutUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93751B203E510A00493C29 /* WorkoutUtilitiesTests.swift */; };
+		9F93751E203E51A600493C29 /* WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93751D203E51A600493C29 /* WorkoutTests.swift */; };
+		9F93751F203E561D00493C29 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */; };
+		9F937520203E5B5600493C29 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A262023CA82007F9DBE /* HealthStore.swift */; };
+		9F937521203E5B5C00493C29 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE82F5203A61E900612B60 /* WorkoutList.swift */; };
+		9F937522203E5B5F00493C29 /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5096BC203BF96600F6D497 /* WorkoutFacade.swift */; };
+		9F937523203E5B6100493C29 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5096BE203BFB4200F6D497 /* Workout.swift */; };
 		9FCE82ED203A2EC900612B60 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */; };
 		9FCE82EE203A2ED600612B60 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A262023CA82007F9DBE /* HealthStore.swift */; };
 		9FCE82EF203A30BA00612B60 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */; };
@@ -119,6 +127,9 @@
 		9F487A262023CA82007F9DBE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		9F5096BC203BF96600F6D497 /* WorkoutFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFacade.swift; sourceTree = "<group>"; };
 		9F5096BE203BFB4200F6D497 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9F937519203E50EE00493C29 /* HealthStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreTests.swift; sourceTree = "<group>"; };
+		9F93751B203E510A00493C29 /* WorkoutUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilitiesTests.swift; sourceTree = "<group>"; };
+		9F93751D203E51A600493C29 /* WorkoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTests.swift; sourceTree = "<group>"; };
 		9FCE82F5203A61E900612B60 /* WorkoutList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +213,9 @@
 			children = (
 				9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */,
 				9F1968552023BA7D00C1D0B4 /* Info.plist */,
+				9F937519203E50EE00493C29 /* HealthStoreTests.swift */,
+				9F93751B203E510A00493C29 /* WorkoutUtilitiesTests.swift */,
+				9F93751D203E51A600493C29 /* WorkoutTests.swift */,
 			);
 			path = projectCARETests;
 			sourceTree = "<group>";
@@ -402,6 +416,7 @@
 					};
 					9F1968592023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ULDWKKPVBU;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9F19683A2023BA7C00C1D0B4;
 					};
@@ -502,7 +517,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F937521203E5B5C00493C29 /* WorkoutList.swift in Sources */,
 				9F1968542023BA7D00C1D0B4 /* projectCARETests.swift in Sources */,
+				9F937520203E5B5600493C29 /* HealthStore.swift in Sources */,
+				9F93751C203E510A00493C29 /* WorkoutUtilitiesTests.swift in Sources */,
+				9F93751A203E50EE00493C29 /* HealthStoreTests.swift in Sources */,
+				9F937523203E5B6100493C29 /* Workout.swift in Sources */,
+				9F937522203E5B5F00493C29 /* WorkoutFacade.swift in Sources */,
+				9F93751E203E51A600493C29 /* WorkoutTests.swift in Sources */,
+				9F93751F203E561D00493C29 /* WorkoutUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +827,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ULDWKKPVBU;
 				INFOPLIST_FILE = projectCAREUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
@@ -817,6 +843,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ULDWKKPVBU;
 				INFOPLIST_FILE = projectCAREUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;

@@ -63,7 +63,8 @@ class HealthStore {
         }
         
         let writeTypes: Set<HKSampleType> = [stepCount,
-                                             HKObjectType.workoutType()]
+                                             HKObjectType.workoutType(),
+                                             heartRate]
         
         let readTypes: Set<HKObjectType> = [activeEnergy,
                                             dateOfBirth,
@@ -184,8 +185,19 @@ class HealthStore {
             let calendar = Calendar.current
             let todayDateComponents = calendar.dateComponents([.year],
                                                               from: today)
+            let todayMonthComponents = calendar.dateComponents([.month],
+                                                              from: today)
             let thisYear = todayDateComponents.year!
-            let age = thisYear - (dob?.year!)! - 1
+            let thisMonth = todayMonthComponents.month!
+            
+            let age:Int
+            
+            if (dob?.month)! <= thisMonth {
+                age = thisYear - (dob?.year!)!
+            } else {
+                age = thisYear - (dob?.year!)! - 1
+            }
+   
             return age
         } catch {
             print("can't get dob")

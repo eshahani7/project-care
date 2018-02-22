@@ -55,7 +55,9 @@ class WorkoutUtilities {
             }
             
             //samples is an array, use to pass into another function or whatever you need
-            self.weight = samples[samples.count-1].quantity.doubleValue(for: HKUnit.pound())
+            if samples.count > 0 {
+                self.weight = samples[samples.count-1].quantity.doubleValue(for: HKUnit.pound())
+            }
             group.leave()
         }
         
