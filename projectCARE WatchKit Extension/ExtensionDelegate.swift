@@ -10,15 +10,38 @@ import WatchKit
 import UserNotifications
 import HealthKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, UNUserNotificationCenterDelegate
+ {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Update the app interface directly.
+        print("In here")
+        // Play a sound.
+        completionHandler(UNNotificationPresentationOptions.alert)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("Goes in here")
+        
+        
+        completionHandler()
+        // Else handle actions for other notification types. . .
+    }
+
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         print("Watch app started.")
         
-        let center = UNUserNotificationCenter.current()
+        //let center = UNUserNotificationCenter.current()
+        UNUserNotificationCenter.current().delegate = self
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        center.requestAuthorization(options: options) { (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, error) in
             if (error != nil){
                 print("There was an error \(error.debugDescription)")
             }
@@ -34,10 +57,31 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         
         
         // Register the category.
-        center.setNotificationCategories([generalCategory])
+        UNUserNotificationCenter.current().setNotificationCategories([generalCategory])
         
         //set up session
         //let manager:WatchSessionManager = WatchSessionManager()
+    }
+    
+    func sendNotification(title: String, message: String) {
+        print("Going to send notification")
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)
+        content.sound = UNNotificationSound.default()
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "oneSecond", content: content, trigger: trigger) // Schedule the notification.
+        //let center = UNUserNotificationCenter.current()
+        UNUserNotificationCenter.current().add(request) { (error : Error?) in
+            if let theError = error {
+                // Handle any errors
+                print("There was a notification error: \(theError.localizedDescription)")
+            }
+            else{
+                print("Successfully added notification.")
+            }
+        }
     }
 
     func applicationDidBecomeActive() {

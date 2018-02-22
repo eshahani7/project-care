@@ -46,6 +46,8 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
     
     var workoutUtilities:WorkoutUtilities?
     
+    var soundPlayer:WKAudioFileQueuePlayer?
+    
     
     //MARK: ACTIONS
     
@@ -282,32 +284,29 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
             
-            let content = UNMutableNotificationContent()
-            content.title = NSString.localizedUserNotificationString(forKey: "GOING TOO SLOW!", arguments: nil)
-            content.body = NSString.localizedUserNotificationString(forKey: "Hello_message_body", arguments: nil)
-            content.sound = UNNotificationSound.default()
-            // Deliver the notification in five seconds.
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger) // Schedule the notification.
-            let center = UNUserNotificationCenter.current()
-            center.add(request) { (error : Error?) in
-                if let theError = error {
-                    // Handle any errors
-                }
-            }
+            let notificationDelegate = ExtensionDelegate()
             
+//            let soundURL = URL(fileURLWithPath: "./airHornSound.wav")
             
-            //self.sendNotification(title: "NOTIFICATION", message: "testing")
+          
+//            let fileAsset:WKAudioFileAsset = WKAudioFileAsset(url: soundURL)
+//            let playerItem = WKAudioFilePlayerItem(asset: fileAsset)
+//            let audioPlayer = WKAudioFilePlayer(playerItem: playerItem)
+//
+//            if(audioPlayer.status == WKAudioFilePlayerStatus.readyToPlay){
+//                audioPlayer.play()
+//                print("Sound played!")
+//            }
             
             if (self.workoutUtilities?.isTooFast(currHR: value))!{
                 print ("Going too fast!!!")
                 self.paceLabel.setText("GOING TOO FAST!")
-                //self.sendNotification(title: "GOING TOO FAST!", message: "Slow down!")
+                //notificationDelegate.sendNotification(title: "GOING TOO FAST!", message: "going fast boi")
             }
             else if (self.workoutUtilities?.isTooSlow(currHR: value))!{
                 print ("Going too SLOW.")
                 self.paceLabel.setText("GOING TOO SLOW!")
-                //self.sendNotification(title: "GOING TOO SLOW!", message: "Go faster!")
+                //notificationDelegate.sendNotification(title: "GOING TOO SLOW!", message: "going slow boi")
             }
             else {
                 print ("Going at a good pace!")
@@ -324,23 +323,6 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
             //            self.updateDeviceName(name)
         }
         
-    }
-    
-    func sendNotification(title: String, message: String) {
-        let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)
-        content.sound = UNNotificationSound.default()
-        // Deliver the notification in five seconds.
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        let request = UNNotificationRequest(identifier: "oneSecond", content: content, trigger: trigger) // Schedule the notification.
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error : Error?) in
-            if let theError = error {
-                // Handle any errors
-                print("There was a notification error: \(theError.localizedDescription)")
-            }
-        }
     }
 
     override func didDeactivate() {
