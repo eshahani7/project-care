@@ -44,6 +44,14 @@ class WorkoutFacade {
         return workout.dateOfWorkout
     }
     
+    public func getHRTuples() -> [(heartRate: Double, timeSinceStart:Double)] {
+        if !workout.isHRAvailable() {
+            self.getAvgHeartRate()
+        }
+        workout.constructTimeSamples()
+        return workout.hrTuples
+    }
+    
     //-----these don't work yet-------//
     public func wasGoalMet() -> Bool {
         workout.setWorkoutGoalMet()
