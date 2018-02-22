@@ -13,12 +13,10 @@ class WorkoutUtilitiesTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        print("testing")
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        print("done testing")
         super.tearDown()
     }
     
@@ -47,4 +45,4 @@ class WorkoutUtilitiesTests: XCTestCase {
         XCTAssertEqual(round(calsBurned), 114)
     }
     
-}
+ }

@@ -100,7 +100,11 @@ class HealthStoreTests: XCTestCase {
                 let heartRateForIntervalSample =
                     HKQuantitySample(type: HealthValues.heartRate!, quantity: heartRateQuantity,
                                      start: Date(), end: Date())
+                let heartRateForIntervalSample2 =
+                    HKQuantitySample(type: HealthValues.heartRate!, quantity: heartRateQuantity,
+                                     start: Date().addingTimeInterval(20), end: Date().addingTimeInterval(40))
                 samples.append(heartRateForIntervalSample)
+                samples.append(heartRateForIntervalSample2)
                 
                 appleStore.add(samples, to: workout) {
                     (success, error) in

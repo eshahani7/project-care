@@ -65,4 +65,12 @@ class WorkoutTests: XCTestCase {
         XCTAssertNotNil(list[0].getWorkoutDate())
     }
     
+    func testGetHRTuples() {
+        let workoutList:WorkoutList = WorkoutList()
+        let list:[WorkoutFacade] = workoutList.getWorkoutList()
+        let tuples = list[0].getHRTuples()
+        XCTAssertEqual(tuples[0].heartRate, 95)
+//        XCTAssertNotNil(list[0].getHRTuples())
+    }
+    
 }
