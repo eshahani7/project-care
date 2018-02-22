@@ -46,9 +46,6 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
     
     var workoutUtilities:WorkoutUtilities?
     
-    var soundPlayer:WKAudioFileQueuePlayer?
-    
-    
     //MARK: ACTIONS
     
     override func awake(withContext context: Any?) {
