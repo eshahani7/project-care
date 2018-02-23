@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftCharts
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -28,7 +29,7 @@ extension UIColor {
 class ViewController: UIViewController {
 
     let store:HealthStore = HealthStore.getInstance()
-    
+    var chart: Chart?
     
     @IBAction func SleepAnalysis(_ sender: UIButton) {
         performSegue(withIdentifier: "SleepAnalysis", sender: self)
@@ -37,7 +38,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var barsData = [(title: String, min: Int, max: Int)]()
-        var i = 0
         let width = view.bounds.size.width
         let height = view.bounds.size.height
         var chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height)
@@ -45,28 +45,15 @@ class ViewController: UIViewController {
         group.enter()
         store.retrieveStepCount() { steps in
             for step in steps {
-                i = i + 1
-                barsData.append((title: String(i), min: 0, max: Int(step)))
+                barsData.append((title: step.date, min: 0, max: Int(step.steps)))
             }
+            
             chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height/1.6)
+            
             group.leave()
         }
         group.wait()
-        view.addSubview(chart.view)
-        store.getExerciseTime() { activeTime in
-            print ("Exercise Time")
-            for time in activeTime {
-                print(time)
-            }
-        }
-        
-//        store.getSleepHours(){ hours in
-//            print("Sleep Hours")
-//            for elm in hours {
-//                print(elm)
-//            }
-//        }
-        
+        view.addSubview((chart.view))
         // Do any additional setup after loading the view, typically from a nib.
     }
     

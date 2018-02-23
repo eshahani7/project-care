@@ -10,6 +10,7 @@ import UIKit
 import SwiftCharts
 
 class generateCharts {
+    
     public static func createStepsChart(barsData: [(title: String, min: Int, max: Int)], width: CGFloat, height: CGFloat) -> Chart {
         
         let font = UIFont(name: "Avenir", size: 12)
@@ -27,7 +28,6 @@ class generateCharts {
         // THe generator represents the scale for the charts
         let xGenerator = ChartAxisGeneratorMultiplier(1)
         let yGenerator = ChartAxisGeneratorMultiplier(1000)
-        
         
         let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
             return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
@@ -89,5 +89,109 @@ class generateCharts {
         )
         
         return chart
+    }
+    
+    public static func createSleepActivityChart(groupsData: [(title: String, [(min: Double, max: Double)])], horizontal: Bool, width: CGFloat, height: CGFloat) -> Chart {
+
+        var chart: Chart?
+        let font = UIFont(name: "Avenir", size: 12)
+        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
+        
+//        let groupsData: [(title: String, [(min: Double, max: Double)])] = [
+//            ("Data A", [
+//                (0, 40),
+//                (0, 50)
+//                ]),
+//            ("Data B", [
+//                (0, 20),
+//                (0, 30)
+//                ]),
+//            ("Data C", [
+//                (0, 30),
+//                (0, 50)
+//                ]),
+//            ("Data D", [
+//                (0, 55),
+//                (0, 30)
+//                ])
+//        ]
+        
+        let groupColors = [UIColor.red.withAlphaComponent(0.6), UIColor.blue.withAlphaComponent(0.6)]
+        
+        let groups: [ChartPointsBarGroup] = groupsData.enumerated().map {index, entry in
+            let constant = ChartAxisValueDouble(index)
+            let bars = entry.1.enumerated().map {index, tuple in
+                ChartBarModel(constant: constant, axisValue1: ChartAxisValueDouble(tuple.min), axisValue2: ChartAxisValueDouble(tuple.max), bgColor: groupColors[index])
+            }
+            return ChartPointsBarGroup(constant: constant, bars: bars)
+        }
+        
+        let (axisValues1, axisValues2): ([ChartAxisValue], [ChartAxisValue]) = (
+            stride(from: 0, through: 60, by: 5).map {ChartAxisValueDouble(Double($0), labelSettings: labelSettings)},
+            [ChartAxisValueString(order: -1)] +
+                groupsData.enumerated().map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
+                [ChartAxisValueString(order: groupsData.count)]
+        )
+        let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
+        
+        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
+        let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
+//        let chartFrame = chart?.frame ?? CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frame.size.height - dirSelectorHeight)
+        
+        let chartSettings = ChartSettings()
+        
+        let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
+        let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
+        
+        let barViewSettings = ChartBarViewSettings(animDuration: 0.1, selectionViewUpdater: ChartViewSelectorBrightness(selectedFactor: 0.5))
+        
+        let groupsLayer = ChartGroupedPlainBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, groups: groups, horizontal: horizontal, barSpacing: 2, groupSpacing: 25, settings: barViewSettings, tapHandler: { tappedGroupBar /*ChartTappedGroupBar*/ in
+            
+            let barPoint = horizontal ? CGPoint(x: tappedGroupBar.tappedBar.view.frame.maxX, y: tappedGroupBar.tappedBar.view.frame.midY) : CGPoint(x: tappedGroupBar.tappedBar.view.frame.midX, y: tappedGroupBar.tappedBar.view.frame.minY)
+            
+            guard let chart = chart, let chartViewPoint = tappedGroupBar.layer.contentToGlobalCoordinates(barPoint) else {return}
+            
+            let viewPoint = CGPoint(x: chartViewPoint.x, y: chartViewPoint.y)
+            
+            let infoBubble = InfoBubble(point: viewPoint, preferredSize: CGSize(width: 50, height: 40), superview: chart.view, text: tappedGroupBar.tappedBar.model.axisValue2.description, font: font!, textColor: UIColor.white, bgColor: UIColor.gray, horizontal: horizontal)
+            
+            let anchor: CGPoint = {
+                switch (horizontal, infoBubble.inverted(chart.view)) {
+                case (true, true): return CGPoint(x: 1, y: 0.5)
+                case (true, false): return CGPoint(x: 0, y: 0.5)
+                case (false, true): return CGPoint(x: 0.5, y: 0)
+                case (false, false): return CGPoint(x: 0.5, y: 1)
+                }
+            }()
+            
+            let animatorsSettings = ChartViewAnimatorsSettings(animInitSpringVelocity: 1)
+            let animators = ChartViewAnimators(view: infoBubble, animators: ChartViewGrowAnimator(anchor: anchor), settings: animatorsSettings, invertSettings: animatorsSettings.withoutDamping(), onFinishInverts: {
+                infoBubble.removeFromSuperview()
+            })
+            
+            chart.view.addSubview(infoBubble)
+            
+            infoBubble.tapHandler = {
+                animators.invert()
+            }
+            
+            animators.animate()
+        })
+        
+        let guidelinesSettings = ChartGuideLinesLayerSettings(linesColor: UIColor.white, linesWidth: 0.1)
+        let guidelinesLayer = ChartGuideLinesLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, axis: horizontal ? .x : .y, settings: guidelinesSettings)
+        
+        return Chart(
+            frame: chartFrame,
+            innerFrame: innerFrame,
+            settings: chartSettings,
+            layers: [
+                xAxisLayer,
+                yAxisLayer,
+                guidelinesLayer,
+                groupsLayer
+            ]
+        )
     }
 }
