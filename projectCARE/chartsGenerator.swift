@@ -102,27 +102,17 @@ class generateCharts {
         // ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))
         let points: [ChartPoint] = pointsData.map{ChartPoint(x: ChartAxisValueDouble($0.1), y: ChartAxisValueDouble($0.0, labelSettings: labelSettings))}
         
-        let xGenerator = ChartAxisGeneratorMultiplier(1)
-        let yGenerator = ChartAxisGeneratorMultiplier(20)
+       
         
-        
-        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-            return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
-        }
-        
-        // These models define specifics for each of the axes, and define the bounds
-        let xModel = ChartAxisModel(firstModelValue: 0, lastModelValue: Double(pointsData.count), axisTitleLabels: [ChartAxisLabel(text: "Minutes", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsGenerator)
-        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 160, axisTitleLabels: [ChartAxisLabel(text: "Heartrate", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsGenerator)
-        
-//        let xValues = points.map{$0.x}
-//        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
+        let xValues = points.map{$0.x}
+        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
     
         let lineModel = ChartLineModel(chartPoints: points, lineColor: color, animDuration: 1, animDelay: 0)
         
-        // These models define specifics for each of the axes, and define the bounds
-//        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Minute", settings: labelSettings))
-//        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Heart Rate", settings: labelSettings.defaultVertical()))
-//
+        //These models define specifics for each of the axes, and define the bounds
+        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Minute", settings: labelSettings))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Heart Rate", settings: labelSettings.defaultVertical()))
+
         
         let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
         
@@ -135,18 +125,35 @@ class generateCharts {
     
     let settings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth:2)
     let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
+        
+        let chartConfig = ChartConfigXY(
+            chartSettings: ChartSettings(),
+            xAxisConfig: ChartAxisConfig(from: 0, to: 3, by: 0.5),
+            yAxisConfig: ChartAxisConfig(from: 0, to: 150, by: 20),
+            xAxisLabelSettings:labelSettings,
+            yAxisLabelSettings:labelSettings.defaultVertical()
+        )
+        
+        let chart = LineChart(
+            frame: chartFrame,
+            chartConfig: chartConfig,
+            xTitle: "Minutes",
+            yTitle: "Heart Rate",
+            lines: [(chartPoints: pointsData, color: color)]
+        )
+        
     
-    let chart = Chart(
-        frame: chartFrame,
-        innerFrame: innerFrame,
-        settings: ChartSettings(),
-        layers: [
-            xAxisLayer,
-            yAxisLayer,
-            guidelinesLayer,
-            chartPointsLineLayer,
-        ]
-    )
+//    let chart = Chart(
+//        frame: chartFrame,
+//        innerFrame: innerFrame,
+//        settings: ChartSettings(),
+//        layers: [
+//            xAxisLayer,
+//            yAxisLayer,
+//            guidelinesLayer,
+//            chartPointsLineLayer,
+//        ]
+//    )
     
 //    view.addSubview(chart.view)
 //    self.chart = chart
