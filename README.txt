@@ -13,3 +13,8 @@ The project can be run on the simulator but realtime features will not work prop
 The simulator may not have all health data saved. Age, sex, and weight can be entered in the Health app on the simulator manually.
 The simulator does not have Workout data. In our next iteration, we will add files to seed Health data if no health data is available.
 All unit tests at the moment do seed the Health data - if they are run, the simulator will contain workout data, but will still not contain age, sex, and weight unless entered manually.
+
+Guidance:
+1. On the first watch screen, the user selects the amount of time they want the workout to last. When the "NEXT" button is pressed, the user enters the desired intensity level for the work out. Finally, the user is prompted to start the workout. The app then tracks the time elapsed and the user's heart rate in real time, and tells the user when their heart rate is either too high or too low for the given intensity, based on their weight and age. When the user presses "STOP" the workout ends and is saved to the HealthStore. The workout can then be seen in the iPhone app.
+
+2. On the iPhone app, the user has the option to open "Previous Workouts" or "Sleep Analysis". "Previous Workouts" displays the user's latest 10 workouts. If the user presses any workout in the list, the information pertinent to that workout is displayed, and it tells the user if they met their calorie burn goal (calculated beforehand, when workout is started). "Sleep Analysis" displays information about the user's sleep.
