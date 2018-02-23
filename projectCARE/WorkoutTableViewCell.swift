@@ -18,6 +18,12 @@ class WorkoutTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var WorkoutSessionSelected: UIButton!
     
+//    setFrame:(CGRect)frame {
+//        frame.origin.y += 4;
+//        frame.size.height -= 2 * 4;
+//        [super setFrame:frame];
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

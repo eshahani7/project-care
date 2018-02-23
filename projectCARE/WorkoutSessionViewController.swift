@@ -18,29 +18,57 @@ class WorkoutSessionViewController: UIViewController {
     
     @IBOutlet weak var AvgHeartRate: UILabel!
     @IBOutlet weak var CaloriesBurned: UILabel!
-    @IBOutlet weak var DistTraveled: UILabel!
+    //@IBOutlet weak var DistTraveled: UILabel!
     @IBOutlet weak var Duration: UILabel!
     @IBOutlet weak var WorkoutDate: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         let list:[WorkoutFacade] = wl.getWorkoutList()
         let mapThis:WorkoutFacade = list[index]
         
-        AvgHeartRate.text = String(mapThis.getAvgHeartRate())
-        CaloriesBurned.text = String(describing: mapThis.getCalsBurned())
-        DistTraveled.text = String(describing: mapThis.getDistTraveled())
-        Duration.text = String(mapThis.getDuration())
-        WorkoutDate.text = String(describing: mapThis.getWorkoutDate())
+        let av = "♥ Average Heart Rate: " + String(mapThis.getAvgHeartRate()) + " BPM"
+        let cal = "♥ Calories Burned: " + String(describing: mapThis.getCalsBurned()!) + " CAL"
+        let du = "♥ Duration: " + minToString(min:mapThis.getDuration())
+        let da = dateFormate(date: mapThis.getWorkoutDate())
+        
+        AvgHeartRate.text = av
+        CaloriesBurned.text = cal
+        //DistTraveled.text = String(describing: mapThis.getDistTraveled())
+        Duration.text = du
+        WorkoutDate.text = da
         
         
+//        var myMutableString = NSMutableAttributedString()
+//        myMutableString = NSMutableAttributedString(string: av as String, attributes: [NSAttributedStringKey.font:UIFont(name: "System", size: 18.0)!])
+//
+//        myMutableString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 23.0), range: NSRange(location:22,length:(String(mapThis.getAvgHeartRate()).count)))
+//        AvgHeartRate.attributedText = myMutableString
         
         // Do any additional setup after loading the view.
     }
-
+    
+    func minToString(min:Double) -> String {
+        let mins = Int(floor(min))
+        let secs = Int(floor(min * 60).truncatingRemainder(dividingBy: 60))
+        
+        return String(format:"%02dmin% 02dsec", mins, secs)
+    }
+    
+    func dateFormate(date:Date) -> String {
+        let dateWithTime = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        
+        let date = dateFormatter.string(from: date) // 2/10/17
+        return date
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
