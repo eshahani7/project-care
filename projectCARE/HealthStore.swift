@@ -21,6 +21,7 @@ struct HealthValues {
     static let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount)
     static let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
     static let respRate = HKObjectType.quantityType(forIdentifier: .respiratoryRate)
+    static let sleepHours = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)
     static let workouts = HKObjectType.workoutType()
 }
 
@@ -56,6 +57,7 @@ class HealthStore {
             let exerciseTime = HealthValues.exerciseTime,
             let stepCount = HealthValues.stepCount,
             let heartRate = HealthValues.heartRate,
+            let sleepHours = HealthValues.sleepHours,
             let respRate = HealthValues.respRate else {
                 
                 completion(false, HealthkitSetupError.dataTypeNotAvailable)
@@ -74,6 +76,7 @@ class HealthStore {
                                             exerciseTime,
                                             stepCount,
                                             heartRate,
+                                            sleepHours,
                                             respRate,
                                             HKObjectType.workoutType()]
         
@@ -160,12 +163,11 @@ class HealthStore {
     }
     
     func retrieveStepCount(completion: @escaping (_ stepRetrieved: [Double]) -> Void) {
-        let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
         let newDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
         let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
         var interval = DateComponents()
         interval.day = 1
-        let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
+        let query = HKStatisticsCollectionQuery(quantityType: HealthValues.stepCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
         query.initialResultsHandler = { query, results, error in
             if error != nil {
                 print("nooo")
@@ -179,7 +181,9 @@ class HealthStore {
             // Plot the weekly step counts over the past 3 months
             statsCollection?.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
-                    //                    let date = statistics.startDate
+                    let date = statistics.startDate
+                    print(date)
+                    
                     let value = quantity.doubleValue(for: HKUnit.count())
                     // Call a custom method to plot each data point.
                     arr.append(value)
@@ -190,21 +194,83 @@ class HealthStore {
         store?.execute(query)
     }
     
+    public func getExerciseTime(completion: @escaping (_ exerciseTime: [Double]) -> Void) {
+        let newDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+        var interval = DateComponents()
+        interval.day = 1
+        let query = HKStatisticsCollectionQuery(quantityType: HealthValues.exerciseTime!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
+        query.initialResultsHandler = { query, results, error in
+            if error != nil {
+                print("nooo")
+                print(error!)
+                return
+            }
+            let statsCollection = results
+            let endDate = Date()
+            let startDate = Calendar.current.date(byAdding: .day, value: -7, to: endDate as Date)
+            var arr = [Double]()
+            // Plot the weekly step counts over the past 3 months
+            statsCollection?.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
+                if let quantity = statistics.sumQuantity() {
+                    let date = statistics.startDate
+                    print(date)
+                    
+                    let value = quantity.doubleValue(for: HKUnit.minute())
+                    print(value)
+                    // Call a custom method to plot each data point.
+                    arr.append(value)
+                }
+            }
+            completion(arr)
+        }
+        store?.execute(query)
+    }
+    
+    public func getSleepHours(completion: @escaping (_ sleepAnalysis: [(String, Double)]) -> Void) {
+        if let sleepType = HealthValues.sleepHours {
+            // Use a sortDescriptor to get the recent data first
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+            // we create our query with a block completion to execute
+            let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 7, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                if error != nil {
+                    print("why do you hate me sleep")
+                    return
+                }
+                var arr = [(String, Double)]()
+                if let result = tmpResult {
+                    // do something with my data
+                    for item in result {
+                        if let sample = item as? HKCategorySample {
+                            let seconds =
+                               sample.endDate.timeIntervalSince(sample.startDate)
+                            let minutes = seconds/60
+                            let hours = minutes/60
+                            arr.append((String(describing: sample.startDate), hours))
+                        }
+                    }
+                    completion(arr)
+                }
+            }
+            store?.execute(query)
+        }
+    }
+
     public func getWorkouts(completion: @escaping([HKWorkout]?, Error?) -> Void) {
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-        
+
         let query = HKSampleQuery(sampleType: HealthValues.workouts, predicate:nil , limit: 10, sortDescriptors: [sortDescriptor]) {(query, results, error) in
             DispatchQueue.global().async {
                 guard let samples = results as? [HKWorkout] else {
                     completion(nil, error)
                     return
                 }
-                
+
                 completion(samples, nil)
-                
+
             }
         }
-        
+
         store?.execute(query)
     }
     

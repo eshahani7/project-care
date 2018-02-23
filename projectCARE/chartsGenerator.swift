@@ -12,11 +12,11 @@ import SwiftCharts
 class generateCharts {
     public static func createStepsChart(barsData: [(title: String, min: Int, max: Int)], width: CGFloat, height: CGFloat) -> Chart {
         
-        let font = UIFont(name: "Avenir", size: 17)
-        let labelSettings = ChartLabelSettings(font: font!)
+        let font = UIFont(name: "Avenir", size: 12)
+        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
         
-        let alpha: CGFloat = 0.5
-        let color = UIColor.gray.withAlphaComponent(alpha)
+        let alpha: CGFloat = 0.2
+        let color = UIColor.lightGray.withAlphaComponent(alpha)
         let zero = ChartAxisValueInt(0)
         let bars: [ChartBarModel] = barsData.enumerated().flatMap {index, tuple in
             [
@@ -60,15 +60,16 @@ class generateCharts {
             let pos = chartPointModel.chartPoint.y.scalar > 0
             
             label.text = "\(formatter.string(from: NSNumber(value: chartPointModel.chartPoint.y.scalar - labelToBarSpace))!)"
+            label.textColor = UIColor.white
             label.font = font!
             label.sizeToFit()
-            label.center = CGPoint(x: chartPointModel.screenLoc.x, y: pos ? innerFrame.origin.y : innerFrame.origin.y + innerFrame.size.height)
+            label.center = CGPoint(x: chartPointModel.screenLoc.x, y: pos ? innerFrame.origin.y: innerFrame.origin.y + innerFrame.size.height)
             label.alpha = 0
             
             label.movedToSuperViewHandler = {[weak label] in
                 UIView.animate(withDuration: 0, animations: {
                     label?.alpha = 1
-                    label?.center.y = chartPointModel.screenLoc.y
+                    label?.center.y = chartPointModel.screenLoc.y - 10
                 })
             }
             return label

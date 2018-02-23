@@ -36,6 +36,36 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var barsData = [(title: String, min: Int, max: Int)]()
+        var i = 0
+        let width = view.bounds.size.width
+        let height = view.bounds.size.height
+        var chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height)
+        let group = DispatchGroup()
+        group.enter()
+        store.retrieveStepCount() { steps in
+            for step in steps {
+                i = i + 1
+                barsData.append((title: String(i), min: 0, max: Int(step)))
+            }
+            chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height/1.6)
+            group.leave()
+        }
+        group.wait()
+        view.addSubview(chart.view)
+        store.getExerciseTime() { activeTime in
+            print ("Exercise Time")
+            for time in activeTime {
+                print(time)
+            }
+        }
+        
+//        store.getSleepHours(){ hours in
+//            print("Sleep Hours")
+//            for elm in hours {
+//                print(elm)
+//            }
+//        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }
