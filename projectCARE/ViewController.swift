@@ -90,6 +90,10 @@ class ViewController: UIViewController {
         
         // 5
         navigationItem.titleView = imageView
+        
+        nav?.topItem?.title = "CARE";
+        //nav?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.red, NSAttributedStringKey.font: UIFont(name: "mplus-1c-regular", size: 21)!]
+
     }
     
     override func didReceiveMemoryWarning() {

@@ -424,12 +424,14 @@
 					};
 					9F19684E2023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7Z37KT3ZNX;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9F19683A2023BA7C00C1D0B4;
 					};
 					9F1968592023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7Z37KT3ZNX;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9F19683A2023BA7C00C1D0B4;
@@ -743,7 +745,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+
 				DEVELOPMENT_TEAM = BA5W6527X2;
+
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
@@ -762,7 +766,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+
 				DEVELOPMENT_TEAM = BA5W6527X2;
+
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
@@ -849,6 +855,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = projectCARETests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARETests;
@@ -864,6 +871,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = projectCARETests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARETests;
@@ -878,6 +886,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = projectCAREUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
@@ -892,6 +901,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
 				INFOPLIST_FILE = projectCAREUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
