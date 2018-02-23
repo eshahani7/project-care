@@ -34,20 +34,26 @@ class WorkoutSessionViewController: UIViewController {
         print(String(mapThis.getCalorieBurnGoal() ))
         
         
-        let av = "♥ Average Heart Rate: " + String(mapThis.getAvgHeartRate()) + " BPM"
+        let av = "♥ Average Heart Rate: " + String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
         let cal = "♥ Calories Burned: " + String(describing: mapThis.getCalsBurned()!) + " CAL"
-        let du = "♥ Duration: " + minToString(min:mapThis.getDuration())
+        let du = "♥ Duration: " + durationToString(min:mapThis.getDuration())
         let da = dateFormate(date: mapThis.getWorkoutDate())
-        let calb = String(format: "%.2f", mapThis.getCalorieBurnGoal())
+        let calb = "♥ Calorie Burn Goal: " + String(format: "%.2f", mapThis.getCalorieBurnGoal())
+        var goal = ""
+        if(mapThis.wasGoalMet()) {
+            goal = "YES"
+        } else {
+            goal = "NO"
+        }
         
         AvgHeartRate.text = av
         CaloriesBurned.text = cal
         //DistTraveled.text = String(describing: mapThis.getDistTraveled())
         Duration.text = du
         WorkoutDate.text = da
-        GoalMet.text = String(mapThis.wasGoalMet())
-        UserEnteredTime.text = String(mapThis.getUserEnteredTime())
-        CalBurnGoal.text = calb
+        GoalMet.text = "♥ Goal Met: " + goal
+        UserEnteredTime.text = "♥ Time Entered: " + minToString(min:mapThis.getUserEnteredTime())
+        CalBurnGoal.text = calb + " CAL"
         
         
 //        var myMutableString = NSMutableAttributedString()
@@ -59,11 +65,16 @@ class WorkoutSessionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func minToString(min:Double) -> String {
+    func durationToString(min:Double) -> String {
         let mins = Int(floor(min))
         let secs = Int(floor(min * 60).truncatingRemainder(dividingBy: 60))
         
-        return String(format:"%02dmin% 02dsec", mins, secs)
+        return String(format:"%02d:%02d", mins, secs)
+    }
+    func minToString(min:Double) -> String {
+        let mins = Int(floor(min))
+        
+        return String(format:"%02d minutes", mins)
     }
     
     func dateFormate(date:Date) -> String {

@@ -20,7 +20,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--CARE-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="projectCARE" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,10 +51,6 @@
                                     <segue destination="bTK-Qc-Du9" kind="show" id="leE-Zf-x0z"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="step count fake" translatesAutoresizingMaskIntoConstraints="NO" id="X37-kh-jfs">
-                                <rect key="frame" x="24" y="151" width="329" height="216"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c6-PK-y7r">
                                 <rect key="frame" x="1" y="529" width="376" height="109"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -66,7 +62,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CARE" id="z9n-12-QeF"/>
+                    <navigationItem key="navigationItem" id="z9n-12-QeF"/>
                     <connections>
                         <segue destination="tdG-CU-KuK" kind="show" identifier="SleepAnalysis" id="Dzh-ul-tOP"/>
                     </connections>
@@ -188,21 +184,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goal Met" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oc-ya-dnq">
-                                <rect key="frame" x="41" y="334" width="98" height="21"/>
+                                <rect key="frame" x="41" y="334" width="297" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Entered Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-f4-fXS">
-                                <rect key="frame" x="41" y="383" width="209" height="21"/>
+                                <rect key="frame" x="41" y="383" width="318" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cal Burn Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRA-Vk-7Jr">
-                                <rect key="frame" x="41" y="432" width="189" height="21"/>
+                                <rect key="frame" x="41" y="432" width="318" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -10444,7 +10440,6 @@ NsMACTbIAAk20AAJSDwACUg+AAlIQwAJSFEACUhVAAlIXAAJSGEACUhuAAlIcQAJSH4ACUiDAAlIiwAJ
 SI4ACUiTAAlImwAJSJ4ACUiwAAlIswAJSLgAAAAAAAAEAQAAAAAAAABWAAAAAAAAAAAAAAAAAAlIug
 </mutableData>
         </image>
-        <image name="step count fake" width="748" height="508"/>
         <image name="workout sesh" width="750" height="221"/>
     </resources>
 </document>
