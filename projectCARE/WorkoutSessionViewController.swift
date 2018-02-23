@@ -21,8 +21,9 @@ class WorkoutSessionViewController: UIViewController {
     //@IBOutlet weak var DistTraveled: UILabel!
     @IBOutlet weak var Duration: UILabel!
     @IBOutlet weak var WorkoutDate: UILabel!
-    
-    
+    @IBOutlet weak var GoalMet: UILabel!
+    @IBOutlet weak var UserEnteredTime: UILabel!
+    @IBOutlet weak var CalBurnGoal: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,16 +31,23 @@ class WorkoutSessionViewController: UIViewController {
         let list:[WorkoutFacade] = wl.getWorkoutList()
         let mapThis:WorkoutFacade = list[index]
         
+        print(String(mapThis.getCalorieBurnGoal() ))
+        
+        
         let av = "♥ Average Heart Rate: " + String(mapThis.getAvgHeartRate()) + " BPM"
         let cal = "♥ Calories Burned: " + String(describing: mapThis.getCalsBurned()!) + " CAL"
         let du = "♥ Duration: " + minToString(min:mapThis.getDuration())
         let da = dateFormate(date: mapThis.getWorkoutDate())
+        let calb = String(format: "%.2f", mapThis.getCalorieBurnGoal())
         
         AvgHeartRate.text = av
         CaloriesBurned.text = cal
         //DistTraveled.text = String(describing: mapThis.getDistTraveled())
         Duration.text = du
         WorkoutDate.text = da
+        GoalMet.text = String(mapThis.wasGoalMet())
+        UserEnteredTime.text = String(mapThis.getUserEnteredTime())
+        CalBurnGoal.text = calb
         
         
 //        var myMutableString = NSMutableAttributedString()

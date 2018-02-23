@@ -92,32 +92,32 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbV-yt-nIm">
-                                            <rect key="frame" x="0.0" y="27" width="375" height="96"/>
+                                            <rect key="frame" x="0.0" y="1" width="375" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="workout facade cell"/>
+                                            <state key="normal" title="Button" image="workout sesh"/>
                                             <connections>
                                                 <action selector="WorkoutSessionSelected:" destination="yIJ-nQ-ZfS" eventType="touchUpInside" id="qBc-Lu-KSb"/>
                                                 <action selector="workoutSessionPressed:" destination="bTK-Qc-Du9" eventType="touchUpInside" id="R7J-TL-EBX"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02-01-2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wc-Zf-2dO">
-                                            <rect key="frame" x="96" y="68" width="100" height="21"/>
+                                            <rect key="frame" x="96" y="58" width="100" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.90186256170272827" green="0.90201735496520996" blue="0.90185278654098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iT-F9-41e">
-                                            <rect key="frame" x="37" y="66" width="26" height="27"/>
+                                            <rect key="frame" x="37" y="56" width="26" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                             <color key="textColor" red="0.15962809324264526" green="0.18665030598640442" blue="0.26547843217849731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.16078431369999999" green="0.18823529410000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.15962809319999999" green="0.18665030599999999" blue="0.2654784322" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
-                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.23529411759999999" green="0.27058823529999998" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="WorkoutSessionSelected" destination="GbV-yt-nIm" id="Bxf-6w-1U8"/>
                                     <outlet property="dateLabel" destination="7wc-Zf-2dO" id="EHl-bU-dwY"/>
@@ -187,13 +187,37 @@
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goal Met" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oc-ya-dnq">
+                                <rect key="frame" x="41" y="334" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Entered Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-f4-fXS">
+                                <rect key="frame" x="41" y="383" width="209" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cal Burn Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRA-Vk-7Jr">
+                                <rect key="frame" x="41" y="432" width="189" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="AvgHeartRate" destination="Frw-hs-Oec" id="c5G-Qc-pzw"/>
+                        <outlet property="CalBurnGoal" destination="jRA-Vk-7Jr" id="Rpf-yP-OC2"/>
                         <outlet property="CaloriesBurned" destination="Bsy-XW-W6C" id="1fD-U8-JjK"/>
                         <outlet property="Duration" destination="qzD-jS-R9G" id="zaj-ea-dyc"/>
+                        <outlet property="GoalMet" destination="9oc-ya-dnq" id="Khj-Tv-gQw"/>
+                        <outlet property="UserEnteredTime" destination="Wfz-f4-fXS" id="Yle-Br-FsH"/>
                         <outlet property="WorkoutDate" destination="hyI-Um-zqy" id="3Mh-Bg-elA"/>
                     </connections>
                 </viewController>
@@ -10421,6 +10445,6 @@ SI4ACUiTAAlImwAJSJ4ACUiwAAlIswAJSLgAAAAAAAAEAQAAAAAAAABWAAAAAAAAAAAAAAAAAAlIug
 </mutableData>
         </image>
         <image name="step count fake" width="748" height="508"/>
-        <image name="workout facade cell" width="750" height="166"/>
+        <image name="workout sesh" width="750" height="221"/>
     </resources>
 </document>
