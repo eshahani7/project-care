@@ -161,31 +161,29 @@ class HealthStore {
         store?.execute(query)
     }
     
-    func retrieveStepCount(completion: @escaping (_ stepRetrieved: [Double]) -> Void) {
-        let newDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+    func retrieveStepCount(completion: @escaping (_ stepRetrieved: [(date: String, steps: Double)]) -> Void) {
+        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+        let endDate = Date()
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictStartDate)
         var interval = DateComponents()
         interval.day = 1
-        let query = HKStatisticsCollectionQuery(quantityType: HealthValues.stepCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
+        let query = HKStatisticsCollectionQuery(quantityType: HealthValues.stepCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate! as Date, intervalComponents:interval)
         query.initialResultsHandler = { query, results, error in
             if error != nil {
                 print("nooo")
                 return
             }
             let statsCollection = results
-            let endDate = Date()
-            let startDate = Calendar.current.date(byAdding: .day, value: -7, to: endDate as Date)
-            
-            var arr = [Double]()
+            var arr = [(date: String, steps: Double)]()
             // Plot the weekly step counts over the past 3 months
-            statsCollection?.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
+            statsCollection?.enumerateStatistics(from: startDate!, to: endDate) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
-                    print(date)
-                    
+                    let index = date.description.index(date.description.startIndex, offsetBy: 10)
+                    let parsedData = date.description[..<index] // Hello
                     let value = quantity.doubleValue(for: HKUnit.count())
                     // Call a custom method to plot each data point.
-                    arr.append(value)
+                    arr.append((String(parsedData), value))
                 }
             }
             completion(arr)
@@ -193,12 +191,13 @@ class HealthStore {
         store?.execute(query)
     }
     
-    public func getExerciseTime(completion: @escaping (_ exerciseTime: [Double]) -> Void) {
-        let newDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+    public func getExerciseTime(completion: @escaping (_ exerciseTime: [(date: String, time: Double)]) -> Void) {
+        let startDate = Calendar.current.date(byAdding: .day, value: -8, to: Date())
+        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
         var interval = DateComponents()
         interval.day = 1
-        let query = HKStatisticsCollectionQuery(quantityType: HealthValues.exerciseTime!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate! as Date, intervalComponents:interval)
+        let query = HKStatisticsCollectionQuery(quantityType: HealthValues.exerciseTime!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate! as Date, intervalComponents:interval)
         query.initialResultsHandler = { query, results, error in
             if error != nil {
                 print("nooo")
@@ -206,19 +205,16 @@ class HealthStore {
                 return
             }
             let statsCollection = results
-            let endDate = Date()
-            let startDate = Calendar.current.date(byAdding: .day, value: -7, to: endDate as Date)
-            var arr = [Double]()
+            var arr = [(date: String, time: Double)]()
             // Plot the weekly step counts over the past 3 months
-            statsCollection?.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
+            statsCollection?.enumerateStatistics(from: startDate!, to: endDate!) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
-                    print(date)
-                    
-                    let value = quantity.doubleValue(for: HKUnit.minute())
-                    print(value)
+                    let index = date.description.index(date.description.startIndex, offsetBy: 10)
+                    let parsedData = date.description[..<index]
+                    let value = quantity.doubleValue(for: HKUnit.hour())
                     // Call a custom method to plot each data point.
-                    arr.append(value)
+                    arr.append((String(parsedData), value))
                 }
             }
             completion(arr)
@@ -226,26 +222,31 @@ class HealthStore {
         store?.execute(query)
     }
     
-    public func getSleepHours(completion: @escaping (_ sleepAnalysis: [(String, Double)]) -> Void) {
+    public func getSleepHours(completion: @escaping (_ sleepAnalysis: [(date: String, time: Double)]) -> Void) {
         if let sleepType = HealthValues.sleepHours {
             // Use a sortDescriptor to get the recent data first
+            let startDate = Calendar.current.date(byAdding: .day, value: -9, to: Date())
+            let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions.strictStartDate)
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             // we create our query with a block completion to execute
-            let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 7, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+            let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 7, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
                 if error != nil {
                     print("why do you hate me sleep")
                     return
                 }
-                var arr = [(String, Double)]()
+                var arr = [(date: String, time: Double)]()
                 if let result = tmpResult {
                     // do something with my data
                     for item in result {
                         if let sample = item as? HKCategorySample {
-                            let seconds =
-                               sample.endDate.timeIntervalSince(sample.startDate)
+                            let date = sample.startDate.description
+                            let index = date.description.index(date.description.startIndex, offsetBy: 10)
+                            let parsedData = date.description[..<index]
+                            let seconds = sample.endDate.timeIntervalSince(sample.startDate)
                             let minutes = seconds/60
                             let hours = minutes/60
-                            arr.append((String(describing: sample.startDate), hours))
+                            arr.append((String(parsedData), hours))
                         }
                     }
                     completion(arr)
