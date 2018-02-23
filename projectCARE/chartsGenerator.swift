@@ -126,34 +126,34 @@ class generateCharts {
     let settings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth:2)
     let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
         
-        let chartConfig = ChartConfigXY(
-            chartSettings: ChartSettings(),
-            xAxisConfig: ChartAxisConfig(from: 0, to: 3, by: 0.5),
-            yAxisConfig: ChartAxisConfig(from: 0, to: 150, by: 20),
-            xAxisLabelSettings:labelSettings,
-            yAxisLabelSettings:labelSettings.defaultVertical()
-        )
-        
-        let chart = LineChart(
-            frame: chartFrame,
-            chartConfig: chartConfig,
-            xTitle: "Minutes",
-            yTitle: "Heart Rate",
-            lines: [(chartPoints: pointsData, color: color)]
-        )
-        
+//        let chartConfig = ChartConfigXY(
+//            chartSettings: ChartSettings(),
+//            xAxisConfig: ChartAxisConfig(from: 0, to: 3, by: 0.5),
+//            yAxisConfig: ChartAxisConfig(from: 0, to: 150, by: 20),
+//            xAxisLabelSettings:labelSettings,
+//            yAxisLabelSettings:labelSettings.defaultVertical()
+//        )
+//
+//        let chart = LineChart(
+//            frame: chartFrame,
+//            chartConfig: chartConfig,
+//            xTitle: "Minutes",
+//            yTitle: "Heart Rate",
+//            lines: [(chartPoints: pointsData, color: color)]
+//        )
+//
     
-//    let chart = Chart(
-//        frame: chartFrame,
-//        innerFrame: innerFrame,
-//        settings: ChartSettings(),
-//        layers: [
-//            xAxisLayer,
-//            yAxisLayer,
-//            guidelinesLayer,
-//            chartPointsLineLayer,
-//        ]
-//    )
+    let chart = Chart(
+        frame: chartFrame,
+        innerFrame: innerFrame,
+        settings: ChartSettings(),
+        layers: [
+            xAxisLayer,
+            yAxisLayer,
+            guidelinesLayer,
+            chartPointsLineLayer,
+        ]
+    )
     
 //    view.addSubview(chart.view)
 //    self.chart = chart
