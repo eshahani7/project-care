@@ -1,0 +1,6 @@
+framework module Pods_projectCARETests {
+  umbrella header "Pods-projectCARETests-umbrella.h"
+
+  export *
+  module * { export * }
+}

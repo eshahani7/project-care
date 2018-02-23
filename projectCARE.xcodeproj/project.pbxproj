@@ -20,6 +20,14 @@
 		2C7AC482203D906500C4A9FB /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */; };
 		2C7AC485203D995E00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */; };
 		2C7AC486203D995E00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */; };
+		9F0B517F203E929800C6B4E2 /* HealthStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */; };
+		9F0B5181203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */; };
+		9F0B5183203E92CE00C6B4E2 /* WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */; };
+		9F0B5184203E92E600C6B4E2 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9E203D635A00E834DE /* Workout.swift */; };
+		9F0B5185203E92E900C6B4E2 /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */; };
+		9F0B5186203E92EC00C6B4E2 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA0203D635A00E834DE /* WorkoutList.swift */; };
+		9F0B5187203E92EF00C6B4E2 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+		9F0B5188203E92F200C6B4E2 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
 		9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */; };
 		9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968402023BA7D00C1D0B4 /* ViewController.swift */; };
 		9F1968442023BA7D00C1D0B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968422023BA7D00C1D0B4 /* Main.storyboard */; };
@@ -111,6 +119,9 @@
 		2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEOTERICc - Bold DEMO VERSION.ttf"; sourceTree = "<group>"; };
 		2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEOTERICc - Regular DEMO VERSION.ttf"; sourceTree = "<group>"; };
+		9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreTests.swift; sourceTree = "<group>"; };
+		9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilitiesTests.swift; sourceTree = "<group>"; };
+		9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTests.swift; sourceTree = "<group>"; };
 		9F19683B2023BA7D00C1D0B4 /* projectCARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectCARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F1968402023BA7D00C1D0B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +239,9 @@
 			children = (
 				9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */,
 				9F1968552023BA7D00C1D0B4 /* Info.plist */,
+				9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */,
+				9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */,
+				9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */,
 			);
 			path = projectCARETests;
 			sourceTree = "<group>";
@@ -399,7 +413,7 @@
 				TargetAttributes = {
 					9F19683A2023BA7C00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7Z37KT3ZNX;
+						DevelopmentTeam = BA5W6527X2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -424,12 +438,12 @@
 					};
 					9F1968622023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7Z37KT3ZNX;
+						DevelopmentTeam = BA5W6527X2;
 						ProvisioningStyle = Automatic;
 					};
 					9F1968712023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7Z37KT3ZNX;
+						DevelopmentTeam = BA5W6527X2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -532,7 +546,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F0B5187203E92EF00C6B4E2 /* WorkoutUtilities.swift in Sources */,
+				9F0B5186203E92EC00C6B4E2 /* WorkoutList.swift in Sources */,
 				9F1968542023BA7D00C1D0B4 /* projectCARETests.swift in Sources */,
+				9F0B5181203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift in Sources */,
+				9F0B517F203E929800C6B4E2 /* HealthStoreTests.swift in Sources */,
+				9F0B5184203E92E600C6B4E2 /* Workout.swift in Sources */,
+				9F0B5183203E92CE00C6B4E2 /* WorkoutTests.swift in Sources */,
+				9F0B5188203E92F200C6B4E2 /* HealthStore.swift in Sources */,
+				9F0B5185203E92E900C6B4E2 /* WorkoutFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,10 +745,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+
+				DEVELOPMENT_TEAM = BA5W6527X2;
+
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -742,10 +766,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+
+				DEVELOPMENT_TEAM = BA5W6527X2;
+
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -761,10 +787,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -779,10 +805,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -798,10 +824,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -814,10 +840,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
