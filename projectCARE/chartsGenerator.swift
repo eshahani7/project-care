@@ -160,7 +160,8 @@ class generateCharts {
 //    self.chart = chart
         
         return chart
-
+    }
+    
     public static func createSleepActivityChart(groupsData: [(title: String, [(min: Double, max: Double)])], horizontal: Bool, width: CGFloat, height: CGFloat) -> Chart {
 
         var chart: Chart?
