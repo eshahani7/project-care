@@ -107,7 +107,7 @@ class generateCharts {
         let xValues = points.map{$0.x}
         let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
     
-        let lineModel = ChartLineModel(chartPoints: points, lineColor: color, animDuration: 1, animDelay: 0)
+        let lineModel = ChartLineModel(chartPoints: points, lineColor: UIColor.red, animDuration: 1, animDelay: 0)
         
         //These models define specifics for each of the axes, and define the bounds
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Minute", settings: labelSettings))
