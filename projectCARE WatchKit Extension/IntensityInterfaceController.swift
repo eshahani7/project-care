@@ -13,31 +13,33 @@ import Foundation
 class IntensityInterfaceController: WKInterfaceController {
 
     @IBOutlet var intensityPicker: WKInterfacePicker!
-    @IBOutlet var timeValue: WKInterfaceLabel!
     
     var intensities: [(String, String)] = [
         ("Item 1", "LOW"),
         ("Item 2", "MEDIUM"),
         ("Item 3", "HIGH"),
     ]
+    var timePicker:Int = 0
+    struct MyVariables {
+        static var timePickerValue = 0
+        static var intensityPickerValue = 0
+    }
     
-//    struct MyVariables {
-//        static var timePickerValue = 0
-//        static var intensityPickerValue = 0
-//    }
-//    
-//    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
-//        if segueIdentifier == "intensityNext" {
-//            return ["time":  MyVariables.timePickerValue,
-//                    "intensity": MyVariables.intensityPickerValue]
-//        }
-//        else {
-//            return ""
-//        }
-//    }
-//
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        if segueIdentifier == "intensityNext" {
+            return ["time":  MyVariables.timePickerValue,
+                    "intensity": MyVariables.intensityPickerValue]
+        }
+        else {
+            return ""
+        }
+    }
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        timePicker = (context as! Int)
+        MyVariables.timePickerValue = timePicker
         
         // Configure interface objects here.
         let intensityPickerItems: [WKPickerItem] = intensities.map {
@@ -47,12 +49,6 @@ class IntensityInterfaceController: WKInterfaceController {
             return intensityPickerItem
         }
         intensityPicker.setItems(intensityPickerItems)
-        
-//        if let val: String = context as? String {
-//            self.timeValue.setText(val)
-//        } else {
-//            self.timeValue.setText("no value")
-//        }
         
     }
 
@@ -66,8 +62,8 @@ class IntensityInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     @IBAction func pickerChanged(_ value: Int) {
-        print(value)
-       // MyVariables.intensityPickerValue = value
+        //print(value)
+        MyVariables.intensityPickerValue = value
     }
     
 }

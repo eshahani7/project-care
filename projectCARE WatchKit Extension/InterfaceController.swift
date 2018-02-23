@@ -29,18 +29,18 @@ class InterfaceController: WKInterfaceController {
         ("Item 6", "60")
     ]
     
-//    struct MyVariables {
-//        static var timePickerValue = 0
-//    }
-//
-//    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
-//        if segueIdentifier == "timeNext" {
-//             return MyVariables.timePickerValue
-//        }
-//        else {
-//            return ""
-//        }
-//    }
+    struct MyVariables {
+        static var timePickerValue = 0
+    }
+
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        if segueIdentifier == "timeNext" {
+             return MyVariables.timePickerValue
+        }
+        else {
+            return ""
+        }
+    }
     
     
     override func awake(withContext context: Any?) {
@@ -82,8 +82,8 @@ class InterfaceController: WKInterfaceController {
     }
 
     @IBAction func pickerChanged(_ value: Int) {
-        print(value)
-      //  MyVariables.timePickerValue = value
+        //print(value)
+        MyVariables.timePickerValue = value
     }
     
 }

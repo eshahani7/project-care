@@ -24,7 +24,7 @@
                         </picker>
                         <button width="51" height="51" alignment="center" verticalAlignment="bottom" title="NEXT" backgroundImage="ring" id="DMF-2p-bYR">
                             <connections>
-                                <segue destination="V1a-nR-mUW" kind="push" id="bWW-Wa-vRe"/>
+                                <segue destination="V1a-nR-mUW" kind="push" identifier="timeNext" id="bWW-Wa-vRe"/>
                             </connections>
                         </button>
                     </items>
@@ -51,14 +51,12 @@
                         <button width="51" height="51" alignment="center" title="NEXT" backgroundImage="ring" id="JcJ-YR-mBf">
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
-                                <segue destination="Tqx-Vp-Rb5" kind="push" id="AsV-YM-OJz"/>
+                                <segue destination="Tqx-Vp-Rb5" kind="push" identifier="intensityNext" id="AsV-YM-OJz"/>
                             </connections>
                         </button>
-                        <label alignment="left" text="Label" id="xIC-s8-Jg8"/>
                     </items>
                     <connections>
                         <outlet property="intensityPicker" destination="ll1-jQ-3HF" id="rdI-Th-fOS"/>
-                        <outlet property="timeValue" destination="xIC-s8-Jg8" id="OVN-BO-g1Z"/>
                     </connections>
                 </controller>
             </objects>
@@ -75,18 +73,21 @@
                                 <action selector="StartEndAction" destination="Tqx-Vp-Rb5" id="Sjs-Os-XNI"/>
                             </connections>
                         </button>
-                        <label width="67" height="17" alignment="left" text="Heart Rate: " numberOfLines="4" minimumScaleFactor="0.80000000000000004" id="FFo-dG-KzY">
-                            <fontDescription key="font" type="system" pointSize="12"/>
+                        <label width="133" height="17" alignment="left" numberOfLines="4" minimumScaleFactor="0.80000000000000004" id="FFo-dG-KzY">
+                            <fontDescription key="font" type="system" pointSize="16"/>
                         </label>
-                        <timer alignment="left" id="Wit-X8-Ezu">
+                        <timer alignment="left" textAlignment="center" id="Wit-X8-Ezu">
                             <fontDescription key="font" type="system" pointSize="16"/>
                             <calendarUnit key="units" minute="YES" second="YES"/>
                         </timer>
+                        <label alignment="left" id="Nc0-NT-L6b"/>
+                        <label alignment="left" id="acR-pd-SE6"/>
                     </items>
                     <connections>
                         <outlet property="HeartRateLabel" destination="FFo-dG-KzY" id="goi-Cd-Q9q"/>
                         <outlet property="StartEndButton" destination="3ss-b3-tEX" id="QhA-XG-A2e"/>
                         <outlet property="WorkoutTimer" destination="Wit-X8-Ezu" id="ZM8-yC-DBu"/>
+                        <outlet property="paceLabel" destination="Nc0-NT-L6b" id="dpC-7N-haO"/>
                     </connections>
                 </controller>
             </objects>

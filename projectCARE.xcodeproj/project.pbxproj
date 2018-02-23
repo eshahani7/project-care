@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01196302203E6A960059FAC3 /* airHornSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01196301203E6A960059FAC3 /* airHornSound.wav */; };
+		016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
+		016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+		016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016B2587203D80C60037FBCC /* HealthKit.framework */; };
 		2C0C5D4A203D5EBF0053B6F9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C0C5D48203D5EBF0053B6F9 /* Interface.storyboard */; };
 		2C0C5D6A203D81660053B6F9 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C5D69203D81660053B6F9 /* WorkoutTableViewCell.swift */; };
 		2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */; };
@@ -95,6 +99,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01196301203E6A960059FAC3 /* airHornSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = airHornSound.wav; sourceTree = "<group>"; };
+		016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "projectCARE WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		016B2587203D80C60037FBCC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		2C0C5D49203D5EBF0053B6F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		2C0C5D69203D81660053B6F9 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityInterfaceController.swift; sourceTree = "<group>"; };
@@ -162,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +254,8 @@
 		9F1968762023BA7D00C1D0B4 /* projectCARE WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				01196301203E6A960059FAC3 /* airHornSound.wav */,
+				016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */,
 				9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */,
 				2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */,
 				2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */,
@@ -260,6 +270,7 @@
 		9F19689A2023BD2400C1D0B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				016B2587203D80C60037FBCC /* HealthKit.framework */,
 				9F19689B2023BD2400C1D0B4 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -388,7 +399,7 @@
 				TargetAttributes = {
 					9F19683A2023BA7C00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7Z37KT3ZNX;
+						DevelopmentTeam = BA5W6527X2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -411,14 +422,19 @@
 					};
 					9F1968622023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7Z37KT3ZNX;
+						DevelopmentTeam = BA5W6527X2;
 						ProvisioningStyle = Automatic;
 					};
 					9F1968712023BA7D00C1D0B4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7Z37KT3ZNX;
+						DevelopmentTeam = BA5W6527X2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -484,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01196302203E6A960059FAC3 /* airHornSound.wav in Resources */,
 				9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +547,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */,
+				016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */,
+				016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */,
 				2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */,
 				2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */,
 				9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */,
@@ -701,10 +720,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -719,10 +739,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -738,10 +759,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -756,10 +777,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				IBSC_MODULE = projectCARE_WatchKit_Extension;
 				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -775,10 +796,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -791,10 +812,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7Z37KT3ZNX;
+				DEVELOPMENT_TEAM = BA5W6527X2;
 				INFOPLIST_FILE = projectCARE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lu.projectCARE;
+				PRODUCT_BUNDLE_IDENTIFIER = Nadkarni.projectCARE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
