@@ -27,17 +27,25 @@ class generateCharts {
         
         // THe generator represents the scale for the charts
         let xGenerator = ChartAxisGeneratorMultiplier(1)
-        let yGenerator = ChartAxisGeneratorMultiplier(1000)
+        let yGenerator = ChartAxisGeneratorMultiplier(3000)
         
-        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
+//        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
+//            return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
+//        }
+        let labelsXGenerator = ChartAxisLabelsGeneratorFunc {scalar in
+            return ChartAxisLabel(text: "Day", settings: labelSettings)
+        }
+        
+        
+        let labelsYGenerator = ChartAxisLabelsGeneratorFunc {scalar in
             return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
         }
         
         // These models define specifics for each of the axes, and define the bounds
-        let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "Days", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsGenerator)
-        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 6400, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsGenerator)
+        let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "Days", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsXGenerator)
+        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 12500, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsYGenerator)
         
-        let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
+        let chartFrame = CGRect(x: 20, y: 130, width: width - 10, height: height + 80)
         
         // Defines the coordinate layer
         let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ChartSettings(), chartFrame: chartFrame, xModel: xModel, yModel: yModel)
@@ -45,9 +53,9 @@ class generateCharts {
         
         // Actual bars on the chart
         let barViewSettings = ChartBarViewSettings()
-        let barsLayer = ChartBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, bars: bars, horizontal: false, barWidth: 25, settings: barViewSettings)
+        let barsLayer = ChartBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, bars: bars, horizontal: false, barWidth: 20, settings: barViewSettings)
         
-        let labelToBarSpace: Double = 3 // domain units
+        let labelToBarSpace: Double = 2 // domain units
         let labelChartPoints = bars.map {bar in
             ChartPoint(x: bar.constant, y: bar.axisValue2.copy(bar.axisValue2.scalar + (bar.axisValue2.scalar > 0 ? labelToBarSpace : -labelToBarSpace)))
         }
@@ -69,7 +77,7 @@ class generateCharts {
             label.movedToSuperViewHandler = {[weak label] in
                 UIView.animate(withDuration: 0, animations: {
                     label?.alpha = 1
-                    label?.center.y = chartPointModel.screenLoc.y - 10
+                    label?.center.y = chartPointModel.screenLoc.y - 7
                 })
             }
             return label
@@ -107,6 +115,10 @@ class generateCharts {
         
         let xValues = points.map{$0.x}
         let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
+        
+//        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
+//            return ChartAxisLabel(text: "M", settings: labelSettings)
+//        }
     
         let lineModel = ChartLineModel(chartPoints: points, lineColor: UIColor.red, animDuration: 1, animDelay: 0)
         
@@ -155,10 +167,6 @@ class generateCharts {
             chartPointsLineLayer,
         ]
     )
-    
-//    view.addSubview(chart.view)
-//    self.chart = chart
-        
         return chart
     }
     
@@ -167,25 +175,6 @@ class generateCharts {
         var chart: Chart?
         let font = UIFont(name: "Avenir", size: 12)
         let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
-        
-//        let groupsData: [(title: String, [(min: Double, max: Double)])] = [
-//            ("Data A", [
-//                (0, 40),
-//                (0, 50)
-//                ]),
-//            ("Data B", [
-//                (0, 20),
-//                (0, 30)
-//                ]),
-//            ("Data C", [
-//                (0, 30),
-//                (0, 50)
-//                ]),
-//            ("Data D", [
-//                (0, 55),
-//                (0, 30)
-//                ])
-//        ]
         
         let groupColors = [UIColor.red.withAlphaComponent(0.6), UIColor.blue.withAlphaComponent(0.6)]
         

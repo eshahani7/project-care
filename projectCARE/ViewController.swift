@@ -48,7 +48,7 @@ class ViewController: UIViewController {
                 barsData.append((title: step.date, min: 0, max: Int(step.steps)))
             }
             
-            chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height/1.6)
+            chart = generateCharts.createStepsChart(barsData: barsData, width: width/1.1, height: height/3.8)
             
             group.leave()
         }

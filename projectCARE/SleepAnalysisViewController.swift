@@ -24,8 +24,6 @@ class SleepAnalysisViewController: UIViewController {
         store.getExerciseTime() { activeTime in
             print("Exercise Time")
             for elm in activeTime {
-                print("EXT")
-                print(elm)
                 sleepData.append((title: elm.date, [(min: 0, max: elm.time)]))
             }
             print("Finish Exercise Time")
@@ -40,8 +38,6 @@ class SleepAnalysisViewController: UIViewController {
         self.store.getSleepHours(){ hours in
             print("Sleep Hours")
             for elm in hours {
-                print("SH")
-                print(elm)
                 for i in 0...6 {
                     if(sleepData[i].title == elm.date) {
                         sleepData[i].1.append((min: 0, max: elm.time))
@@ -59,25 +55,6 @@ class SleepAnalysisViewController: UIViewController {
             //combine the data here
 
         let groupsData = sleepData
-//        let groupsData: [(title: String, [(min: Double, max: Double)])] = [
-//                        ("Data A", [
-//                            (0, 40),
-//                            (0, 50)
-//                            ]),
-//                        ("Data B", [
-//                            (0, 20),
-//                            (0, 30)
-//                            ]),
-//                        ("Data C", [
-//                            (0, 30),
-//                            (0, 50)
-//                            ]),
-//                        ("Data D", [
-//                            (0, 55),
-//                            (0, 30)
-//                            ])
-//                    ]
-
         chart = generateCharts.createSleepActivityChart(groupsData: groupsData, horizontal: false, width: width, height: height)
         view.addSubview(chart.view)
     }
