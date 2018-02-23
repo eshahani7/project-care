@@ -13,6 +13,7 @@ class WorkoutFacade {
     
     private let workout:Workout
     
+
     init(w:HKWorkout) {
         self.workout = Workout(workout: w)
         //workout.setGoalValues()

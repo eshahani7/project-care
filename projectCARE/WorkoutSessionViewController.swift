@@ -32,7 +32,11 @@ class WorkoutSessionViewController: UIViewController {
         let mapThis:WorkoutFacade = list[index]
         
         print(String(mapThis.getCalorieBurnGoal() ))
-        
+        //charts
+        let width = view.bounds.size.width
+        let height = view.bounds.size.height
+        var chart = generateCharts.createWorkoutChart(width: width, height: height)
+        view.addSubview(chart.view)
         
         let av = "♥ Average Heart Rate: " + String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
         let cal = "♥ Calories Burned: " + String(describing: mapThis.getCalsBurned()!) + " CAL"

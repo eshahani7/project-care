@@ -90,4 +90,56 @@ class generateCharts {
         
         return chart
     }
+    
+    public static func createWorkoutChart(/*pointsData: [( minute: Double, heartRate: Double)],*/ width: CGFloat, height: CGFloat) -> Chart {
+        let font = UIFont(name: "Avenir", size: 12)
+        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
+    
+        let alpha: CGFloat = 0.2
+        let color = UIColor.lightGray.withAlphaComponent(alpha)
+        //let zero = ChartAxisValueInt(0)
+        
+        
+        //let points: [ChartPoint] = pointsData.map{ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
+        let points: [ChartPoint] = [(1, 3), (2, 5), (3, 7.5), (4, 10), (5, 6), (6, 12)].map{ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
+        
+        let xValues = points.map{$0.x}
+        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
+    
+        let lineModel = ChartLineModel(chartPoints: points, lineColor: color, animDuration: 1, animDelay: 0)
+        
+        // These models define specifics for each of the axes, and define the bounds
+        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Minute", settings: labelSettings))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Heart Rate", settings: labelSettings.defaultVertical()))
+   
+        
+        let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
+        
+    
+    let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ChartSettings(), chartFrame: chartFrame, xModel: xModel, yModel: yModel)
+    let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
+    
+    let chartPointsLineLayer = ChartPointsLineLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, lineModels: [lineModel])
+    
+    
+    let settings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth:2)
+    let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
+    
+    let chart = Chart(
+        frame: chartFrame,
+        innerFrame: innerFrame,
+        settings: ChartSettings(),
+        layers: [
+            xAxisLayer,
+            yAxisLayer,
+            guidelinesLayer,
+            chartPointsLineLayer,
+        ]
+    )
+    
+//    view.addSubview(chart.view)
+//    self.chart = chart
+        
+        return chart
+    }
 }
