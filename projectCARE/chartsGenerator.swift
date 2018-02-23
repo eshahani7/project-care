@@ -91,7 +91,7 @@ class generateCharts {
         return chart
     }
     
-    public static func createWorkoutChart(/*pointsData: [( minute: Double, heartRate: Double)],*/ width: CGFloat, height: CGFloat) -> Chart {
+    public static func createWorkoutChart(pointsData: [(heartRate: Double, timeSinceStart: Double)], width: CGFloat, height: CGFloat) -> Chart {
         let font = UIFont(name: "Avenir", size: 12)
         let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
     
@@ -99,9 +99,9 @@ class generateCharts {
         let color = UIColor.lightGray.withAlphaComponent(alpha)
         //let zero = ChartAxisValueInt(0)
         
-        
-        //let points: [ChartPoint] = pointsData.map{ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
-        let points: [ChartPoint] = [(1, 3), (2, 5), (3, 7.5), (4, 10), (5, 6), (6, 12)].map{ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
+        // ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))
+        let points: [ChartPoint] = pointsData.map{ChartPoint(x: ChartAxisValueDouble($0.1), y: ChartAxisValueDouble($0.0, labelSettings: labelSettings))}
+        //let points: [ChartPoint] = [(1, 3), (2, 5), (3, 7.5), (4, 10), (5, 6), (6, 12)].map{ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
         
         let xValues = points.map{$0.x}
         let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)

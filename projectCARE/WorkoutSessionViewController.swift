@@ -35,7 +35,9 @@ class WorkoutSessionViewController: UIViewController {
         //charts
         let width = view.bounds.size.width
         let height = view.bounds.size.height
-        var chart = generateCharts.createWorkoutChart(width: width, height: height)
+        var pointsData = mapThis.getHRTuples()
+        
+        var chart = generateCharts.createWorkoutChart(pointsData: pointsData, width: width, height: height)
         view.addSubview(chart.view)
         
         let av = "♥ Average Heart Rate: " + String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
