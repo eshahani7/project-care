@@ -22,3 +22,5 @@ Trello: https://trello.com/invite/b/jZlqlUs6/6d86dc614c78040d4e15ca54b032a7fc/cs
 * Anu Polisetty - Visualizations and Project Design
 * Aditya Nadkarni - Heart rate and Workout analysis
 * Cindy Lu - Design, Activity Level and Sleep Analysis
+
+Run to seed health simulator: https://github.com/eshahani7/project-care-seeding 
