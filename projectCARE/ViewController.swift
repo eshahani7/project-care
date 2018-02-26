@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftCharts
+import Charts
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -29,7 +29,11 @@ extension UIColor {
 class ViewController: UIViewController {
 
     let store:HealthStore = HealthStore.getInstance()
-    var chart: Chart?
+//    var chart: Chart?
+//    @IBOutlet weak var chtChart: BarChartView!
+    var chtChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 300))
+    
+    var numbers : [Int] = []
     
     @IBAction func SleepAnalysis(_ sender: UIButton) {
         performSegue(withIdentifier: "SleepAnalysis", sender: self)
@@ -37,24 +41,46 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var barsData = [(title: String, min: Int, max: Int)]()
-        let width = view.bounds.size.width
-        let height = view.bounds.size.height
-        var chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height)
+//        numbers.append(2)
+//        numbers.append(4)
+//        numbers.append(6)
+//        var barsData = [(title: String, min: Int, max: Int)]()
+//        let width = view.bounds.size.width
+//        let height = view.bounds.size.height
+//        var chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height)
         let group = DispatchGroup()
         group.enter()
         store.retrieveStepCount() { steps in
             for step in steps {
-                barsData.append((title: step.date, min: 0, max: Int(step.steps)))
+                self.numbers.append(Int(step.steps))
+//                barsData.append((title: step.date, min: 0, max: Int(step.steps)))
             }
-            
-            chart = generateCharts.createStepsChart(barsData: barsData, width: width/1.1, height: height/3.8)
-            
             group.leave()
         }
         group.wait()
-        view.addSubview((chart.view))
+        updateGraph()
+        view.addSubview(chtChart)
+//            chart = generateCharts.createStepsChart(barsData: barsData, width: width/1.1, height: height/3.8)
+//
+//            group.leave()
+//        }
+//        group.wait()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func updateGraph() {
+        var barChartEntry = [BarChartDataEntry]()
+        for i in 0..<numbers.count {
+            let value = BarChartDataEntry(x: Double(i), y: Double(numbers[i]))
+            barChartEntry.append(value)
+        }
+        print(numbers)
+        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
+        print(barChartDataSet)
+        let data = BarChartData(dataSet: barChartDataSet)
+        chtChart.data = data
+        chtChart.chartDescription?.text = "Step counts vs Time"
+        chtChart.setScaleMinima(1, scaleY: 1000)
     }
     
     override func viewDidAppear(_ animated: Bool) {
