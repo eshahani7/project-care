@@ -41,13 +41,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        numbers.append(2)
-//        numbers.append(4)
-//        numbers.append(6)
-//        var barsData = [(title: String, min: Int, max: Int)]()
-//        let width = view.bounds.size.width
-//        let height = view.bounds.size.height
-//        var chart = generateCharts.createStepsChart(barsData: barsData, width: width, height: height)
         let group = DispatchGroup()
         group.enter()
         store.retrieveStepCount() { steps in
@@ -58,29 +51,8 @@ class ViewController: UIViewController {
             group.leave()
         }
         group.wait()
-        updateGraph()
+        generateCharts.updateStepsGraph(numbers: numbers, chtChart: chtChart)
         view.addSubview(chtChart)
-//            chart = generateCharts.createStepsChart(barsData: barsData, width: width/1.1, height: height/3.8)
-//
-//            group.leave()
-//        }
-//        group.wait()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    func updateGraph() {
-        var barChartEntry = [BarChartDataEntry]()
-        for i in 0..<numbers.count {
-            let value = BarChartDataEntry(x: Double(i), y: Double(numbers[i]))
-            barChartEntry.append(value)
-        }
-        print(numbers)
-        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
-        print(barChartDataSet)
-        let data = BarChartData(dataSet: barChartDataSet)
-        chtChart.data = data
-        chtChart.chartDescription?.text = "Step counts vs Time"
-        chtChart.setScaleMinima(1, scaleY: 1000)
     }
     
     override func viewDidAppear(_ animated: Bool) {

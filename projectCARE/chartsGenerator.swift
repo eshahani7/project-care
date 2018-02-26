@@ -1,114 +1,36 @@
-////
-////  chartsGenerator.swift
-////  projectCARE
-////
-////  Created by admin on 2/21/18.
-////  Copyright © 2018 Ekta Shahani. All rights reserved.
-////
-//import Foundation
-//import UIKit
-////import SwiftCharts
 //
-//class generateCharts {
-//    
+//  chartsGenerator.swift
+//  projectCARE
+//
+//  Created by admin on 2/21/18.
+//  Copyright © 2018 Ekta Shahani. All rights reserved.
+//
+import Foundation
+import UIKit
+import Charts
+
+class generateCharts {
+    
 //    public static func createStepsChart(barsData: [(title: String, min: Int, max: Int)], width: CGFloat, height: CGFloat) -> Chart {
 //
-//        let font = UIFont(name: "Avenir", size: 12)
-//        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
-//
-//        let alpha: CGFloat = 0.2
-//        let color = UIColor.lightGray.withAlphaComponent(alpha)
-//        let zero = ChartAxisValueInt(0)
-//        let bars: [ChartBarModel] = barsData.enumerated().flatMap {index, tuple in
-//            [
-//                ChartBarModel(constant: ChartAxisValueDouble(index), axisValue1: zero, axisValue2: ChartAxisValueDouble(tuple.max), bgColor: color)
-//            ]
-//        }
-//
-//        // THe generator represents the scale for the charts
-//        let xGenerator = ChartAxisGeneratorMultiplier(1)
-//        let yGenerator = ChartAxisGeneratorMultiplier(3000)
-//
-////        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-////            return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
-////        }
-//        let labelsXGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-//            return ChartAxisLabel(text: "Day", settings: labelSettings)
-//        }
-//
-////        let labelGenerator = ChartAxisLabelsGeneratorDate { scalar in
-////
-////        }
-//
-//        let labelsYGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-//            return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
-//        }
-//
-//        // These models define specifics for each of the axes, and define the bounds
-//        let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "Days", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsXGenerator)
-//        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 12500, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsYGenerator)
-//
-//        let chartFrame = CGRect(x: 20, y: 130, width: width - 10, height: height + 80)
-//
-//        var chartSettings = ChartSettings()
-//        chartSettings.leading = 30
-//        chartSettings.trailing = 30
-//        chartSettings.axisStrokeWidth = 2
-//
-//        // Defines the coordinate layer
-//        let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
-//        let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
-//
-//        // Actual bars on the chart
-//        let barViewSettings = ChartBarViewSettings()
-//        let barsLayer = ChartBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, bars: bars, horizontal: false, barWidth: 20, settings: barViewSettings)
-//
-//        let labelToBarSpace: Double = 2 // domain units
-//        let labelChartPoints = bars.map {bar in
-//            ChartPoint(x: bar.constant, y: bar.axisValue2.copy(bar.axisValue2.scalar + (bar.axisValue2.scalar > 0 ? labelToBarSpace : -labelToBarSpace)))
-//        }
-//
-//        let formatter = NumberFormatter()
-//        formatter.maximumFractionDigits = 2
-//        let labelsLayer = ChartPointsViewsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: labelChartPoints, viewGenerator: {(chartPointModel, layer, chart) -> UIView? in
-////            let label = "Step Counts for the wee"
-//            let label = HandlingLabel()
-//
-//            let pos = chartPointModel.chartPoint.y.scalar > 0
-//
-//            label.text = "\(formatter.string(from: NSNumber(value: chartPointModel.chartPoint.y.scalar - labelToBarSpace))!)"
-//            label.textColor = UIColor.white
-//            label.font = font!
-//            label.sizeToFit()
-//            label.center = CGPoint(x: chartPointModel.screenLoc.x, y: pos ? innerFrame.origin.y: innerFrame.origin.y + innerFrame.size.height)
-//            label.alpha = 0
-//
-//            label.movedToSuperViewHandler = {[weak label] in
-//                UIView.animate(withDuration: 0, animations: {
-//                    label?.alpha = 1
-//                    label?.center.y = chartPointModel.screenLoc.y - 7
-//                })
-//            }
-//            return label
-//
-//        }, displayDelay: 0, mode: .translate) // show after bars animation
-//
-//        let chart = Chart(
-//            frame: chartFrame,
-//            innerFrame: innerFrame,
-//            settings: chartSettings,
-//            layers: [
-//                xAxisLayer,
-//                yAxisLayer,
-//                barsLayer,
-//                labelsLayer
-//            ]
-//        )
-//
-//        return chart
 //    }
 //
-//
+    public static func updateStepsGraph(numbers: [Int], chtChart: BarChartView) {
+        var barChartEntry = [BarChartDataEntry]()
+        for i in 0..<numbers.count {
+            let value = BarChartDataEntry(x: Double(i), y: Double(numbers[i]))
+            barChartEntry.append(value)
+        }
+        print(numbers)
+        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
+        print(barChartDataSet)
+        let data = BarChartData(dataSet: barChartDataSet)
+        chtChart.data = data
+        chtChart.chartDescription?.text = "Step counts vs Time"
+        chtChart.setScaleMinima(1, scaleY: 6000)
+    }
+
+
 //    public static func createWorkoutChart(pointsData: [(heartRate: Double, timeSinceStart: Double)], width: CGFloat, height: CGFloat) -> Chart {
 //        let font = UIFont(name: "Avenir", size: 12)
 //        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
@@ -266,5 +188,5 @@
 //        )
 //
 //    }
-//}
+}
 
