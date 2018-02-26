@@ -24,6 +24,11 @@ class generateCharts {
         chtChart.data = data
         chtChart.chartDescription?.text = "Step counts vs Time"
         chtChart.setScaleMinima(1, scaleY: 1)
+        chtChart.gridBackgroundColor = UIColor.white
+        chtChart.backgroundColor = UIColor.white
+        chtChart.drawValueAboveBarEnabled = false
+        chtChart.rightAxis.enabled = false
+        chtChart.drawGridBackgroundEnabled = false
     }
 
     public static func updateSleepActivityGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
@@ -39,6 +44,11 @@ class generateCharts {
         chart.data = data
         chart.chartDescription?.text = "Sleeo Hours vs Activity"
         chart.setScaleMinima(1, scaleY: 1)
+        chart.gridBackgroundColor = UIColor.white
+        chart.backgroundColor = UIColor.white
+        chart.drawValueAboveBarEnabled = false
+        chart.rightAxis.enabled = false
+        chart.drawGridBackgroundEnabled = false
     }
 }
 
