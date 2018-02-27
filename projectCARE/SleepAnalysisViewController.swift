@@ -12,7 +12,7 @@ import Charts
 class SleepAnalysisViewController: UIViewController {
     let store:HealthStore = HealthStore.getInstance()
     
-    var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 300))
+    var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 400))
     
     var sleepData : [(title: String, graph: [Double])] = []
     var activityData : [(title: String, graph: [Double])] = []
@@ -23,7 +23,6 @@ class SleepAnalysisViewController: UIViewController {
         group.enter()
         store.getExerciseTime() { activeTime in
             for elm in activeTime {
-//                print(elm)
                 self.activityData.append((title: elm.date, graph: [(elm.time)]))
             }
             print("Done printing active elms")

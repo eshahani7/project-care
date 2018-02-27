@@ -24,7 +24,10 @@ class generateCharts {
         chtChart.data = data
         chtChart.chartDescription?.text = "Step counts vs Time"
         chtChart.setScaleMinima(1, scaleY: 1)
+        chtChart.xAxis.labelPosition = .bottom
         chtChart.gridBackgroundColor = UIColor.white
+        chtChart.xAxis.drawGridLinesEnabled = false
+        chtChart.leftAxis.drawGridLinesEnabled = false
         chtChart.backgroundColor = UIColor.white
         chtChart.drawValueAboveBarEnabled = false
         chtChart.rightAxis.enabled = false
@@ -44,16 +47,20 @@ class generateCharts {
         }
         let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
         let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
-//        let IChartDataSet = [barChartSleepDataSet, barChartActivityDataSet]
-//        let dataSet = [barChartActivityDataSet, barChartSleepDataSet]
+        barChartSleepDataSet.colors = [UIColor.red]
+        barChartActivityDataSet.colors = [UIColor.black]
         let data = BarChartData()
-        data.addDataSet(barChartActivityDataSet)
         data.addDataSet(barChartSleepDataSet)
+        data.addDataSet(barChartActivityDataSet)
         chart.data = data
-        chart.chartDescription?.text = "Sleeo Hours vs Activity"
+        chart.chartDescription?.text = ""
         chart.setScaleMinima(1, scaleY: 1)
-        chart.gridBackgroundColor = UIColor.white
+        chart.xAxis.labelPosition = .bottom
+        chart.legend.textColor = UIColor.white
+//        chart.gridBackgroundColor = UIColor.white
         chart.backgroundColor = UIColor.white
+        chart.xAxis.drawGridLinesEnabled = false
+        chart.leftAxis.drawGridLinesEnabled = false
         chart.drawValueAboveBarEnabled = false
         chart.rightAxis.enabled = false
         chart.drawGridBackgroundEnabled = false
