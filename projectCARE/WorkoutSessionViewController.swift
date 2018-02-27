@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import Charts
 
 class WorkoutSessionViewController: UIViewController {
 
@@ -30,15 +31,19 @@ class WorkoutSessionViewController: UIViewController {
         
         let list:[WorkoutFacade] = wl.getWorkoutList()
         let mapThis:WorkoutFacade = list[index]
-        
         print(String(mapThis.getCalorieBurnGoal() ))
-        //charts
-        let width = view.bounds.size.width
-        let height = view.bounds.size.height
-        var pointsData = mapThis.getHRTuples()
         
-//        var chart = generateCharts.createWorkoutChart(pointsData: pointsData, width: width, height: height)
-//        view.addSubview(chart.view)
+        //charts
+        //@CINDY - you can edit size if you want
+        let HRTimeChart = ScatterChartView(frame: CGRect(x: 40, y: 450, width: 300, height: 200))
+        let pointsData = mapThis.getHRTuples()
+        print(pointsData)
+
+    
+        generateCharts.updateHRWorkoutGraph(data: pointsData, chart: HRTimeChart)
+        view.addSubview(HRTimeChart)
+        
+        
         
         let av = "♥ Average Heart Rate: " + String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
         let cal = "♥ Calories Burned: " + String(describing: mapThis.getCalsBurned()!) + " CAL"
@@ -61,7 +66,7 @@ class WorkoutSessionViewController: UIViewController {
         UserEnteredTime.text = "♥ Time Entered: " + minToString(min:mapThis.getUserEnteredTime())
         CalBurnGoal.text = calb + " CAL"
         
-        
+       // generateCharts.updateSleepActivityGraph(data: pointsData, chart: sleepActivityChart)
 //        var myMutableString = NSMutableAttributedString()
 //        myMutableString = NSMutableAttributedString(string: av as String, attributes: [NSAttributedStringKey.font:UIFont(name: "System", size: 18.0)!])
 //
