@@ -31,16 +31,21 @@ class generateCharts {
         chtChart.drawGridBackgroundEnabled = false
     }
 
-    public static func updateSleepActivityGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
-        var barChartEntry = [BarChartDataEntry]()
-        for i in 0..<data.count {
-            let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
-            barChartEntry.append(value)
+    public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
+        var barChartSleepEntry = [BarChartDataEntry]()
+        for i in 0...sleepData.count {
+            let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
+            barChartSleepEntry.append(value)
         }
-        print(data)
-        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Sleep Hours")
-        print(barChartDataSet)
-        let data = BarChartData(dataSet: barChartDataSet)
+        var barChartActivityEntry = [BarChartDataEntry]()
+        for i in 0...sleepData.count {
+            let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
+            barChartActivityEntry.append(value)
+        }
+        let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
+        let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
+        let IChartDataSet = [barChartSleepDataSet, barChartActivityDataSet]
+        let data = BarChartData(dataSets: [IChartDataSet as! IChartDataSet])
         chart.data = data
         chart.chartDescription?.text = "Sleeo Hours vs Activity"
         chart.setScaleMinima(1, scaleY: 1)

@@ -14,35 +14,39 @@ class SleepAnalysisViewController: UIViewController {
     
     var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 300))
     
-    var sleepActivityData : [(title: String, graph: [Double])] = []
+    var sleepData : [(title: String, graph: [Double])] = []
+    var activityData : [(title: String, graph: [Double])] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let group = DispatchGroup()
         group.enter()
         store.getExerciseTime() { activeTime in
-            print(activeTime.count)
             for elm in activeTime {
-                self.sleepActivityData.append((title: elm.date, [(elm.time)]))
+//                print(elm)
+                self.activityData.append((title: elm.date, [(elm.time)]))
             }
+            print("Done printing elms")
             group.leave()
         }
         group.wait()
         group.enter()
         self.store.getSleepHours(){ hours in
             for elm in hours {
-                print(elm)
-                self.sleepActivityData.append((title: elm.date, graph: [(elm.time)]))
-//                for i in 0...4 {
-//                    if(self.sleepActivityData[i].title == elm.date) {
-//                        self.sleepActivityData[i].1.append((elm.time))
-//                    }
+                var found = false
+                self.sleepData.append((title: elm.date, [(elm.time)]))
+//                for i in 0...1 {
+////                    if(self.sleepActivityData[i].title == elm.date) {
+////                        self.sleepActivityData[i].1.append((elm.time))
+////                        found = true
+////                    }
 //                }
             }
             group.leave()
         }
+//        print(sleepActivityData)
         group.wait()
-        generateCharts.updateSleepActivityGraph(data: sleepActivityData, chart: sleepActivityChart)
+        generateCharts.updateSleepActivityGraph(sleepData: sleepData, activityData: activityData, chart: sleepActivityChart)
         view.addSubview(sleepActivityChart)
     }
 
