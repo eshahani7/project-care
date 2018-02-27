@@ -298,7 +298,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
             
             self.HeartRateLabel.setText("Heart Rate: " + String(UInt16(value)))
             
-            if (self.workoutUtilities?.isTooFast(currHR: value))!{
+            if (self.workoutUtilities?.isTooFast(currHR: value, startDate: self.startDate))!{
                 print ("Going too fast!!!")
                 self.paceLabel.setText("GOING TOO FAST!")
 //                if(self.audioPlayer.status == WKAudioFilePlayerStatus.readyToPlay){
@@ -307,7 +307,7 @@ class StartWorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDe
 //                }
                 //notificationDelegate.sendNotification(title: "GOING TOO FAST!", message: "going fast boi")
             }
-            else if (self.workoutUtilities?.isTooSlow(currHR: value))!{
+            else if (self.workoutUtilities?.isTooSlow(currHR: value, startDate: self.startDate))!{
                 print ("Going too SLOW.")
                 self.paceLabel.setText("GOING TOO SLOW!")
 //                if(self.audioPlayer.status == WKAudioFilePlayerStatus.readyToPlay){

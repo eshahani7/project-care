@@ -21,6 +21,8 @@ class WorkoutUtilities {
     private var workoutMins:Double
     private var intensityLevel:Int
     private var weight:Double?
+    private var warmUp:Double
+    private var coolDown:Double
     
     init(workoutMins:Double, intensityLevel:Int) {
         self.store = HealthStore.getInstance()
@@ -28,17 +30,24 @@ class WorkoutUtilities {
         peakZone = Double(maxHR) * 0.85
         cardioZone = Double(maxHR) * 0.7
         fatBurnZone = Double(maxHR)  * 0.5
-        
+        warmUp = workoutMins * 0.2
+        coolDown = workoutMins - (workoutMins * 0.2)
         self.workoutMins = workoutMins
         self.intensityLevel = intensityLevel
     }
     
-    public func isTooSlow(currHR:Double) -> Bool {
-        return getCurrentZone(currHR: currHR) < getBestZone()
+    public func isTooSlow(currHR:Double, startDate:Date) -> Bool {
+        let timePassed = Date().timeIntervalSinceNow
+        print("Zone: \(getBestZone(timePassed: timePassed))")
+        
+        return getCurrentZone(currHR: currHR) < getBestZone(timePassed: timePassed)
     }
     
-    public func isTooFast(currHR:Double) -> Bool {
-        return getCurrentZone(currHR: currHR) > getBestZone()
+    public func isTooFast(currHR:Double, startDate:Date) -> Bool {
+        let timePassed = Date().timeIntervalSinceNow
+        print("Zone: \(getBestZone(timePassed: timePassed))")
+        
+        return getCurrentZone(currHR: currHR) > getBestZone(timePassed: timePassed)
     }
     
     public func predictCalorieBurn() -> Double {
@@ -80,18 +89,29 @@ class WorkoutUtilities {
     
     public func getPrevCalorieGoal() -> Double { return calorieGoal }
     
-    private func getBestZone() -> Double {
-        if workoutMins < 15 {
-            return peakZone
+    private func getBestZone(timePassed:Double) -> Double {
+        if timePassed <= warmUp || timePassed >= coolDown{
+            if workoutMins < 15 {
+                return peakZone*0.80
+            }
+            else if workoutMins > 35 {
+                return fatBurnZone*0.95
+            }
+            return cardioZone*0.80
         }
-        else if workoutMins > 35 {
-            return fatBurnZone
+        else{
+            if workoutMins < 15 {
+                return peakZone
+            }
+            else if workoutMins > 35 {
+                return fatBurnZone
+            }
+            return cardioZone
         }
-        return cardioZone
     }
     
     private func getCurrentZone(currHR:Double) -> Double {
-        if currHR >= peakZone {
+        if currHR >= peakZone && currHR <= Double (maxHR) {
             return peakZone
         } else if currHR >= cardioZone {
             return cardioZone
