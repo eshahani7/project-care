@@ -49,6 +49,7 @@ class generateCharts {
             print(value1)
         }
         let dataSet = ScatterChartDataSet(values: dataEntry, label: "HeartRate" )
+        print(dataSet)
         dataSet.setColor(UIColor.red)
         var workoutHRDataSet = [ScatterChartDataSet]()
         workoutHRDataSet.append(dataSet)
@@ -57,6 +58,7 @@ class generateCharts {
         chart.data = data
         chart.chartDescription?.text = "Heart vs Activity"
         chart.setScaleMinima(1, scaleY: 1)
+        chart.rightAxis.enabled=false
         
         print(data)
 

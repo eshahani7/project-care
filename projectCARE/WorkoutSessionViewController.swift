@@ -34,12 +34,12 @@ class WorkoutSessionViewController: UIViewController {
         print(String(mapThis.getCalorieBurnGoal() ))
         
         //charts
-        let width = view.bounds.size.width
-        let HRTimeChart = ScatterChartView()
-        let height = view.bounds.size.height
+        //@CINDY - you can edit size if you want
+        let HRTimeChart = ScatterChartView(frame: CGRect(x: 40, y: 450, width: 300, height: 200))
         let pointsData = mapThis.getHRTuples()
         print(pointsData)
 
+    
         generateCharts.updateHRWorkoutGraph(data: pointsData, chart: HRTimeChart)
         view.addSubview(HRTimeChart)
         
