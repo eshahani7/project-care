@@ -65,5 +65,28 @@ class generateCharts {
         chart.rightAxis.enabled = false
         chart.drawGridBackgroundEnabled = false
     }
+    
+    public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
+        var dataEntry = [ChartDataEntry]()
+        for i in 0..<data.count {
+            let value1 = ChartDataEntry(x: Double(data[i].timeSinceStart) , y: Double(data[i].heartRate) )
+            dataEntry.append(value1)
+            print(value1)
+        }
+        let dataSet = ScatterChartDataSet(values: dataEntry, label: "HeartRate" )
+        print(dataSet)
+        dataSet.setColor(UIColor.red)
+        var workoutHRDataSet = [ScatterChartDataSet]()
+        workoutHRDataSet.append(dataSet)
+        
+        let data = ScatterChartData(dataSets:workoutHRDataSet)
+        chart.data = data
+        chart.chartDescription?.text = "Heart vs Activity"
+        chart.setScaleMinima(1, scaleY: 1)
+        chart.rightAxis.enabled=false
+        
+        print(data)
+
+    }
 }
 
