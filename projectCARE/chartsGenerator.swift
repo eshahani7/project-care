@@ -33,19 +33,22 @@ class generateCharts {
 
     public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
         var barChartSleepEntry = [BarChartDataEntry]()
-        for i in 0...sleepData.count {
+        for i in 0...sleepData.count - 1 {
             let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
             barChartSleepEntry.append(value)
         }
         var barChartActivityEntry = [BarChartDataEntry]()
-        for i in 0...sleepData.count {
+        for i in 0...activityData.count - 1 {
             let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
             barChartActivityEntry.append(value)
         }
         let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
         let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
-        let IChartDataSet = [barChartSleepDataSet, barChartActivityDataSet]
-        let data = BarChartData(dataSets: [IChartDataSet as! IChartDataSet])
+//        let IChartDataSet = [barChartSleepDataSet, barChartActivityDataSet]
+//        let dataSet = [barChartActivityDataSet, barChartSleepDataSet]
+        let data = BarChartData()
+        data.addDataSet(barChartActivityDataSet)
+        data.addDataSet(barChartSleepDataSet)
         chart.data = data
         chart.chartDescription?.text = "Sleeo Hours vs Activity"
         chart.setScaleMinima(1, scaleY: 1)
