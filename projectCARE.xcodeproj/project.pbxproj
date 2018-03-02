@@ -24,6 +24,9 @@
 		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
 		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
 		9F487A272023CA82007F9DBE /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F487A262023CA82007F9DBE /* HealthStore.swift */; };
+		9F4F8D732048F79B00B02FA9 /* HeartRateInsights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8D722048F79B00B02FA9 /* HeartRateInsights.swift */; };
+		9F4F8D752048F7CD00B02FA9 /* HRInsightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8D742048F7CD00B02FA9 /* HRInsightsTests.swift */; };
+		9F4F8D762048F7FC00B02FA9 /* HeartRateInsights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8D722048F79B00B02FA9 /* HeartRateInsights.swift */; };
 		9F5096BD203BF96600F6D497 /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5096BC203BF96600F6D497 /* WorkoutFacade.swift */; };
 		9F5096BF203BFB4200F6D497 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5096BE203BFB4200F6D497 /* Workout.swift */; };
 		9F93751A203E50EE00493C29 /* HealthStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F937519203E50EE00493C29 /* HealthStoreTests.swift */; };
@@ -125,6 +128,8 @@
 		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		9F404E862033F4310033D1E2 /* WorkoutUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilities.swift; sourceTree = "<group>"; };
 		9F487A262023CA82007F9DBE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		9F4F8D722048F79B00B02FA9 /* HeartRateInsights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateInsights.swift; sourceTree = "<group>"; };
+		9F4F8D742048F7CD00B02FA9 /* HRInsightsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRInsightsTests.swift; sourceTree = "<group>"; };
 		9F5096BC203BF96600F6D497 /* WorkoutFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFacade.swift; sourceTree = "<group>"; };
 		9F5096BE203BFB4200F6D497 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		9F937519203E50EE00493C29 /* HealthStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreTests.swift; sourceTree = "<group>"; };
@@ -216,6 +221,7 @@
 				9F937519203E50EE00493C29 /* HealthStoreTests.swift */,
 				9F93751B203E510A00493C29 /* WorkoutUtilitiesTests.swift */,
 				9F93751D203E51A600493C29 /* WorkoutTests.swift */,
+				9F4F8D742048F7CD00B02FA9 /* HRInsightsTests.swift */,
 			);
 			path = projectCARETests;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 		9FCE82F8203A628600612B60 /* Insights */ = {
 			isa = PBXGroup;
 			children = (
+				9F4F8D722048F79B00B02FA9 /* HeartRateInsights.swift */,
 			);
 			name = Insights;
 			sourceTree = "<group>";
@@ -506,6 +513,7 @@
 				9FCE82F6203A61E900612B60 /* WorkoutList.swift in Sources */,
 				9FCE82EF203A30BA00612B60 /* WorkoutUtilities.swift in Sources */,
 				9F5096BF203BFB4200F6D497 /* Workout.swift in Sources */,
+				9F4F8D732048F79B00B02FA9 /* HeartRateInsights.swift in Sources */,
 				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
 				9F487A272023CA82007F9DBE /* HealthStore.swift in Sources */,
 				9F5096BD203BF96600F6D497 /* WorkoutFacade.swift in Sources */,
@@ -522,9 +530,11 @@
 				9F937520203E5B5600493C29 /* HealthStore.swift in Sources */,
 				9F93751C203E510A00493C29 /* WorkoutUtilitiesTests.swift in Sources */,
 				9F93751A203E50EE00493C29 /* HealthStoreTests.swift in Sources */,
+				9F4F8D762048F7FC00B02FA9 /* HeartRateInsights.swift in Sources */,
 				9F937523203E5B6100493C29 /* Workout.swift in Sources */,
 				9F937522203E5B5F00493C29 /* WorkoutFacade.swift in Sources */,
 				9F93751E203E51A600493C29 /* WorkoutTests.swift in Sources */,
+				9F4F8D752048F7CD00B02FA9 /* HRInsightsTests.swift in Sources */,
 				9F93751F203E561D00493C29 /* WorkoutUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
