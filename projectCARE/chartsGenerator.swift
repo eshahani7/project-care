@@ -17,9 +17,9 @@ class generateCharts {
             let value = BarChartDataEntry(x: Double(i), y: Double(numbers[i]))
             barChartEntry.append(value)
         }
-        print(numbers)
+//        print(numbers)
         let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
-        print(barChartDataSet)
+//        print(barChartDataSet)
         let data = BarChartData(dataSet: barChartDataSet)
         chtChart.data = data
         chtChart.chartDescription?.text = "Step counts vs Time"
@@ -37,17 +37,26 @@ class generateCharts {
 
     public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
         var barChartSleepEntry = [BarChartDataEntry]()
+        var barChartActivityEntry = [BarChartDataEntry]()
+        var xValues = [String]()
         for i in 0...sleepData.count - 1 {
+            xValues.append(getDayOfWeek(date: sleepData[i].title))
             let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
             barChartSleepEntry.append(value)
         }
-        var barChartActivityEntry = [BarChartDataEntry]()
         for i in 0...activityData.count - 1 {
             let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
             barChartActivityEntry.append(value)
         }
+
         let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
         let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
+        
+        let chartFormatter = BarChartFormatter(labels: xValues)
+        let xAxis = XAxis()
+        xAxis.valueFormatter = chartFormatter
+        chart.xAxis.valueFormatter = xAxis.valueFormatter
+        
         barChartSleepDataSet.colors = [UIColor.red]
         barChartActivityDataSet.colors = [UIColor.lightGray]
         let data = BarChartData()
@@ -65,6 +74,31 @@ class generateCharts {
         chart.drawValueAboveBarEnabled = false
         chart.rightAxis.enabled = false
         chart.drawGridBackgroundEnabled = false
+    }
+    
+    public static func getDayOfWeek(date: String) -> String{
+        let df  = DateFormatter()
+        df.dateFormat = "YYYY-MM-dd"
+        let date = df.date(from: date)!
+        df.dateFormat = "EEEE"
+        let day = df.string(from: date);
+        let index = day.index(day.startIndex, offsetBy: 3)
+        let parsedDay = day[..<index]
+        return String(parsedDay)
+    }
+    
+    private class BarChartFormatter: NSObject, IAxisValueFormatter {
+        
+        var labels: [String] = []
+        
+        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            return labels[Int(value)]
+        }
+        
+        init(labels: [String]) {
+            super.init()
+            self.labels = labels
+        }
     }
     
     public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
