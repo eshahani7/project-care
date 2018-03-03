@@ -37,7 +37,22 @@ class generateCharts {
         print(barChartDataSet)
         let data = BarChartData(dataSet: barChartDataSet)
         chart.data = data
-        chart.chartDescription?.text = "Sleeo Hours vs Activity"
+        chart.chartDescription?.text = "Sleep Hours vs Activity"
+        chart.setScaleMinima(1, scaleY: 1)
+    }
+    
+    public static func updateSleepGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
+        var barChartEntry = [BarChartDataEntry]()
+        for i in 0..<data.count {
+            let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
+            barChartEntry.append(value)
+        }
+        print(data)
+        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Sleep Hours")
+        print(barChartDataSet)
+        let data = BarChartData(dataSet: barChartDataSet)
+        chart.data = data
+        chart.chartDescription?.text = "Sleep"
         chart.setScaleMinima(1, scaleY: 1)
     }
     
@@ -64,19 +79,6 @@ class generateCharts {
 
     }
     
-    public static func updateSleepGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
-        var barChartEntry = [BarChartDataEntry]()
-        for i in 0..<data.count {
-            let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
-            barChartEntry.append(value)
-        }
-        print(data)
-        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Sleep Hours")
-        print(barChartDataSet)
-        let data = BarChartData(dataSet: barChartDataSet)
-        chart.data = data
-        chart.chartDescription?.text = "Sleeo Hours vs Activity"
-        chart.setScaleMinima(1, scaleY: 1)
-    }
+  
 }
 

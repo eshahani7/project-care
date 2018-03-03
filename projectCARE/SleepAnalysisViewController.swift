@@ -13,8 +13,10 @@ class SleepAnalysisViewController: UIViewController {
     let store:HealthStore = HealthStore.getInstance()
     
     var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 300))
-    
     var sleepActivityData : [(title: String, graph: [Double])] = []
+    
+    var sleepChart = BarChartView(frame: CGRect(x: 40, y: 350, width: 300, height: 300))
+    var sleepData : [(title: String, graph: [Double])] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +46,32 @@ class SleepAnalysisViewController: UIViewController {
         group.wait()
         generateCharts.updateSleepActivityGraph(data: sleepActivityData, chart: sleepActivityChart)
         view.addSubview(sleepActivityChart)
+        
+        
+        var sleepChart = BarChartView(frame: CGRect(x: 40, y: 350, width: 300, height: 300))
+        
+        var sleepData : [(title: String, graph: [Double])] = []
+        
+            store.getSleepHours(){ hours in
+                for elm in hours {
+                     print("hello ")
+                    print(elm)
+                    sleepData.append((title: elm.date, graph: [(elm.time)]))
+                }
+            }
+            print("sleep data ")
+            print(sleepData)
+        
+            generateCharts.updateSleepGraph(data: sleepData, chart: sleepChart)
+            view.addSubview(sleepChart)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     /*
     // MARK: - Navigation
