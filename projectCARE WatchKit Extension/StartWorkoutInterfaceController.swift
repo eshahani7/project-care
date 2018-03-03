@@ -36,7 +36,7 @@ class StartWorkoutInterfaceController: WKInterfaceController {
     var session : HKWorkoutSession?
     let heartRateUnit = HKUnit(from: "count/min")
     //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
-    var currenQuery : HKQuery?
+    var currenQuery : HKAnchoredObjectQuery?
     
     var startDate:Date = Date()
     var endDate:Date = Date()
@@ -74,6 +74,7 @@ class StartWorkoutInterfaceController: WKInterfaceController {
             WorkoutTimer.stop()
             self.StartEndButton.setTitle("Start")
             if let workout = workoutSession.session {
+                healthStore.stop(self.currenQuery!)
                 workoutSession.endWorkout(intensity: self.intensity, time: self.time, calorieBurnGoal: self.workoutUtilities?.predictCalorieBurn(), completion: {(success, error) in
                     if let Error = error{
                         print ("*** There was an error ending workout: \(Error.localizedDescription)")
@@ -108,7 +109,7 @@ class StartWorkoutInterfaceController: WKInterfaceController {
                                 //self.anchor = newAnchor!
                                 self.updateHeartRate(samples)
                             }
-                            
+                            self.currenQuery = query
                             self.healthStore.execute(query)
                         }
                         
