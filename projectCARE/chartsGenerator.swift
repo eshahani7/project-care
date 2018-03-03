@@ -11,18 +11,39 @@ import Charts
 
 class generateCharts {
     
-    public static func updateStepsGraph(numbers: [Int], chtChart: BarChartView) {
+    public static func updateStepsGraph(stepsData: [(title: String, stepCount: Int)], chtChart: BarChartView) {
         var barChartEntry = [BarChartDataEntry]()
-        for i in 0..<numbers.count {
-            let value = BarChartDataEntry(x: Double(i), y: Double(numbers[i]))
-            barChartEntry.append(value)
+        var xValues = [String]()
+        
+        var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+        let endDate = Date();
+        let fmt = DateFormatter()
+        fmt.dateFormat = "YYYY-MM-dd"
+        while (date?.compare(endDate) != .orderedDescending) {
+            xValues.append(getDayOfWeek(date: fmt.string(from: date!)))
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
         }
-//        print(numbers)
+
+        if(stepsData.count != 0){
+            for i in 0..<stepsData.count {
+                print(getDayOfWeek(date: stepsData[i].title))
+                let value = BarChartDataEntry(x: Double(i), y: Double(stepsData[i].stepCount))
+                barChartEntry.append(value)
+            }
+        } else {
+            // throw something here
+        }
+        
         let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
-//        print(barChartDataSet)
         let data = BarChartData(dataSet: barChartDataSet)
         chtChart.data = data
         chtChart.chartDescription?.text = "Step counts vs Time"
+        
+        let chartFormatter = BarChartFormatter(labels: xValues)
+        let xAxis = XAxis()
+        xAxis.valueFormatter = chartFormatter
+        chtChart.xAxis.valueFormatter = xAxis.valueFormatter
+
         chtChart.chartDescription?.textColor = UIColor.white
         chtChart.setScaleMinima(1, scaleY: 1)
         chtChart.xAxis.labelPosition = .bottom
@@ -95,13 +116,10 @@ class generateCharts {
     }
     
     private class BarChartFormatter: NSObject, IAxisValueFormatter {
-        
         var labels: [String] = []
-        
         func stringForValue(_ value: Double, axis: AxisBase?) -> String {
             return labels[Int(value)]
         }
-        
         init(labels: [String]) {
             super.init()
             self.labels = labels
@@ -131,4 +149,3 @@ class generateCharts {
 
     }
 }
-

@@ -170,19 +170,17 @@ class HealthStore {
         let query = HKStatisticsCollectionQuery(quantityType: HealthValues.stepCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate! as Date, intervalComponents:interval)
         query.initialResultsHandler = { query, results, error in
             if error != nil {
-                print("nooo")
+                print("Error: ", error!)
                 return
             }
             let statsCollection = results
             var arr = [(date: String, steps: Double)]()
-            // Plot the weekly step counts over the past 3 months
             statsCollection?.enumerateStatistics(from: startDate!, to: endDate) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
                     let index = date.description.index(date.description.startIndex, offsetBy: 10)
-                    let parsedData = date.description[..<index] // Hello
+                    let parsedData = date.description[..<index]
                     let value = quantity.doubleValue(for: HKUnit.count())
-                    // Call a custom method to plot each data point.
                     arr.append((String(parsedData), value))
                 }
             }
@@ -206,14 +204,12 @@ class HealthStore {
             }
             let statsCollection = results
             var arr = [(date: String, time: Double)]()
-            // Plot the weekly step counts over the past 3 months
             statsCollection?.enumerateStatistics(from: startDate!, to: endDate!) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
                     let index = date.description.index(date.description.startIndex, offsetBy: 10)
                     let parsedData = date.description[..<index]
                     let value = quantity.doubleValue(for: HKUnit.hour())
-                    // Call a custom method to plot each data point.
                     arr.append((String(parsedData), value))
                 }
             }

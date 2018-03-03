@@ -25,28 +25,16 @@ class SleepAnalysisViewController: UIViewController {
             for elm in activeTime {
                 self.activityData.append((title: elm.date, graph: [(elm.time)]))
             }
-            print("Done printing active elms")
             group.leave()
         }
         group.wait()
         group.enter()
         self.store.getSleepHours(){ hours in
             for elm in hours {
-//                var found = false
                 self.sleepData.append((title: elm.date, graph: [(elm.time)]))
-//                for i in 0...self.activityData.count {
-//                    if(self.sleepData[i].title == elm.date) {
-//                        self.sleepData[i].1.append((elm.time))
-//                    }
-//                }
             }
-            print("Done printing sleep data")
-            print(self.activityData)
-            print("Done printing activity data")
-            print(self.sleepData)
             group.leave()
         }
-//        print(sleepActivityData)
         group.wait()
         generateCharts.updateSleepActivityGraph(sleepData: sleepData, activityData: activityData, chart: sleepActivityChart)
         view.addSubview(sleepActivityChart)

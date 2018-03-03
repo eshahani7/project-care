@@ -33,8 +33,8 @@ class ViewController: UIViewController {
 //    @IBOutlet weak var chtChart: BarChartView!
     var chtChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 300))
     
-    var numbers : [Int] = []
-    
+    var barsData : [(title: String, stepCount: Int)] = []
+
     @IBAction func SleepAnalysis(_ sender: UIButton) {
         performSegue(withIdentifier: "SleepAnalysis", sender: self)
     }
@@ -45,13 +45,12 @@ class ViewController: UIViewController {
         group.enter()
         store.retrieveStepCount() { steps in
             for step in steps {
-                self.numbers.append(Int(step.steps))
-//                barsData.append((title: step.date, min: 0, max: Int(step.steps)))
+                self.barsData.append((title: step.date, stepCount: Int(step.steps)))
             }
             group.leave()
         }
         group.wait()
-        generateCharts.updateStepsGraph(numbers: numbers, chtChart: chtChart)
+        generateCharts.updateStepsGraph(stepsData: barsData, chtChart: chtChart)
         view.addSubview(chtChart)
     }
     
