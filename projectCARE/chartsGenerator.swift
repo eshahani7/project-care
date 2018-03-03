@@ -17,28 +17,88 @@ class generateCharts {
             let value = BarChartDataEntry(x: Double(i), y: Double(numbers[i]))
             barChartEntry.append(value)
         }
-        print(numbers)
+//        print(numbers)
         let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
-        print(barChartDataSet)
+//        print(barChartDataSet)
         let data = BarChartData(dataSet: barChartDataSet)
         chtChart.data = data
         chtChart.chartDescription?.text = "Step counts vs Time"
+        chtChart.chartDescription?.textColor = UIColor.white
         chtChart.setScaleMinima(1, scaleY: 1)
+        chtChart.xAxis.labelPosition = .bottom
+        chtChart.xAxis.labelTextColor = UIColor.white
+        chtChart.leftAxis.labelTextColor = UIColor.white
+        chtChart.xAxis.drawGridLinesEnabled = false
+        chtChart.leftAxis.drawGridLinesEnabled = false
+        chtChart.drawValueAboveBarEnabled = false
+        chtChart.rightAxis.enabled = false
+        chtChart.drawGridBackgroundEnabled = false
     }
 
-    public static func updateSleepActivityGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
-        var barChartEntry = [BarChartDataEntry]()
-        for i in 0..<data.count {
-            let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
-            barChartEntry.append(value)
+    public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
+        var barChartSleepEntry = [BarChartDataEntry]()
+        var barChartActivityEntry = [BarChartDataEntry]()
+        var xValues = [String]()
+        for i in 0...sleepData.count - 1 {
+            xValues.append(getDayOfWeek(date: sleepData[i].title))
+            let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
+            barChartSleepEntry.append(value)
         }
-        print(data)
-        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Sleep Hours")
-        print(barChartDataSet)
-        let data = BarChartData(dataSet: barChartDataSet)
+        for i in 0...activityData.count - 1 {
+            let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
+            barChartActivityEntry.append(value)
+        }
+
+        let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
+        let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
+        
+        let chartFormatter = BarChartFormatter(labels: xValues)
+        let xAxis = XAxis()
+        xAxis.valueFormatter = chartFormatter
+        chart.xAxis.valueFormatter = xAxis.valueFormatter
+        
+        barChartSleepDataSet.colors = [UIColor.red]
+        barChartActivityDataSet.colors = [UIColor.lightGray]
+        let data = BarChartData()
+        data.addDataSet(barChartSleepDataSet)
+        data.addDataSet(barChartActivityDataSet)
         chart.data = data
-        chart.chartDescription?.text = "Sleeo Hours vs Activity"
+        chart.chartDescription?.text = ""
         chart.setScaleMinima(1, scaleY: 1)
+        chart.xAxis.labelPosition = .bottom
+        chart.legend.textColor = UIColor.white
+        chart.xAxis.labelTextColor = UIColor.white
+        chart.leftAxis.labelTextColor = UIColor.white
+        chart.xAxis.drawGridLinesEnabled = false
+        chart.leftAxis.drawGridLinesEnabled = false
+        chart.drawValueAboveBarEnabled = false
+        chart.rightAxis.enabled = false
+        chart.drawGridBackgroundEnabled = false
+    }
+    
+    public static func getDayOfWeek(date: String) -> String{
+        let df  = DateFormatter()
+        df.dateFormat = "YYYY-MM-dd"
+        let date = df.date(from: date)!
+        df.dateFormat = "EEEE"
+        let day = df.string(from: date);
+        let index = day.index(day.startIndex, offsetBy: 3)
+        let parsedDay = day[..<index]
+        return String(parsedDay)
+    }
+    
+    private class BarChartFormatter: NSObject, IAxisValueFormatter {
+        
+        var labels: [String] = []
+        
+        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            return labels[Int(value)]
+        }
+        
+        init(labels: [String]) {
+            super.init()
+            self.labels = labels
+        }
     }
     
     public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
