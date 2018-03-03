@@ -39,16 +39,23 @@ class generateCharts {
         var barChartSleepEntry = [BarChartDataEntry]()
         var barChartActivityEntry = [BarChartDataEntry]()
         var xValues = [String]()
-        for i in 0...sleepData.count - 1 {
-            xValues.append(getDayOfWeek(date: sleepData[i].title))
-            let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
-            barChartSleepEntry.append(value)
+        if(sleepData.count != 0) {
+            for i in 0...sleepData.count - 1 {
+                xValues.append(getDayOfWeek(date: sleepData[i].title))
+                let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
+                barChartSleepEntry.append(value)
+            }
+        } else {
+            // throw something here
         }
-        for i in 0...activityData.count - 1 {
-            let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
-            barChartActivityEntry.append(value)
+        if(activityData.count != 0) {
+            for i in 0...activityData.count - 1 {
+                let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
+                barChartActivityEntry.append(value)
+            }
+        } else {
+            //throw something here
         }
-
         let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
         let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
         
