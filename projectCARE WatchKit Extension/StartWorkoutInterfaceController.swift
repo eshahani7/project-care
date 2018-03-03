@@ -158,9 +158,10 @@ class StartWorkoutInterfaceController: WKInterfaceController {
             
             let heartRateForIntervalSample = sample
             self.workoutSession.heartRateIntervalSamples.append(heartRateForIntervalSample)
-            print("Added heart rate sample. \(heartRateForIntervalSample.quantity.doubleValue(for: self.heartRateUnit))")
+            //print("Added heart rate sample. \(heartRateForIntervalSample.quantity.doubleValue(for: self.heartRateUnit))")
             
             self.HeartRateLabel.setText("Heart Rate: " + String(UInt16(value)))
+            print("Heart Rate: " + String(UInt16(value)))
             
             if (self.workoutUtilities?.isTooFast(currHR: value, startDate: self.startDate))!{
                 print ("Going too fast!!!")

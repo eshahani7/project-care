@@ -32,19 +32,23 @@ class WorkoutUtilities {
         fatBurnZone = Double(maxHR)  * 0.5
         warmUp = workoutMins * 0.2
         coolDown = workoutMins - (workoutMins * 0.2)
+        print("Warm up time: \(warmUp)")
+        print("Cool Down time: \(coolDown)")
         self.workoutMins = workoutMins
         self.intensityLevel = intensityLevel
     }
     
     public func isTooSlow(currHR:Double, startDate:Date) -> Bool {
-        let timePassed = Date().timeIntervalSinceNow
+        let timePassed = (Date().timeIntervalSince(startDate))/60
+        print("Time Passed: \(timePassed)")
         print("Zone: \(getBestZone(timePassed: timePassed))")
         
         return getCurrentZone(currHR: currHR) < getBestZone(timePassed: timePassed)
     }
     
     public func isTooFast(currHR:Double, startDate:Date) -> Bool {
-        let timePassed = Date().timeIntervalSinceNow
+        let timePassed = (Date().timeIntervalSince(startDate))/60
+        print("Time Passed: \(timePassed)")
         print("Zone: \(getBestZone(timePassed: timePassed))")
         
         return getCurrentZone(currHR: currHR) > getBestZone(timePassed: timePassed)
@@ -91,6 +95,7 @@ class WorkoutUtilities {
     
     private func getBestZone(timePassed:Double) -> Double {
         if timePassed <= warmUp || timePassed >= coolDown{
+            print ("Is in warm-up/cool-down.")
             if workoutMins < 15 {
                 return peakZone*0.80
             }
@@ -100,6 +105,7 @@ class WorkoutUtilities {
             return cardioZone*0.80
         }
         else{
+            print ("Doing actual workout.")
             if workoutMins < 15 {
                 return peakZone
             }
