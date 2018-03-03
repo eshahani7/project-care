@@ -12,55 +12,65 @@ import Charts
 class SleepAnalysisViewController: UIViewController {
     let store:HealthStore = HealthStore.getInstance()
     
-    var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 300))
     var sleepActivityData : [(title: String, graph: [Double])] = []
     
     var sleepChart = BarChartView(frame: CGRect(x: 40, y: 350, width: 300, height: 300))
+    var sleepData2 : [(title: String, graph: [Double])] = []
+
+    var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 400))
+    
     var sleepData : [(title: String, graph: [Double])] = []
+    var activityData : [(title: String, graph: [Double])] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let group = DispatchGroup()
         group.enter()
         store.getExerciseTime() { activeTime in
-            print(activeTime.count)
             for elm in activeTime {
-                self.sleepActivityData.append((title: elm.date, [(elm.time)]))
+                self.activityData.append((title: elm.date, graph: [(elm.time)]))
             }
+            print("Done printing active elms")
             group.leave()
         }
         group.wait()
         group.enter()
         self.store.getSleepHours(){ hours in
             for elm in hours {
-                print(elm)
-                self.sleepActivityData.append((title: elm.date, graph: [(elm.time)]))
-//                for i in 0...4 {
-//                    if(self.sleepActivityData[i].title == elm.date) {
-//                        self.sleepActivityData[i].1.append((elm.time))
+//                var found = false
+                self.sleepData.append((title: elm.date, graph: [(elm.time)]))
+//                for i in 0...self.activityData.count {
+//                    if(self.sleepData[i].title == elm.date) {
+//                        self.sleepData[i].1.append((elm.time))
 //                    }
 //                }
             }
+            print("Done printing sleep data")
+            print(self.activityData)
+            print("Done printing activity data")
+            print(self.sleepData)
             group.leave()
         }
+//        print(sleepActivityData)
         group.wait()
-        generateCharts.updateSleepActivityGraph(data: sleepActivityData, chart: sleepActivityChart)
+        generateCharts.updateSleepActivityGraph(sleepData: sleepData, activityData: activityData, chart: sleepActivityChart)
         view.addSubview(sleepActivityChart)
         
         
         var sleepChart = BarChartView(frame: CGRect(x: 40, y: 350, width: 300, height: 300))
         
-        var sleepData : [(title: String, graph: [Double])] = []
+        var sleepData2 : [(title: String, graph: [Double])] = []
         
             store.getSleepHours(){ hours in
                 for elm in hours {
                      print("hello ")
                     print(elm)
-                    sleepData.append((title: elm.date, graph: [(elm.time)]))
+                    sleepData2.append((title: elm.date, graph: [(elm.time)]))
                 }
             }
             print("sleep data ")
-            print(sleepData)
+            print(sleepData2)
         
             generateCharts.updateSleepGraph(data: sleepData, chart: sleepChart)
             view.addSubview(sleepChart)

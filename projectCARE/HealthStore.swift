@@ -193,7 +193,7 @@ class HealthStore {
     
     public func getExerciseTime(completion: @escaping (_ exerciseTime: [(date: String, time: Double)]) -> Void) {
         let startDate = Calendar.current.date(byAdding: .day, value: -8, to: Date())
-        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        let endDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
         var interval = DateComponents()
         interval.day = 1
