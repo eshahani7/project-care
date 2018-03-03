@@ -12,13 +12,30 @@ import Charts
 class SleepAnalysisViewController: UIViewController {
     let store:HealthStore = HealthStore.getInstance()
     
-    var sleepActivityChart = BarChartView(frame: CGRect(x: 40, y: 120, width: 300, height: 400))
+    var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 200, width: 325, height: 350))
     
     var sleepData : [(title: String, graph: [Double])] = []
     var activityData : [(title: String, graph: [Double])] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //gradient background
+        let layer = CAGradientLayer()
+        layer.frame = CGRect(x: 0, y: -20, width: 500, height: 600)
+        layer.colors = [UIColor.black.cgColor, UIColor(red: 0.2196, green: 0.2588, blue: 0.3882, alpha: 1.0)]
+        view.layer.addSublayer(layer)
+        
+        //STEP label
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
+        label.center = CGPoint(x: 190, y: 170)
+        label.textAlignment = .center
+        label.text = "Sleep Analysis"
+        label.font = UIFont(name:"Helvetica", size: 15.0)
+        label.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        self.view.addSubview(label)
+        
+        //sleep analysis chart
         let group = DispatchGroup()
         group.enter()
         store.getExerciseTime() { activeTime in

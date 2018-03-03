@@ -37,28 +37,56 @@ class generateCharts {
         let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
         let data = BarChartData(dataSet: barChartDataSet)
         chtChart.data = data
-        chtChart.chartDescription?.text = "Step counts vs Time"
         
+        //bar chart animation
+        chtChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeOutExpo)
+        chtChart.chartDescription?.text = "Step counts vs Time"
+
         let chartFormatter = BarChartFormatter(labels: xValues)
         let xAxis = XAxis()
         xAxis.valueFormatter = chartFormatter
         chtChart.xAxis.valueFormatter = xAxis.valueFormatter
 
-        chtChart.chartDescription?.textColor = UIColor.white
+        //chtChart.chartDescription?.textColor = UIColor.white
+
+        chtChart.chartDescription?.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chtChart.chartDescription?.font = UIFont.systemFont(ofSize: 100, weight: UIFont.Weight.regular)
+        chtChart.chartDescription?.position = CGPoint(x: 200, y: 500)
+
         chtChart.setScaleMinima(1, scaleY: 1)
+        
         chtChart.xAxis.labelPosition = .bottom
-        chtChart.xAxis.labelTextColor = UIColor.white
-        chtChart.leftAxis.labelTextColor = UIColor.white
+        
+//        chtChart.xAxis.labelTextColor = UIColor.white
+//        chtChart.leftAxis.labelTextColor = UIColor.white
+//        chtChart.xAxis.drawGridLinesEnabled = false
+//        chtChart.leftAxis.drawGridLinesEnabled = false
+//        chtChart.drawValueAboveBarEnabled = false
+
         chtChart.xAxis.drawGridLinesEnabled = false
-        chtChart.leftAxis.drawGridLinesEnabled = false
-        chtChart.drawValueAboveBarEnabled = false
+        chtChart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chtChart.legend.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+
         chtChart.rightAxis.enabled = false
+        chtChart.leftAxis.drawGridLinesEnabled = false
+        chtChart.leftAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
         chtChart.drawGridBackgroundEnabled = false
+        chtChart.barData?.setValueTextColor(UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75))
+
+        chtChart.drawValueAboveBarEnabled = true
+        //chtChart.backgroundColor = UIColor.white
+        chtChart.gridBackgroundColor = UIColor.white
+        barChartDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
+    }
+    
+    func setBarChart() {
+    
     }
 
     public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
         var barChartSleepEntry = [BarChartDataEntry]()
         var barChartActivityEntry = [BarChartDataEntry]()
+
         var xValues = [String]()
         if(sleepData.count != 0) {
             for i in 0...sleepData.count - 1 {
@@ -87,21 +115,43 @@ class generateCharts {
         
         barChartSleepDataSet.colors = [UIColor.red]
         barChartActivityDataSet.colors = [UIColor.lightGray]
+
+//        for i in 0...activityData.count - 1 {
+//            let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
+//            barChartActivityEntry.append(value)
+//        }
+
+
         let data = BarChartData()
         data.addDataSet(barChartSleepDataSet)
         data.addDataSet(barChartActivityDataSet)
         chart.data = data
+        
+        chart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeOutExpo)
         chart.chartDescription?.text = ""
         chart.setScaleMinima(1, scaleY: 1)
+        
         chart.xAxis.labelPosition = .bottom
-        chart.legend.textColor = UIColor.white
-        chart.xAxis.labelTextColor = UIColor.white
-        chart.leftAxis.labelTextColor = UIColor.white
+
+        //chart.legend.textColor = UIColor.white
+        //chart.xAxis.labelTextColor = UIColor.white
+        //chart.leftAxis.labelTextColor = UIColor.white
+
         chart.xAxis.drawGridLinesEnabled = false
+        chart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.legend.textColor = UIColor.white
         chart.leftAxis.drawGridLinesEnabled = false
-        chart.drawValueAboveBarEnabled = false
+        chart.leftAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
         chart.rightAxis.enabled = false
+        chart.barData?.setValueTextColor(UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75))
+
+        //chart.backgroundColor = UIColor.white
+        chart.drawValueAboveBarEnabled = true
         chart.drawGridBackgroundEnabled = false
+        
+        barChartSleepDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
+        barChartActivityDataSet.colors = [UIColor.black]
+        
     }
     
     public static func getDayOfWeek(date: String) -> String{
