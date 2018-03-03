@@ -77,7 +77,9 @@ class generateCharts {
     
     public static func updateSleepGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
         var barChartEntry = [BarChartDataEntry]()
+         var xVals = [String]()
         for i in 0..<data.count {
+            xVals.append(getDayOfWeek(date: data[i].title))
             let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
             barChartEntry.append(value)
         }
@@ -88,15 +90,14 @@ class generateCharts {
         chart.data = data
         chart.chartDescription?.text = "Sleep"
 
-        chart.chartDescription?.text = ""
 
         chart.setScaleMinima(1, scaleY: 1)
         chart.xAxis.labelPosition = .bottom
         chart.legend.textColor = UIColor.white
         chart.xAxis.labelTextColor = UIColor.white
         chart.leftAxis.labelTextColor = UIColor.white
-        chart.xAxis.drawGridLinesEnabled = false
-        chart.leftAxis.drawGridLinesEnabled = false
+//        chart.xAxis.drawGridLinesEnabled = false
+//        chart.leftAxis.drawGridLinesEnabled = false
         chart.drawValueAboveBarEnabled = false
         chart.rightAxis.enabled = false
         chart.drawGridBackgroundEnabled = false
