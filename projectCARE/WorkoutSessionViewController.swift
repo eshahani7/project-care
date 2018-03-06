@@ -25,17 +25,34 @@ class WorkoutSessionViewController: UIViewController {
     @IBOutlet weak var GoalMet: UILabel!
     @IBOutlet weak var UserEnteredTime: UILabel!
     @IBOutlet weak var CalBurnGoal: UILabel!
+    
+    @IBOutlet weak var gradientB: UIImageView!
+    
+    var gradientLayer: CAGradientLayer!
+    
+    func createGradientLayer() {
+        gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.yellow.cgColor]
+        gradientLayer.startPoint = CGPoint(x:0.0, y:0.0)
+        gradientLayer.endPoint = CGPoint(x:1.0, y:1.0)
+        
+        self.view.layer.addSublayer(gradientLayer)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
         let list:[WorkoutFacade] = wl.getWorkoutList()
         let mapThis:WorkoutFacade = list[index]
         print(String(mapThis.getCalorieBurnGoal() ))
         
         //charts
         //@CINDY - you can edit size if you want
-        let HRTimeChart = ScatterChartView(frame: CGRect(x: 40, y: 450, width: 300, height: 200))
+        let HRTimeChart = ScatterChartView(frame: CGRect(x: 30, y: 230, width: 330, height: 250))
         let pointsData = mapThis.getHRTuples()
         print(pointsData)
 
@@ -43,13 +60,12 @@ class WorkoutSessionViewController: UIViewController {
         generateCharts.updateHRWorkoutGraph(data: pointsData, chart: HRTimeChart)
         view.addSubview(HRTimeChart)
         
-        
-        
-        let av = "♥ Average Heart Rate: " + String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
-        let cal = "♥ Calories Burned: " + String(describing: mapThis.getCalsBurned()!) + " CAL"
-        let du = "♥ Duration: " + durationToString(min:mapThis.getDuration())
+    
+        let av = String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
+        let cal = String(describing: mapThis.getCalsBurned()!) + " CAL"
+        let du =  durationToString(min:mapThis.getDuration())
         let da = dateFormate(date: mapThis.getWorkoutDate())
-        let calb = "♥ Calorie Burn Goal: " + String(format: "%.2f", mapThis.getCalorieBurnGoal())
+        let calb = String(format: "%.2f", mapThis.getCalorieBurnGoal())
         var goal = ""
         if(mapThis.wasGoalMet()) {
             goal = "YES"
@@ -62,8 +78,8 @@ class WorkoutSessionViewController: UIViewController {
         //DistTraveled.text = String(describing: mapThis.getDistTraveled())
         Duration.text = du
         WorkoutDate.text = da
-        GoalMet.text = "♥ Goal Met: " + goal
-        UserEnteredTime.text = "♥ Time Entered: " + minToString(min:mapThis.getUserEnteredTime())
+        GoalMet.text = goal
+        UserEnteredTime.text =  minToString(min:mapThis.getUserEnteredTime())
         CalBurnGoal.text = calb + " CAL"
         
        // generateCharts.updateSleepActivityGraph(data: pointsData, chart: sleepActivityChart)

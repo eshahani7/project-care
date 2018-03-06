@@ -47,8 +47,6 @@ class generateCharts {
         xAxis.valueFormatter = chartFormatter
         chtChart.xAxis.valueFormatter = xAxis.valueFormatter
 
-        //chtChart.chartDescription?.textColor = UIColor.white
-
         chtChart.chartDescription?.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
         chtChart.chartDescription?.font = UIFont.systemFont(ofSize: 100, weight: UIFont.Weight.regular)
         chtChart.chartDescription?.position = CGPoint(x: 200, y: 500)
@@ -56,13 +54,6 @@ class generateCharts {
         chtChart.setScaleMinima(1, scaleY: 1)
         
         chtChart.xAxis.labelPosition = .bottom
-        
-//        chtChart.xAxis.labelTextColor = UIColor.white
-//        chtChart.leftAxis.labelTextColor = UIColor.white
-//        chtChart.xAxis.drawGridLinesEnabled = false
-//        chtChart.leftAxis.drawGridLinesEnabled = false
-//        chtChart.drawValueAboveBarEnabled = false
-
         chtChart.xAxis.drawGridLinesEnabled = false
         chtChart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
         chtChart.legend.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
@@ -74,9 +65,9 @@ class generateCharts {
         chtChart.barData?.setValueTextColor(UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75))
 
         chtChart.drawValueAboveBarEnabled = true
-        //chtChart.backgroundColor = UIColor.white
         chtChart.gridBackgroundColor = UIColor.white
         barChartDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
+        barChartDataSet.setColor(UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1))
     }
     
     func setBarChart() {
@@ -185,7 +176,7 @@ class generateCharts {
         }
         let dataSet = ScatterChartDataSet(values: dataEntry, label: "HeartRate" )
         print(dataSet)
-        dataSet.setColor(UIColor.red)
+        dataSet.setColor(UIColor(red: 1, green: 0.298, blue: 0.3098, alpha: 1.0))
         var workoutHRDataSet = [ScatterChartDataSet]()
         workoutHRDataSet.append(dataSet)
         
@@ -193,7 +184,17 @@ class generateCharts {
         chart.data = data
         chart.chartDescription?.text = "Heart vs Activity"
         chart.setScaleMinima(1, scaleY: 1)
-        chart.rightAxis.enabled=false
+        
+        chart.chartDescription?.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.chartDescription?.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular)
+        
+        chart.rightAxis.enabled = false
+        chart.leftAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.legend.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        
+        
         
         print(data)
 

@@ -13,6 +13,7 @@ class HeartRateViewController: UIViewController {
     @IBOutlet weak var avg: UILabel!
     @IBOutlet weak var min: UILabel!
     @IBOutlet weak var max: UILabel!
+    @IBOutlet weak var insights: UILabel!
     
     let store:HealthStore = HealthStore.getInstance()
     let HR:HeartRateInsights = HeartRateInsights()
@@ -23,6 +24,7 @@ class HeartRateViewController: UIViewController {
         avg.text = String(describing: HR.getAvgHR()!)
         min.text = String(describing: HR.getMinHR()!)
         max.text = String(describing: HR.getMaxHR()!)
+        insights.text = HR.getInsights()
         
         // Do any additional setup after loading the view.
     }

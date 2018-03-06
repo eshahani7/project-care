@@ -39,24 +39,41 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "SleepAnalysis", sender: self)
     }
     
+    @IBOutlet weak var navigationTitle: UINavigationItem!
+    
+    // Screen width.
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    // Screen height.
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //gradient background
-        let layer = CAGradientLayer()
-        layer.frame = CGRect(x: 0, y: -20, width: 500, height: 600)
-        layer.colors = [UIColor.black.cgColor, UIColor(red: 0.2196, green: 0.2588, blue: 0.3882, alpha: 1.0)]
-        view.layer.addSublayer(layer)
+        navigationTitle.title = "CARE"
+        //navigationTitle.
         
-        //STEP label
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
-        label.center = CGPoint(x: 200, y: 180)
-        label.textAlignment = .center
-        label.text = "Steps for last 7 days "
-        label.font = UIFont(name:"Helvetica", size: 15.0)
-        label.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
-        self.view.addSubview(label)
+        
+        //gradient background
+//        let layer = CAGradientLayer()
+//        layer.frame = CGRect(x: 0, y: 100, width: screenWidth, height: screenHeight)
+//        layer.colors = [UIColor(red: 0.2196, green: 0.2588, blue: 0.3882, alpha: 1.0), UIColor.black.cgColor]
+//        //view.layer.addSublayer(layer)
+//        self.view.layer.insertSublayer(layer, at: 0)
+
+        
+//        //STEP label
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
+//        label.center = CGPoint(x: 200, y: 180)
+//        label.textAlignment = .center
+//        label.text = "Steps for last 7 days "
+//        label.font = UIFont(name:"Helvetica", size: 15.0)
+//        label.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+//        self.view.addSubview(label)
         
         //step count chart
         let group = DispatchGroup()
