@@ -64,7 +64,7 @@ class SleepAnalysisViewController: UIViewController {
         
             store.getSleepHours(){ hours in
                 for elm in hours {
-                     print("hello ")
+                     //print("hello ")
                     print(elm)
                     sleepData2.append((title: elm.date, graph: [(elm.time)]))
                 }

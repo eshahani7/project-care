@@ -10,6 +10,9 @@ import UIKit
 import Charts
 
 class generateCharts {
+    init(){
+        
+    }
     
     public static func updateStepsGraph(numbers: [Int], chtChart: BarChartView) {
         var barChartEntry = [BarChartDataEntry]()
@@ -39,6 +42,8 @@ class generateCharts {
         var barChartSleepEntry = [BarChartDataEntry]()
         var barChartActivityEntry = [BarChartDataEntry]()
         var xValues = [String]()
+        print("sleepData!!!")
+        print(sleepData)
         if(sleepData.count != 0) {
             for i in 0...sleepData.count - 1 {
                 xValues.append(getDayOfWeek(date: sleepData[i].title))
@@ -83,7 +88,7 @@ class generateCharts {
             let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
             barChartEntry.append(value)
         }
-        print(data)
+        //print(data)
         let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Sleep Hours")
         print(barChartDataSet)
         let data = BarChartData(dataSet: barChartDataSet)
@@ -106,7 +111,7 @@ class generateCharts {
     public static func getDayOfWeek(date: String) -> String{
         let df  = DateFormatter()
         df.dateFormat = "YYYY-MM-dd"
-        let date = df.date(from: date)!
+        var date = df.date(from: date)!
         df.dateFormat = "EEEE"
         let day = df.string(from: date);
         let index = day.index(day.startIndex, offsetBy: 3)
@@ -131,7 +136,7 @@ class generateCharts {
     public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
         var dataEntry = [ChartDataEntry]()
         for i in 0..<data.count {
-            let value1 = ChartDataEntry(x: Double(data[i].timeSinceStart) , y: Double(data[i].heartRate) )
+            let value1 = ChartDataEntry(x: (Double(data[i].timeSinceStart)) , y: Double(data[i].heartRate) )
             dataEntry.append(value1)
             print(value1)
         }
@@ -139,14 +144,19 @@ class generateCharts {
         print(dataSet)
         dataSet.setColor(UIColor.red)
         var workoutHRDataSet = [ScatterChartDataSet]()
+      
         workoutHRDataSet.append(dataSet)
         
         let data = ScatterChartData(dataSets:workoutHRDataSet)
+        dataSet.setScatterShape(.circle)
+        dataSet.scatterShapeSize = 6
         chart.data = data
+        //chart.XAxisPosition = BOTTOM
         chart.chartDescription?.text = "Heart vs Activity"
-        chart.setScaleMinima(1, scaleY: 1)
+        chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
+        //chart.
+        chart.setScaleMinima(0, scaleY: 0)
         chart.rightAxis.enabled=false
-        
         print(data)
 
     }
