@@ -10,9 +10,22 @@ import UIKit
 import Charts
 
 class SleepAnalysisViewController: UIViewController {
+    
+    @IBOutlet weak var maxSleep: UILabel!
+    @IBOutlet weak var minSleep: UILabel!
+    @IBOutlet weak var avgSleep: UILabel!
+    @IBOutlet weak var sleepInsights: UILabel!
+    
+    @IBOutlet weak var maxActivity: UILabel!
+    @IBOutlet weak var minActivity: UILabel!
+    @IBOutlet weak var avgActivity: UILabel!
+    @IBOutlet weak var activityInsights: UILabel!
+    
+    let SAI:SleepActivityInsights = SleepActivityInsights()
+    
     let store:HealthStore = HealthStore.getInstance()
     
-    var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 200, width: 325, height: 350))
+    var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 200, width: 330, height: 300))
     
     var sleepData : [(title: String, graph: [Double])] = []
     var activityData : [(title: String, graph: [Double])] = []
@@ -20,20 +33,16 @@ class SleepAnalysisViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //gradient background
-        let layer = CAGradientLayer()
-        layer.frame = CGRect(x: 0, y: -20, width: 500, height: 600)
-        layer.colors = [UIColor.black.cgColor, UIColor(red: 0.2196, green: 0.2588, blue: 0.3882, alpha: 1.0)]
-        view.layer.addSublayer(layer)
+        //  RICHA: FIX   error:'Unable to parse factorization string count/hour'
+//        maxSleep.text = String(describing: SAI.getMaxSleep())
+//        minSleep.text = String(describing: SAI.getMinSleep())
+//        avgSleep.text = String(describing: SAI.getAvgSleep())
+//        sleepInsights.text = SAI.getSleepInsights()
+//        maxActivity.text = String(describing: SAI.getMaxActivity())
+//        minActivity.text = String(describing: SAI.getMinActivity())
+//        avgActivity.text = String(describing: SAI.getAvgActivity())
+//        activityInsights.text = SAI.getActivityInsights()
         
-        //STEP label
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
-        label.center = CGPoint(x: 190, y: 170)
-        label.textAlignment = .center
-        label.text = "Sleep Analysis"
-        label.font = UIFont(name:"Helvetica", size: 15.0)
-        label.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
-        self.view.addSubview(label)
         
         //sleep analysis chart
         let group = DispatchGroup()
