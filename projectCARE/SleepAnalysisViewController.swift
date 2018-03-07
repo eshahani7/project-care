@@ -57,23 +57,7 @@ class SleepAnalysisViewController: UIViewController {
         generateCharts.updateSleepActivityGraph(sleepData: sleepData, activityData: activityData, chart: sleepActivityChart)
         view.addSubview(sleepActivityChart)
         
-        
-        var sleepChart = BarChartView(frame: CGRect(x: 40, y: 350, width: 300, height: 300))
-        
-        var sleepData2 : [(title: String, graph: [Double])] = []
-        
-            store.getSleepHours(){ hours in
-                for elm in hours {
-                     //print("hello ")
-                    print(elm)
-                    sleepData2.append((title: elm.date, graph: [(elm.time)]))
-                }
-            }
-            print("sleep data ")
-            print(sleepData2)
-        
-            generateCharts.updateSleepGraph(data: sleepData, chart: sleepChart)
-            view.addSubview(sleepChart)
+
     }
 
     override func didReceiveMemoryWarning() {

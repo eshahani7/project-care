@@ -80,33 +80,6 @@ class generateCharts {
         chart.setScaleMinima(1, scaleY: 1)
     }
     
-    public static func updateSleepGraph(data: [(title: String, graph: [Double])], chart: BarChartView) {
-        var barChartEntry = [BarChartDataEntry]()
-         var xVals = [String]()
-        for i in 0..<data.count {
-            xVals.append(getDayOfWeek(date: data[i].title))
-            let value = BarChartDataEntry(x: Double(i), y: Double(data[i].graph[0]))
-            barChartEntry.append(value)
-        }
-        //print(data)
-        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Sleep Hours")
-        print(barChartDataSet)
-        let data = BarChartData(dataSet: barChartDataSet)
-        chart.data = data
-        chart.chartDescription?.text = "Sleep"
-
-
-        chart.setScaleMinima(1, scaleY: 1)
-        chart.xAxis.labelPosition = .bottom
-        chart.legend.textColor = UIColor.white
-        chart.xAxis.labelTextColor = UIColor.white
-        chart.leftAxis.labelTextColor = UIColor.white
-//        chart.xAxis.drawGridLinesEnabled = false
-//        chart.leftAxis.drawGridLinesEnabled = false
-        chart.drawValueAboveBarEnabled = false
-        chart.rightAxis.enabled = false
-        chart.drawGridBackgroundEnabled = false
-    }
     
     public static func getDayOfWeek(date: String) -> String{
         let df  = DateFormatter()
@@ -136,7 +109,7 @@ class generateCharts {
     public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
         var dataEntry = [ChartDataEntry]()
         for i in 0..<data.count {
-            let value1 = ChartDataEntry(x: (Double(data[i].timeSinceStart)) , y: Double(data[i].heartRate) )
+            let value1 = ChartDataEntry(x: (Double(data[i].timeSinceStart)/60.0) , y: Double(data[i].heartRate) )
             dataEntry.append(value1)
             print(value1)
         }
