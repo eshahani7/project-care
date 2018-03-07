@@ -19,9 +19,6 @@ class SleepActivityInsights {
     private var minActivity:Double?
     private var avgActivity:Double?
     
-    private let sleepUnit = HKUnit(from: "count/hour")
-    private let activityUnit = HKUnit(from: "count/hour")
-    
     private let sleepInsights = ["Your sleep time for the week is way below average. You need to sleep more!",
                             "Your sleep time for the week is just about average. With more activity, you can increase it.",
                             "Your sleep time is healthy. Great job!",
