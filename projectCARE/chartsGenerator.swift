@@ -214,7 +214,8 @@ class generateCharts {
         
 
         chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
-        //chart.
+        //chart.leftAxis.axisMinimum = 0;
+        chart.xAxis.axisMinimum = 0;
         chart.setScaleMinima(0, scaleY: 0)
         chart.rightAxis.enabled=false
 
