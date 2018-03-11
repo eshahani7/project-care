@@ -10,23 +10,27 @@ import UIKit
 import Charts
 
 class generateCharts {
+    init(){
+        
+    }
     
     public static func updateStepsGraph(stepsData: [(title: String, stepCount: Int)], chtChart: BarChartView) {
         var barChartEntry = [BarChartDataEntry]()
         var xValues = [String]()
+        print(stepsData)
         
         var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        let endDate = Date();
+        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         let fmt = DateFormatter()
         fmt.dateFormat = "YYYY-MM-dd"
-        while (date?.compare(endDate) != .orderedDescending) {
+        while (date?.compare(endDate!) != .orderedDescending) {
             xValues.append(getDayOfWeek(date: fmt.string(from: date!)))
             date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
         }
+        //print(xValues)
 
         if(stepsData.count != 0){
             for i in 0..<stepsData.count {
-                print(getDayOfWeek(date: stepsData[i].title))
                 let value = BarChartDataEntry(x: Double(i), y: Double(stepsData[i].stepCount))
                 barChartEntry.append(value)
             }
@@ -71,17 +75,17 @@ class generateCharts {
         chtChart.gridBackgroundColor = UIColor.white
     }
     
-    func setBarChart() {
-    
-    }
-
     public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
         var barChartSleepEntry = [BarChartDataEntry]()
         var barChartActivityEntry = [BarChartDataEntry]()
 
         var xValues = [String]()
+//        print("sleepData!!!")
+//        print(sleepData)
+        
         if(sleepData.count != 0) {
             for i in 0...sleepData.count - 1 {
+                // Get index of date in sleepData. Then, append to barChartSleepEntry?!?
                 xValues.append(getDayOfWeek(date: sleepData[i].title))
                 let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
                 barChartSleepEntry.append(value)
@@ -107,11 +111,12 @@ class generateCharts {
         
         barChartSleepDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
         barChartActivityDataSet.colors = [UIColor(red: 0.5608, green: 0.9333, blue: 0.9686, alpha: 1.0)]
-
+       
         let data = BarChartData()
         data.addDataSet(barChartSleepDataSet)
         data.addDataSet(barChartActivityDataSet)
         chart.data = data
+
         
         chart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeOutExpo)
         chart.chartDescription?.text = ""
@@ -129,10 +134,8 @@ class generateCharts {
         chart.drawValueAboveBarEnabled = true
         chart.drawGridBackgroundEnabled = false
         
-        
-        chart.chartDescription?.text = "Sleep Hours vs Activity"
-
     }
+    
     
     public static func getDayOfWeek(date: String) -> String{
         let df  = DateFormatter()
@@ -164,7 +167,7 @@ class generateCharts {
     public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
         var dataEntry = [ChartDataEntry]()
         for i in 0..<data.count {
-            let value1 = ChartDataEntry(x: Double(data[i].timeSinceStart) , y: Double(data[i].heartRate) )
+            let value1 = ChartDataEntry(x: (Double(data[i].timeSinceStart)/60.0) , y: Double(data[i].heartRate) )
             dataEntry.append(value1)
             print(value1)
         }
@@ -172,13 +175,18 @@ class generateCharts {
         print(dataSet)
         dataSet.setColor(UIColor(red: 1, green: 0.298, blue: 0.3098, alpha: 1.0))
         var workoutHRDataSet = [ScatterChartDataSet]()
+      
         workoutHRDataSet.append(dataSet)
         
         let data = ScatterChartData(dataSets:workoutHRDataSet)
+        dataSet.setScatterShape(.circle)
+        dataSet.scatterShapeSize = 6
         chart.data = data
         dataSet.setScatterShape(.circle)
         dataSet.scatterShapeSize = 10
+
         chart.chartDescription?.text = "Heart vs Activity"
+
         chart.setScaleMinima(1, scaleY: 1)
         
         chart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeOutExpo)
@@ -195,7 +203,16 @@ class generateCharts {
         //chart.xAxis.axisMinimum = 0;
         //chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
         
+
+        chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
+        //chart.leftAxis.axisMinimum = 0;
+        chart.xAxis.axisMinimum = 0;
+        chart.setScaleMinima(0, scaleY: 0)
+        chart.rightAxis.enabled=false
+
         print(data)
 
     }
+    
+  
 }

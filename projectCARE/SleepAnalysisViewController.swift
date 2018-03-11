@@ -25,9 +25,10 @@ class SleepAnalysisViewController: UIViewController {
     let store:HealthStore = HealthStore.getInstance()
     
     var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 150, width: 340, height: 280))
-    
+
     var sleepData : [(title: String, graph: [Double])] = []
     var activityData : [(title: String, graph: [Double])] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,6 @@ class SleepAnalysisViewController: UIViewController {
         maxActivity.text = String(format: "%.2f", SAI.getMaxActivity()!) + " hour"
         minActivity.text = String(format: "%.2f", SAI.getMinActivity()!) + " hour"
         avgActivity.text = String(format: "%.2f", SAI.getAvgActivity()!) + " hour"
-        
         
         //sleep analysis chart
         let group = DispatchGroup()
@@ -61,12 +61,16 @@ class SleepAnalysisViewController: UIViewController {
         group.wait()
         generateCharts.updateSleepActivityGraph(sleepData: sleepData, activityData: activityData, chart: sleepActivityChart)
         view.addSubview(sleepActivityChart)
+        
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     /*
     // MARK: - Navigation

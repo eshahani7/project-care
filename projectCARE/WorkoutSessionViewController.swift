@@ -19,7 +19,6 @@ class WorkoutSessionViewController: UIViewController {
     
     @IBOutlet weak var AvgHeartRate: UILabel!
     @IBOutlet weak var CaloriesBurned: UILabel!
-    //@IBOutlet weak var DistTraveled: UILabel!
     @IBOutlet weak var Duration: UILabel!
     @IBOutlet weak var WorkoutDate: UILabel!
     @IBOutlet weak var GoalMet: UILabel!
@@ -55,15 +54,15 @@ class WorkoutSessionViewController: UIViewController {
         let HRTimeChart = ScatterChartView(frame: CGRect(x: 25, y: 180, width: 330, height: 230))
         let pointsData = mapThis.getHRTuples()
         print(pointsData)
-
-    
+        
         generateCharts.updateHRWorkoutGraph(data: pointsData, chart: HRTimeChart)
         view.addSubview(HRTimeChart)
-        
     
         let av = String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
         let cal = String(format: "%.2f", mapThis.getCalsBurned()!) + " CAL"
         let du =  durationToString(min:mapThis.getDuration())
+ 
+
         let da = dateFormate(date: mapThis.getWorkoutDate())
         let calb = String(format: "%.2f", mapThis.getCalorieBurnGoal())
         var goal = ""
@@ -81,15 +80,6 @@ class WorkoutSessionViewController: UIViewController {
         GoalMet.text = goal
         UserEnteredTime.text =  minToString(min:mapThis.getUserEnteredTime())
         CalBurnGoal.text = calb + " CAL"
-        
-       // generateCharts.updateSleepActivityGraph(data: pointsData, chart: sleepActivityChart)
-//        var myMutableString = NSMutableAttributedString()
-//        myMutableString = NSMutableAttributedString(string: av as String, attributes: [NSAttributedStringKey.font:UIFont(name: "System", size: 18.0)!])
-//
-//        myMutableString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 23.0), range: NSRange(location:22,length:(String(mapThis.getAvgHeartRate()).count)))
-//        AvgHeartRate.attributedText = myMutableString
-        
-        // Do any additional setup after loading the view.
     }
     
     func durationToString(min:Double) -> String {
