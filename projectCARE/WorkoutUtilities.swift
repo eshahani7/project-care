@@ -45,7 +45,7 @@ class WorkoutUtilities {
         let group = DispatchGroup()
         group.enter()
         
-        store?.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date.distantPast, endDate: Date()) { (sample, error) in
+        store?.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date().addingTimeInterval(-60*60*24*7), endDate: Date()) { (sample, error) in
             
             guard let samples = sample else {
                 if let error = error {
