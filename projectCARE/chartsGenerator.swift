@@ -7,252 +7,212 @@
 //
 import Foundation
 import UIKit
-import SwiftCharts
+import Charts
 
 class generateCharts {
-    
-    public static func createStepsChart(barsData: [(title: String, min: Int, max: Int)], width: CGFloat, height: CGFloat) -> Chart {
+    init(){
         
-        let font = UIFont(name: "Avenir", size: 12)
-        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
-        
-        let alpha: CGFloat = 0.2
-        let color = UIColor.lightGray.withAlphaComponent(alpha)
-        let zero = ChartAxisValueInt(0)
-        let bars: [ChartBarModel] = barsData.enumerated().flatMap {index, tuple in
-            [
-                ChartBarModel(constant: ChartAxisValueDouble(index), axisValue1: zero, axisValue2: ChartAxisValueDouble(tuple.max), bgColor: color)
-            ]
-        }
-        
-        // THe generator represents the scale for the charts
-        let xGenerator = ChartAxisGeneratorMultiplier(1)
-        let yGenerator = ChartAxisGeneratorMultiplier(3000)
-        
-//        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-//            return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
-//        }
-        let labelsXGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-            return ChartAxisLabel(text: "Day", settings: labelSettings)
-        }
-        
-        
-        let labelsYGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-            return ChartAxisLabel(text: "\(scalar)", settings: labelSettings)
-        }
-        
-        // These models define specifics for each of the axes, and define the bounds
-        let xModel = ChartAxisModel(firstModelValue: -1, lastModelValue: Double(barsData.count), axisTitleLabels: [ChartAxisLabel(text: "Days", settings: labelSettings)], axisValuesGenerator: xGenerator, labelsGenerator: labelsXGenerator)
-        let yModel = ChartAxisModel(firstModelValue: 0, lastModelValue: 12500, axisTitleLabels: [ChartAxisLabel(text: "Step Count", settings: labelSettings.defaultVertical())], axisValuesGenerator: yGenerator, labelsGenerator: labelsYGenerator)
-        
-        let chartFrame = CGRect(x: 20, y: 130, width: width - 10, height: height + 80)
-        
-        // Defines the coordinate layer
-        let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ChartSettings(), chartFrame: chartFrame, xModel: xModel, yModel: yModel)
-        let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
-        
-        // Actual bars on the chart
-        let barViewSettings = ChartBarViewSettings()
-        let barsLayer = ChartBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, bars: bars, horizontal: false, barWidth: 20, settings: barViewSettings)
-        
-        let labelToBarSpace: Double = 2 // domain units
-        let labelChartPoints = bars.map {bar in
-            ChartPoint(x: bar.constant, y: bar.axisValue2.copy(bar.axisValue2.scalar + (bar.axisValue2.scalar > 0 ? labelToBarSpace : -labelToBarSpace)))
-        }
-        
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        let labelsLayer = ChartPointsViewsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: labelChartPoints, viewGenerator: {(chartPointModel, layer, chart) -> UIView? in
-            let label = HandlingLabel()
-            
-            let pos = chartPointModel.chartPoint.y.scalar > 0
-            
-            label.text = "\(formatter.string(from: NSNumber(value: chartPointModel.chartPoint.y.scalar - labelToBarSpace))!)"
-            label.textColor = UIColor.white
-            label.font = font!
-            label.sizeToFit()
-            label.center = CGPoint(x: chartPointModel.screenLoc.x, y: pos ? innerFrame.origin.y: innerFrame.origin.y + innerFrame.size.height)
-            label.alpha = 0
-            
-            label.movedToSuperViewHandler = {[weak label] in
-                UIView.animate(withDuration: 0, animations: {
-                    label?.alpha = 1
-                    label?.center.y = chartPointModel.screenLoc.y - 7
-                })
-            }
-            return label
-            
-        }, displayDelay: 0, mode: .translate) // show after bars animation
-        
-        let chart = Chart(
-            frame: chartFrame,
-            innerFrame: innerFrame,
-            settings: ChartSettings(),
-            layers: [
-                xAxisLayer,
-                yAxisLayer,
-                barsLayer,
-                labelsLayer
-            ]
-        )
-        
-        return chart
     }
     
+    public static func updateStepsGraph(stepsData: [(title: String, stepCount: Int)], chtChart: BarChartView) {
+        var barChartEntry = [BarChartDataEntry]()
+        var xValues = [String]()
+        print(stepsData)
+        
+        var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        let fmt = DateFormatter()
+        fmt.dateFormat = "YYYY-MM-dd"
+        while (date?.compare(endDate!) != .orderedDescending) {
+            xValues.append(getDayOfWeek(date: fmt.string(from: date!)))
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
+        }
+        //print(xValues)
 
-    public static func createWorkoutChart(pointsData: [(heartRate: Double, timeSinceStart: Double)], width: CGFloat, height: CGFloat) -> Chart {
-        let font = UIFont(name: "Avenir", size: 12)
-        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
+        if(stepsData.count != 0){
+            for i in 0..<stepsData.count {
+                let value = BarChartDataEntry(x: Double(i), y: Double(stepsData[i].stepCount))
+                barChartEntry.append(value)
+            }
+        } else {
+            // throw something here
+        }
+        
+        let barChartDataSet = BarChartDataSet(values: barChartEntry, label: "Step count")
+        let data = BarChartData(dataSet: barChartDataSet)
+        chtChart.data = data
+        
+        barChartDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
+        chtChart.legend.enabled = false
+        
+        //bar chart animation
+        chtChart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeOutExpo)
+        chtChart.chartDescription?.text = "Step counts vs Time"
+
+        let chartFormatter = BarChartFormatter(labels: xValues)
+        let xAxis = XAxis()
+        xAxis.valueFormatter = chartFormatter
+        chtChart.xAxis.valueFormatter = xAxis.valueFormatter
+        
+        chtChart.chartDescription?.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chtChart.chartDescription?.font = UIFont.systemFont(ofSize: 100, weight: UIFont.Weight.regular)
+        chtChart.chartDescription?.position = CGPoint(x: 200, y: 500)
+
+        chtChart.setScaleMinima(1, scaleY: 1)
+        
+        chtChart.xAxis.labelPosition = .bottom
+        chtChart.xAxis.drawGridLinesEnabled = false
+        chtChart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chtChart.legend.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+
+        chtChart.rightAxis.enabled = false
+        chtChart.leftAxis.drawGridLinesEnabled = false
+        chtChart.leftAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chtChart.drawGridBackgroundEnabled = false
+        chtChart.barData?.setValueTextColor(UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75))
+
+        chtChart.drawValueAboveBarEnabled = true
+        chtChart.gridBackgroundColor = UIColor.white
+    }
     
-        let alpha: CGFloat = 0.2
-        let color = UIColor.lightGray.withAlphaComponent(alpha)
-        //let zero = ChartAxisValueInt(0)
+    public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
+        var barChartSleepEntry = [BarChartDataEntry]()
+        var barChartActivityEntry = [BarChartDataEntry]()
+
+        var xValues = [String]()
+//        print("sleepData!!!")
+//        print(sleepData)
         
-        // ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))
-        let points: [ChartPoint] = pointsData.map{ChartPoint(x: ChartAxisValueDouble($0.1), y: ChartAxisValueDouble($0.0, labelSettings: labelSettings))}
+        if(sleepData.count != 0) {
+            for i in 0...sleepData.count - 1 {
+                // Get index of date in sleepData. Then, append to barChartSleepEntry?!?
+                xValues.append(getDayOfWeek(date: sleepData[i].title))
+                let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
+                barChartSleepEntry.append(value)
+            }
+        } else {
+            // throw something here
+        }
+        if(activityData.count != 0) {
+            for i in 0...activityData.count - 1 {
+                let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
+                barChartActivityEntry.append(value)
+            }
+        } else {
+            //throw something here
+        }
+        let barChartActivityDataSet = BarChartDataSet(values: barChartActivityEntry, label: "Active Hours")
+        let barChartSleepDataSet = BarChartDataSet(values: barChartSleepEntry, label: "Sleep Hours")
         
+        let chartFormatter = BarChartFormatter(labels: xValues)
+        let xAxis = XAxis()
+        xAxis.valueFormatter = chartFormatter
+        chart.xAxis.valueFormatter = xAxis.valueFormatter
+        
+        barChartSleepDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
+        barChartActivityDataSet.colors = [UIColor(red: 0.5608, green: 0.9333, blue: 0.9686, alpha: 1.0)]
        
-        
-        let xValues = points.map{$0.x}
-        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(points, minSegmentCount: 10, maxSegmentCount: 140, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
-        
-//        let labelsGenerator = ChartAxisLabelsGeneratorFunc {scalar in
-//            return ChartAxisLabel(text: "M", settings: labelSettings)
-//        }
-    
-        let lineModel = ChartLineModel(chartPoints: points, lineColor: UIColor.red, animDuration: 1, animDelay: 0)
-        
-        //These models define specifics for each of the axes, and define the bounds
-        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Minute", settings: labelSettings))
-        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Heart Rate", settings: labelSettings.defaultVertical()))
+        let data = BarChartData()
+        data.addDataSet(barChartSleepDataSet)
+        data.addDataSet(barChartActivityDataSet)
+        chart.data = data
 
         
-        let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
+        chart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeOutExpo)
+        chart.chartDescription?.text = ""
+        chart.setScaleMinima(1, scaleY: 1)
         
-    
-    let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ChartSettings(), chartFrame: chartFrame, xModel: xModel, yModel: yModel)
-    let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
-    
-    let chartPointsLineLayer = ChartPointsLineLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, lineModels: [lineModel])
-    
-    
-    let settings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth:2)
-    let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.drawGridLinesEnabled = false
+        chart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.legend.textColor = UIColor.white
+        chart.leftAxis.drawGridLinesEnabled = false
+        chart.leftAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.rightAxis.enabled = false
+        chart.barData?.setValueTextColor(UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75))
+
+        chart.drawValueAboveBarEnabled = true
+        chart.drawGridBackgroundEnabled = false
         
-//        let chartConfig = ChartConfigXY(
-//            chartSettings: ChartSettings(),
-//            xAxisConfig: ChartAxisConfig(from: 0, to: 3, by: 0.5),
-//            yAxisConfig: ChartAxisConfig(from: 0, to: 150, by: 20),
-//            xAxisLabelSettings:labelSettings,
-//            yAxisLabelSettings:labelSettings.defaultVertical()
-//        )
-//
-//        let chart = LineChart(
-//            frame: chartFrame,
-//            chartConfig: chartConfig,
-//            xTitle: "Minutes",
-//            yTitle: "Heart Rate",
-//            lines: [(chartPoints: pointsData, color: color)]
-//        )
-//
-    
-    let chart = Chart(
-        frame: chartFrame,
-        innerFrame: innerFrame,
-        settings: ChartSettings(),
-        layers: [
-            xAxisLayer,
-            yAxisLayer,
-            guidelinesLayer,
-            chartPointsLineLayer,
-        ]
-    )
-        return chart
     }
     
-    public static func createSleepActivityChart(groupsData: [(title: String, [(min: Double, max: Double)])], horizontal: Bool, width: CGFloat, height: CGFloat) -> Chart {
-
-        var chart: Chart?
-        let font = UIFont(name: "Avenir", size: 12)
-        let labelSettings = ChartLabelSettings(font: font!, fontColor: UIColor.white)
-        
-        let groupColors = [UIColor.red.withAlphaComponent(0.6), UIColor.blue.withAlphaComponent(0.6)]
-        
-        let groups: [ChartPointsBarGroup] = groupsData.enumerated().map {index, entry in
-            let constant = ChartAxisValueDouble(index)
-            let bars = entry.1.enumerated().map {index, tuple in
-                ChartBarModel(constant: constant, axisValue1: ChartAxisValueDouble(tuple.min), axisValue2: ChartAxisValueDouble(tuple.max), bgColor: groupColors[index])
+    
+    public static func getDayOfWeek(date: String) -> String{
+        let df  = DateFormatter()
+        df.dateFormat = "YYYY-MM-dd"
+        let date = df.date(from: date)!
+        df.dateFormat = "EEEE"
+        let day = df.string(from: date);
+        let index = day.index(day.startIndex, offsetBy: 3)
+        let parsedDay = day[..<index]
+        return String(parsedDay)
+    }
+    
+    private class BarChartFormatter: NSObject, IAxisValueFormatter {
+        var labels: [String] = []
+        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            //print("Count: " + String(labels.count))
+            if (value <= Double(labels.count)) {
+                //print(value)
+                return labels[Int(value)];
             }
-            return ChartPointsBarGroup(constant: constant, bars: bars)
+            return "no work";
         }
+        init(labels: [String]) {
+            super.init()
+            self.labels = labels
+        }
+    }
+    
+    public static func updateHRWorkoutGraph(data: [(heartRate: Double, timeSinceStart:Double)], chart: ScatterChartView) {
+        var dataEntry = [ChartDataEntry]()
+        for i in 0..<data.count {
+            let value1 = ChartDataEntry(x: (Double(data[i].timeSinceStart)/60.0) , y: Double(data[i].heartRate) )
+            dataEntry.append(value1)
+            print(value1)
+        }
+        let dataSet = ScatterChartDataSet(values: dataEntry, label: "HeartRate" )
+        print(dataSet)
+        dataSet.setColor(UIColor(red: 1, green: 0.298, blue: 0.3098, alpha: 1.0))
+        var workoutHRDataSet = [ScatterChartDataSet]()
+      
+        workoutHRDataSet.append(dataSet)
         
-        let (axisValues1, axisValues2): ([ChartAxisValue], [ChartAxisValue]) = (
-            stride(from: 0, through: 60, by: 5).map {ChartAxisValueDouble(Double($0), labelSettings: labelSettings)},
-            [ChartAxisValueString(order: -1)] +
-                groupsData.enumerated().map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
-                [ChartAxisValueString(order: groupsData.count)]
-        )
-        let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
+        let data = ScatterChartData(dataSets:workoutHRDataSet)
+        dataSet.setScatterShape(.circle)
+        dataSet.scatterShapeSize = 6
+        chart.data = data
+        dataSet.setScatterShape(.circle)
+        dataSet.scatterShapeSize = 10
+
+        chart.chartDescription?.text = "Heart vs Activity"
+
+        chart.setScaleMinima(1, scaleY: 1)
         
-        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
-        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
-        let chartFrame = CGRect(x: 0, y: 40, width: width - 10, height: height - 40)
-//        let chartFrame = chart?.frame ?? CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frame.size.height - dirSelectorHeight)
+        chart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeOutExpo)
+        chart.chartDescription?.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.chartDescription?.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular)
         
-        let chartSettings = ChartSettings()
+        chart.rightAxis.enabled = false
+        chart.leftAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
+        chart.legend.enabled = false
+        data.setDrawValues(false)
+
+        //chart.xAxis.axisMinimum = 0;
+        //chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
         
-        let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
-        let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
-        
-        let barViewSettings = ChartBarViewSettings(animDuration: 0.1, selectionViewUpdater: ChartViewSelectorBrightness(selectedFactor: 0.5))
-        
-        let groupsLayer = ChartGroupedPlainBarsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, groups: groups, horizontal: horizontal, barSpacing: 2, groupSpacing: 25, settings: barViewSettings, tapHandler: { tappedGroupBar /*ChartTappedGroupBar*/ in
-            
-            let barPoint = horizontal ? CGPoint(x: tappedGroupBar.tappedBar.view.frame.maxX, y: tappedGroupBar.tappedBar.view.frame.midY) : CGPoint(x: tappedGroupBar.tappedBar.view.frame.midX, y: tappedGroupBar.tappedBar.view.frame.minY)
-            
-            guard let chart = chart, let chartViewPoint = tappedGroupBar.layer.contentToGlobalCoordinates(barPoint) else {return}
-            
-            let viewPoint = CGPoint(x: chartViewPoint.x, y: chartViewPoint.y)
-            
-            let infoBubble = InfoBubble(point: viewPoint, preferredSize: CGSize(width: 50, height: 40), superview: chart.view, text: tappedGroupBar.tappedBar.model.axisValue2.description, font: font!, textColor: UIColor.white, bgColor: UIColor.gray, horizontal: horizontal)
-            
-            let anchor: CGPoint = {
-                switch (horizontal, infoBubble.inverted(chart.view)) {
-                case (true, true): return CGPoint(x: 1, y: 0.5)
-                case (true, false): return CGPoint(x: 0, y: 0.5)
-                case (false, true): return CGPoint(x: 0.5, y: 0)
-                case (false, false): return CGPoint(x: 0.5, y: 1)
-                }
-            }()
-            
-            let animatorsSettings = ChartViewAnimatorsSettings(animInitSpringVelocity: 1)
-            let animators = ChartViewAnimators(view: infoBubble, animators: ChartViewGrowAnimator(anchor: anchor), settings: animatorsSettings, invertSettings: animatorsSettings.withoutDamping(), onFinishInverts: {
-                infoBubble.removeFromSuperview()
-            })
-            
-            chart.view.addSubview(infoBubble)
-            
-            infoBubble.tapHandler = {
-                animators.invert()
-            }
-            
-            animators.animate()
-        })
-        
-        let guidelinesSettings = ChartGuideLinesLayerSettings(linesColor: UIColor.white, linesWidth: 0.1)
-        let guidelinesLayer = ChartGuideLinesLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, axis: horizontal ? .x : .y, settings: guidelinesSettings)
-        
-        return Chart(
-            frame: chartFrame,
-            innerFrame: innerFrame,
-            settings: chartSettings,
-            layers: [
-                xAxisLayer,
-                yAxisLayer,
-                guidelinesLayer,
-                groupsLayer
-            ]
-        )
+
+        chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
+        //chart.leftAxis.axisMinimum = 0;
+        chart.xAxis.axisMinimum = 0;
+        chart.setScaleMinima(0, scaleY: 0)
+        chart.rightAxis.enabled=false
+
+        print(data)
 
     }
+    
+  
 }

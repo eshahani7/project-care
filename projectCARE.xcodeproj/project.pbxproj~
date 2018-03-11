@@ -1,0 +1,1630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01196302203E6A960059FAC3 /* airHornSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01196301203E6A960059FAC3 /* airHornSound.wav */; };
+		016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
+		016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+		016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016B2587203D80C60037FBCC /* HealthKit.framework */; };
+<<<<<<< Updated upstream
+		01F6E03C20400F9E00C7EB32 /* chartsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6E03B20400F9D00C7EB32 /* chartsGenerator.swift */; };
+		1A318A7F765E2C260EAE93E9 /* Pods_projectCAREUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80D2F59630F7393969085BE6 /* Pods_projectCAREUITests.framework */; };
+=======
+		0E5105C0596D2198D528077A /* Pods_projectCARE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3518CFBA0EB92B10604C6BCD /* Pods_projectCARE.framework */; };
+>>>>>>> Stashed changes
+		2C0C5D4A203D5EBF0053B6F9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C0C5D48203D5EBF0053B6F9 /* Interface.storyboard */; };
+		2C0C5D6A203D81660053B6F9 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C5D69203D81660053B6F9 /* WorkoutTableViewCell.swift */; };
+		2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */; };
+		2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */; };
+		2C735F3F203C89D500FCB804 /* WorkoutSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F3E203C89D500FCB804 /* WorkoutSessionViewController.swift */; };
+		2C735F41203C912F00FCB804 /* SleepAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C735F40203C912F00FCB804 /* SleepAnalysisViewController.swift */; };
+		2C7AC482203D906500C4A9FB /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */; };
+		2C7AC485203D995E00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */; };
+		2C7AC486203D995E00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */; };
+<<<<<<< Updated upstream
+		72344DFA8BE30FAABB4E1640 /* Pods_projectCARETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7F6F14FCA0654638829A1B /* Pods_projectCARETests.framework */; };
+		7B9159D351A5A37D07D24724 /* Pods_projectCARE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01A0630644ABAEA7DB0A82F /* Pods_projectCARE.framework */; };
+=======
+		5BA8133D0343E95105810E41 /* Pods_projectCAREUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860004E3206C93CAB90C5905 /* Pods_projectCAREUITests.framework */; };
+		719D3AB24B1910D9474C0690 /* Pods_projectCARETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF61CF1FBEBC641C6B89BBF /* Pods_projectCARETests.framework */; };
+		7E05EC070EF83CF272DCE250 /* Pods_projectCARE_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D536F36E4E3DB93E6CD73DDF /* Pods_projectCARE_WatchKit_App.framework */; };
+		84E539DA2040197E001D894B /* chartsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E539D92040197E001D894B /* chartsGenerator.swift */; };
+		84E539DB204019B9001D894B /* SwiftCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E539DC204019B9001D894B /* SwiftCharts.framework */; };
+>>>>>>> Stashed changes
+		9F0B517F203E929800C6B4E2 /* HealthStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */; };
+		9F0B5181203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */; };
+		9F0B5183203E92CE00C6B4E2 /* WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */; };
+		9F0B5184203E92E600C6B4E2 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9E203D635A00E834DE /* Workout.swift */; };
+		9F0B5185203E92E900C6B4E2 /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */; };
+		9F0B5186203E92EC00C6B4E2 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA0203D635A00E834DE /* WorkoutList.swift */; };
+		9F0B5187203E92EF00C6B4E2 /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+		9F0B5188203E92F200C6B4E2 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
+		9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */; };
+		9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968402023BA7D00C1D0B4 /* ViewController.swift */; };
+		9F1968442023BA7D00C1D0B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968422023BA7D00C1D0B4 /* Main.storyboard */; };
+		9F1968462023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968452023BA7D00C1D0B4 /* Assets.xcassets */; };
+		9F1968492023BA7D00C1D0B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */; };
+		9F1968542023BA7D00C1D0B4 /* projectCARETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */; };
+		9F19685F2023BA7D00C1D0B4 /* projectCAREUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19685E2023BA7D00C1D0B4 /* projectCAREUITests.swift */; };
+		9F19686C2023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19686B2023BA7D00C1D0B4 /* Assets.xcassets */; };
+		9F1968732023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9F1968722023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9F19687A2023BA7D00C1D0B4 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */; };
+		9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */; };
+		9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */; };
+		9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */; };
+		9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19689B2023BD2400C1D0B4 /* HealthKit.framework */; };
+		9F4C7DA2203D635A00E834DE /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
+		9F4C7DA3203D635A00E834DE /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9E203D635A00E834DE /* Workout.swift */; };
+		9F4C7DA4203D635A00E834DE /* WorkoutFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */; };
+		9F4C7DA5203D635A00E834DE /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA0203D635A00E834DE /* WorkoutList.swift */; };
+		9F4C7DA6203D635A00E834DE /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
+<<<<<<< Updated upstream
+		BBA4B37649EE95E4872ABF35 /* Pods_projectCARE_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14CE884D85D0E1DD7123448 /* Pods_projectCARE_WatchKit_App.framework */; };
+		CF7914AB5CDC70B1FC8A38EE /* Pods_projectCARE_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3A995446AAEE24EEF4E788 /* Pods_projectCARE_WatchKit_Extension.framework */; };
+=======
+		E3101940EC64EB664F59AD33 /* Pods_projectCARE_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD42D835428E20D23BF8A034 /* Pods_projectCARE_WatchKit_Extension.framework */; };
+>>>>>>> Stashed changes
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F1968502023BA7D00C1D0B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1968332023BA7C00C1D0B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F19683A2023BA7C00C1D0B4;
+			remoteInfo = projectCARE;
+		};
+		9F19685B2023BA7D00C1D0B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1968332023BA7C00C1D0B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F19683A2023BA7C00C1D0B4;
+			remoteInfo = projectCARE;
+		};
+		9F1968652023BA7D00C1D0B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1968332023BA7C00C1D0B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1968622023BA7D00C1D0B4;
+			remoteInfo = "projectCARE WatchKit App";
+		};
+		9F1968742023BA7D00C1D0B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1968332023BA7C00C1D0B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1968712023BA7D00C1D0B4;
+			remoteInfo = "projectCARE WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9F1968872023BA7D00C1D0B4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9F1968732023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F19688B2023BA7D00C1D0B4 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01196301203E6A960059FAC3 /* airHornSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = airHornSound.wav; sourceTree = "<group>"; };
+		016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "projectCARE WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		016B2587203D80C60037FBCC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+<<<<<<< Updated upstream
+		01F6E03B20400F9D00C7EB32 /* chartsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chartsGenerator.swift; sourceTree = "<group>"; };
+		0A1BC620F2B396A76F12AD06 /* Pods-projectCARE WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		1312C14DF95CBDC2A93EDB39 /* Pods-projectCARE WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit App/Pods-projectCARE WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		1B3A995446AAEE24EEF4E788 /* Pods_projectCARE_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARE_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F86114CA3990ADD59E8990 /* Pods-projectCARETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARETests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests.debug.xcconfig"; sourceTree = "<group>"; };
+=======
+		0E0C2F09786DDA525E03634F /* Pods-projectCARE WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit App/Pods-projectCARE WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
+		2C0C5D49203D5EBF0053B6F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2C0C5D69203D81660053B6F9 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityInterfaceController.swift; sourceTree = "<group>"; };
+		2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutInterfaceController.swift; sourceTree = "<group>"; };
+		2C735F3E203C89D500FCB804 /* WorkoutSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewController.swift; sourceTree = "<group>"; };
+		2C735F40203C912F00FCB804 /* SleepAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAnalysisViewController.swift; sourceTree = "<group>"; };
+		2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
+		2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEOTERICc - Bold DEMO VERSION.ttf"; sourceTree = "<group>"; };
+		2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEOTERICc - Regular DEMO VERSION.ttf"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+		2FA6E508AEEB0DCB3C24CDF1 /* Pods-projectCAREUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCAREUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B7F6F14FCA0654638829A1B /* Pods_projectCARETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D2F59630F7393969085BE6 /* Pods_projectCAREUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCAREUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E139BE053333B980F08F4D6 /* Pods-projectCARE WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+=======
+		3518CFBA0EB92B10604C6BCD /* Pods_projectCARE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		352EDDA63EB47E5052B85790 /* Pods-projectCARE WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit App/Pods-projectCARE WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		380162BF2AA99C210DB68926 /* Pods-projectCARETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests.release.xcconfig"; sourceTree = "<group>"; };
+		448039F35B26322D762F0A99 /* Pods-projectCARE WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		457F2F1C43C97823582ACE6F /* Pods-projectCAREUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCAREUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6BF61CF1FBEBC641C6B89BBF /* Pods_projectCARETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B069B042CB9E0C4877A6EB5 /* Pods-projectCARE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE.release.xcconfig"; sourceTree = "<group>"; };
+		7F872A4C75A6D568BB47FB2C /* Pods-projectCARE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE.debug.xcconfig"; sourceTree = "<group>"; };
+		80DF577E468DD198EC8C857A /* Pods-projectCARETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARETests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests.debug.xcconfig"; sourceTree = "<group>"; };
+		84E539D92040197E001D894B /* chartsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chartsGenerator.swift; sourceTree = "<group>"; };
+		84E539DC204019B9001D894B /* SwiftCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		860004E3206C93CAB90C5905 /* Pods_projectCAREUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCAREUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> Stashed changes
+		9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreTests.swift; sourceTree = "<group>"; };
+		9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilitiesTests.swift; sourceTree = "<group>"; };
+		9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTests.swift; sourceTree = "<group>"; };
+		9F19683B2023BA7D00C1D0B4 /* projectCARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectCARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9F1968402023BA7D00C1D0B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9F1968432023BA7D00C1D0B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F1968452023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F1968482023BA7D00C1D0B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F19684A2023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F19684F2023BA7D00C1D0B4 /* projectCARETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projectCARETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectCARETests.swift; sourceTree = "<group>"; };
+		9F1968552023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F19685A2023BA7D00C1D0B4 /* projectCAREUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projectCAREUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F19685E2023BA7D00C1D0B4 /* projectCAREUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectCAREUITests.swift; sourceTree = "<group>"; };
+		9F1968602023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F1968632023BA7D00C1D0B4 /* projectCARE WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "projectCARE WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F19686B2023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F19686D2023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F1968722023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "projectCARE WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F1968812023BA7D00C1D0B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = projectCARE.entitlements; sourceTree = "<group>"; };
+		9F19689B2023BD2400C1D0B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		9F4C7D9D203D635A00E834DE /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		9F4C7D9E203D635A00E834DE /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFacade.swift; sourceTree = "<group>"; };
+		9F4C7DA0203D635A00E834DE /* WorkoutList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
+		9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutUtilities.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+		A2985BBAF81FDD97D0D29F32 /* Pods-projectCARE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE.release.xcconfig"; sourceTree = "<group>"; };
+		B01A0630644ABAEA7DB0A82F /* Pods_projectCARE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D14CE884D85D0E1DD7123448 /* Pods_projectCARE_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARE_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D817510B2F9F866D52C9F295 /* Pods-projectCARETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests.release.xcconfig"; sourceTree = "<group>"; };
+		E1531E8A963975BD5D4D54FC /* Pods-projectCAREUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCAREUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F5FFBAB73A95194C5B5EFDD3 /* Pods-projectCARE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE.debug.xcconfig"; sourceTree = "<group>"; };
+		F71F85CD43FF2D1177EE15F7 /* Pods-projectCARE WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit App/Pods-projectCARE WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+=======
+		A8021F292EE85F2E97D98004 /* Pods-projectCAREUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCAREUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CD42D835428E20D23BF8A034 /* Pods_projectCARE_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARE_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D536F36E4E3DB93E6CD73DDF /* Pods_projectCARE_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectCARE_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8F53994B93044DD9597F982 /* Pods-projectCARE WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectCARE WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F1968382023BA7C00C1D0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E539DB204019B9001D894B /* SwiftCharts.framework in Frameworks */,
+				9F19689C2023BD2400C1D0B4 /* HealthKit.framework in Frameworks */,
+<<<<<<< Updated upstream
+				7B9159D351A5A37D07D24724 /* Pods_projectCARE.framework in Frameworks */,
+=======
+				0E5105C0596D2198D528077A /* Pods_projectCARE.framework in Frameworks */,
+>>>>>>> Stashed changes
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F19684C2023BA7D00C1D0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+<<<<<<< Updated upstream
+				72344DFA8BE30FAABB4E1640 /* Pods_projectCARETests.framework in Frameworks */,
+=======
+				719D3AB24B1910D9474C0690 /* Pods_projectCARETests.framework in Frameworks */,
+>>>>>>> Stashed changes
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F1968572023BA7D00C1D0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+<<<<<<< Updated upstream
+				1A318A7F765E2C260EAE93E9 /* Pods_projectCAREUITests.framework in Frameworks */,
+=======
+				5BA8133D0343E95105810E41 /* Pods_projectCAREUITests.framework in Frameworks */,
+>>>>>>> Stashed changes
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F19686F2023BA7D00C1D0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */,
+<<<<<<< Updated upstream
+				CF7914AB5CDC70B1FC8A38EE /* Pods_projectCARE_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2DBDB8981F7A2B9147262B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBA4B37649EE95E4872ABF35 /* Pods_projectCARE_WatchKit_App.framework in Frameworks */,
+=======
+				E3101940EC64EB664F59AD33 /* Pods_projectCARE_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB3451AE5DFA60559FE92735 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E05EC070EF83CF272DCE250 /* Pods_projectCARE_WatchKit_App.framework in Frameworks */,
+>>>>>>> Stashed changes
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		231B23FB12F64A4893B6C271 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5FFBAB73A95194C5B5EFDD3 /* Pods-projectCARE.debug.xcconfig */,
+				A2985BBAF81FDD97D0D29F32 /* Pods-projectCARE.release.xcconfig */,
+				F71F85CD43FF2D1177EE15F7 /* Pods-projectCARE WatchKit App.debug.xcconfig */,
+				1312C14DF95CBDC2A93EDB39 /* Pods-projectCARE WatchKit App.release.xcconfig */,
+				8E139BE053333B980F08F4D6 /* Pods-projectCARE WatchKit Extension.debug.xcconfig */,
+				0A1BC620F2B396A76F12AD06 /* Pods-projectCARE WatchKit Extension.release.xcconfig */,
+				24F86114CA3990ADD59E8990 /* Pods-projectCARETests.debug.xcconfig */,
+				D817510B2F9F866D52C9F295 /* Pods-projectCARETests.release.xcconfig */,
+				2FA6E508AEEB0DCB3C24CDF1 /* Pods-projectCAREUITests.debug.xcconfig */,
+				E1531E8A963975BD5D4D54FC /* Pods-projectCAREUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F1968322023BA7C00C1D0B4 = {
+			isa = PBXGroup;
+			children = (
+				9F19683D2023BA7D00C1D0B4 /* projectCARE */,
+				9F1968522023BA7D00C1D0B4 /* projectCARETests */,
+				9F19685D2023BA7D00C1D0B4 /* projectCAREUITests */,
+				9F1968672023BA7D00C1D0B4 /* projectCARE WatchKit App */,
+				9F1968762023BA7D00C1D0B4 /* projectCARE WatchKit Extension */,
+				9F19683C2023BA7D00C1D0B4 /* Products */,
+				9F19689A2023BD2400C1D0B4 /* Frameworks */,
+<<<<<<< Updated upstream
+				231B23FB12F64A4893B6C271 /* Pods */,
+=======
+				EB278C133CC33154A596983F /* Pods */,
+>>>>>>> Stashed changes
+			);
+			sourceTree = "<group>";
+		};
+		9F19683C2023BA7D00C1D0B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F19683B2023BA7D00C1D0B4 /* projectCARE.app */,
+				9F19684F2023BA7D00C1D0B4 /* projectCARETests.xctest */,
+				9F19685A2023BA7D00C1D0B4 /* projectCAREUITests.xctest */,
+				9F1968632023BA7D00C1D0B4 /* projectCARE WatchKit App.app */,
+				9F1968722023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F19683D2023BA7D00C1D0B4 /* projectCARE */ = {
+			isa = PBXGroup;
+			children = (
+				01F6E03B20400F9D00C7EB32 /* chartsGenerator.swift */,
+				2C7AC483203D995C00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf */,
+				2C7AC484203D995D00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf */,
+				9F4C7DA8203D638500E834DE /* Workouts */,
+				9F4C7DA7203D637300E834DE /* Services */,
+				9F1968992023BD2400C1D0B4 /* projectCARE.entitlements */,
+				9F19683E2023BA7D00C1D0B4 /* AppDelegate.swift */,
+				9F1968402023BA7D00C1D0B4 /* ViewController.swift */,
+				84E539D92040197E001D894B /* chartsGenerator.swift */,
+				2C735F3E203C89D500FCB804 /* WorkoutSessionViewController.swift */,
+				2C735F40203C912F00FCB804 /* SleepAnalysisViewController.swift */,
+				2C0C5D69203D81660053B6F9 /* WorkoutTableViewCell.swift */,
+				9F1968422023BA7D00C1D0B4 /* Main.storyboard */,
+				2C7AC481203D906500C4A9FB /* WorkoutTableViewController.swift */,
+				9F1968452023BA7D00C1D0B4 /* Assets.xcassets */,
+				9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */,
+				9F19684A2023BA7D00C1D0B4 /* Info.plist */,
+			);
+			path = projectCARE;
+			sourceTree = "<group>";
+		};
+		9F1968522023BA7D00C1D0B4 /* projectCARETests */ = {
+			isa = PBXGroup;
+			children = (
+				9F1968532023BA7D00C1D0B4 /* projectCARETests.swift */,
+				9F1968552023BA7D00C1D0B4 /* Info.plist */,
+				9F0B517E203E929800C6B4E2 /* HealthStoreTests.swift */,
+				9F0B5180203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift */,
+				9F0B5182203E92CE00C6B4E2 /* WorkoutTests.swift */,
+			);
+			path = projectCARETests;
+			sourceTree = "<group>";
+		};
+		9F19685D2023BA7D00C1D0B4 /* projectCAREUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9F19685E2023BA7D00C1D0B4 /* projectCAREUITests.swift */,
+				9F1968602023BA7D00C1D0B4 /* Info.plist */,
+			);
+			path = projectCAREUITests;
+			sourceTree = "<group>";
+		};
+		9F1968672023BA7D00C1D0B4 /* projectCARE WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				9F19686B2023BA7D00C1D0B4 /* Assets.xcassets */,
+				9F19686D2023BA7D00C1D0B4 /* Info.plist */,
+				2C0C5D48203D5EBF0053B6F9 /* Interface.storyboard */,
+			);
+			path = "projectCARE WatchKit App";
+			sourceTree = "<group>";
+		};
+		9F1968762023BA7D00C1D0B4 /* projectCARE WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				01196301203E6A960059FAC3 /* airHornSound.wav */,
+				016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */,
+				9F1968792023BA7D00C1D0B4 /* InterfaceController.swift */,
+				2C735F38203BA92400FCB804 /* IntensityInterfaceController.swift */,
+				2C735F3A203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift */,
+				9F19687B2023BA7D00C1D0B4 /* ExtensionDelegate.swift */,
+				9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */,
+				9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */,
+				9F1968812023BA7D00C1D0B4 /* Info.plist */,
+			);
+			path = "projectCARE WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		9F19689A2023BD2400C1D0B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84E539DC204019B9001D894B /* SwiftCharts.framework */,
+				016B2587203D80C60037FBCC /* HealthKit.framework */,
+				9F19689B2023BD2400C1D0B4 /* HealthKit.framework */,
+<<<<<<< Updated upstream
+				B01A0630644ABAEA7DB0A82F /* Pods_projectCARE.framework */,
+				D14CE884D85D0E1DD7123448 /* Pods_projectCARE_WatchKit_App.framework */,
+				1B3A995446AAEE24EEF4E788 /* Pods_projectCARE_WatchKit_Extension.framework */,
+				3B7F6F14FCA0654638829A1B /* Pods_projectCARETests.framework */,
+				80D2F59630F7393969085BE6 /* Pods_projectCAREUITests.framework */,
+=======
+				3518CFBA0EB92B10604C6BCD /* Pods_projectCARE.framework */,
+				D536F36E4E3DB93E6CD73DDF /* Pods_projectCARE_WatchKit_App.framework */,
+				CD42D835428E20D23BF8A034 /* Pods_projectCARE_WatchKit_Extension.framework */,
+				6BF61CF1FBEBC641C6B89BBF /* Pods_projectCARETests.framework */,
+				860004E3206C93CAB90C5905 /* Pods_projectCAREUITests.framework */,
+>>>>>>> Stashed changes
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F4C7DA7203D637300E834DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */,
+				9F4C7D9D203D635A00E834DE /* HealthStore.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		9F4C7DA8203D638500E834DE /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				9F4C7D9E203D635A00E834DE /* Workout.swift */,
+				9F4C7D9F203D635A00E834DE /* WorkoutFacade.swift */,
+				9F4C7DA0203D635A00E834DE /* WorkoutList.swift */,
+			);
+			name = Workouts;
+			sourceTree = "<group>";
+		};
+		EB278C133CC33154A596983F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F872A4C75A6D568BB47FB2C /* Pods-projectCARE.debug.xcconfig */,
+				7B069B042CB9E0C4877A6EB5 /* Pods-projectCARE.release.xcconfig */,
+				352EDDA63EB47E5052B85790 /* Pods-projectCARE WatchKit App.debug.xcconfig */,
+				0E0C2F09786DDA525E03634F /* Pods-projectCARE WatchKit App.release.xcconfig */,
+				F8F53994B93044DD9597F982 /* Pods-projectCARE WatchKit Extension.debug.xcconfig */,
+				448039F35B26322D762F0A99 /* Pods-projectCARE WatchKit Extension.release.xcconfig */,
+				80DF577E468DD198EC8C857A /* Pods-projectCARETests.debug.xcconfig */,
+				380162BF2AA99C210DB68926 /* Pods-projectCARETests.release.xcconfig */,
+				457F2F1C43C97823582ACE6F /* Pods-projectCAREUITests.debug.xcconfig */,
+				A8021F292EE85F2E97D98004 /* Pods-projectCAREUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F19683A2023BA7C00C1D0B4 /* projectCARE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F19688C2023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARE" */;
+			buildPhases = (
+<<<<<<< Updated upstream
+				8D21A5090A39EFE49DA346D0 /* [CP] Check Pods Manifest.lock */,
+=======
+				1FB49FE5979710092CA3ECC4 /* [CP] Check Pods Manifest.lock */,
+>>>>>>> Stashed changes
+				9F1968372023BA7C00C1D0B4 /* Sources */,
+				9F1968382023BA7C00C1D0B4 /* Frameworks */,
+				9F1968392023BA7C00C1D0B4 /* Resources */,
+				9F19688B2023BA7D00C1D0B4 /* Embed Watch Content */,
+<<<<<<< Updated upstream
+				94F2F917882672587DC7B5A0 /* [CP] Embed Pods Frameworks */,
+				71D03D82D0664C4C5FFD7304 /* [CP] Copy Pods Resources */,
+=======
+				441297E4712F788F6A085841 /* [CP] Embed Pods Frameworks */,
+				20E9EC3C8FB19FE06B1A5CFE /* [CP] Copy Pods Resources */,
+>>>>>>> Stashed changes
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F1968662023BA7D00C1D0B4 /* PBXTargetDependency */,
+			);
+			name = projectCARE;
+			productName = projectCARE;
+			productReference = 9F19683B2023BA7D00C1D0B4 /* projectCARE.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9F19684E2023BA7D00C1D0B4 /* projectCARETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F19688F2023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARETests" */;
+			buildPhases = (
+<<<<<<< Updated upstream
+				03571548CC5AE426F7555633 /* [CP] Check Pods Manifest.lock */,
+				9F19684B2023BA7D00C1D0B4 /* Sources */,
+				9F19684C2023BA7D00C1D0B4 /* Frameworks */,
+				9F19684D2023BA7D00C1D0B4 /* Resources */,
+				25B6D90C07F1D22244285B7E /* [CP] Embed Pods Frameworks */,
+				03069A7202CB215C1D1116F4 /* [CP] Copy Pods Resources */,
+=======
+				20C5F60A66D8D83D6EE78B7D /* [CP] Check Pods Manifest.lock */,
+				9F19684B2023BA7D00C1D0B4 /* Sources */,
+				9F19684C2023BA7D00C1D0B4 /* Frameworks */,
+				9F19684D2023BA7D00C1D0B4 /* Resources */,
+				94520CC9FFC68F58643FFB79 /* [CP] Embed Pods Frameworks */,
+				9BB6D1C74F1DCFB68D338E2A /* [CP] Copy Pods Resources */,
+>>>>>>> Stashed changes
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F1968512023BA7D00C1D0B4 /* PBXTargetDependency */,
+			);
+			name = projectCARETests;
+			productName = projectCARETests;
+			productReference = 9F19684F2023BA7D00C1D0B4 /* projectCARETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9F1968592023BA7D00C1D0B4 /* projectCAREUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F1968922023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCAREUITests" */;
+			buildPhases = (
+<<<<<<< Updated upstream
+				E5BED5B74B7A3106CF61964A /* [CP] Check Pods Manifest.lock */,
+				9F1968562023BA7D00C1D0B4 /* Sources */,
+				9F1968572023BA7D00C1D0B4 /* Frameworks */,
+				9F1968582023BA7D00C1D0B4 /* Resources */,
+				9C526457AFCCCC17BEC10E07 /* [CP] Embed Pods Frameworks */,
+				B959E9021A7AB921CF19E1DD /* [CP] Copy Pods Resources */,
+=======
+				04DE24ED6E786147F04489C0 /* [CP] Check Pods Manifest.lock */,
+				9F1968562023BA7D00C1D0B4 /* Sources */,
+				9F1968572023BA7D00C1D0B4 /* Frameworks */,
+				9F1968582023BA7D00C1D0B4 /* Resources */,
+				D24B82BE35F74F85D6DF7C99 /* [CP] Embed Pods Frameworks */,
+				9A83FB2C4E009ED48DB6703E /* [CP] Copy Pods Resources */,
+>>>>>>> Stashed changes
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F19685C2023BA7D00C1D0B4 /* PBXTargetDependency */,
+			);
+			name = projectCAREUITests;
+			productName = projectCAREUITests;
+			productReference = 9F19685A2023BA7D00C1D0B4 /* projectCAREUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9F1968622023BA7D00C1D0B4 /* projectCARE WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F1968882023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARE WatchKit App" */;
+			buildPhases = (
+<<<<<<< Updated upstream
+				EDECD4C0C397563C2DB4A71F /* [CP] Check Pods Manifest.lock */,
+				9F1968612023BA7D00C1D0B4 /* Resources */,
+				9F1968872023BA7D00C1D0B4 /* Embed App Extensions */,
+				C2DBDB8981F7A2B9147262B4 /* Frameworks */,
+				AC8D1B52156A0A46E566EC5A /* [CP] Copy Pods Resources */,
+=======
+				A32FE3A7C79CFD96614AB852 /* [CP] Check Pods Manifest.lock */,
+				9F1968612023BA7D00C1D0B4 /* Resources */,
+				9F1968872023BA7D00C1D0B4 /* Embed App Extensions */,
+				FB3451AE5DFA60559FE92735 /* Frameworks */,
+				7608853C9C5B5B428EA043F9 /* [CP] Copy Pods Resources */,
+>>>>>>> Stashed changes
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F1968752023BA7D00C1D0B4 /* PBXTargetDependency */,
+			);
+			name = "projectCARE WatchKit App";
+			productName = "projectCARE WatchKit App";
+			productReference = 9F1968632023BA7D00C1D0B4 /* projectCARE WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		9F1968712023BA7D00C1D0B4 /* projectCARE WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F1968842023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARE WatchKit Extension" */;
+			buildPhases = (
+<<<<<<< Updated upstream
+				F62E8B65F181FD0D48303D92 /* [CP] Check Pods Manifest.lock */,
+				9F19686E2023BA7D00C1D0B4 /* Sources */,
+				9F19686F2023BA7D00C1D0B4 /* Frameworks */,
+				9F1968702023BA7D00C1D0B4 /* Resources */,
+				223E66B6091806A752A438E2 /* [CP] Embed Pods Frameworks */,
+				2C3FEEDA0CE773CBBE13173B /* [CP] Copy Pods Resources */,
+=======
+				09B593FF1C570909E7857DCC /* [CP] Check Pods Manifest.lock */,
+				9F19686E2023BA7D00C1D0B4 /* Sources */,
+				9F19686F2023BA7D00C1D0B4 /* Frameworks */,
+				9F1968702023BA7D00C1D0B4 /* Resources */,
+				84CC6ECBA59A8194D607AE5E /* [CP] Embed Pods Frameworks */,
+				39588C00F8912186EC359F52 /* [CP] Copy Pods Resources */,
+>>>>>>> Stashed changes
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "projectCARE WatchKit Extension";
+			productName = "projectCARE WatchKit Extension";
+			productReference = 9F1968722023BA7D00C1D0B4 /* projectCARE WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F1968332023BA7C00C1D0B4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Ekta Shahani";
+				TargetAttributes = {
+					9F19683A2023BA7C00C1D0B4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7599LA8ABZ;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					9F19684E2023BA7D00C1D0B4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7599LA8ABZ;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9F19683A2023BA7C00C1D0B4;
+					};
+					9F1968592023BA7D00C1D0B4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7599LA8ABZ;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9F19683A2023BA7C00C1D0B4;
+					};
+					9F1968622023BA7D00C1D0B4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7599LA8ABZ;
+						ProvisioningStyle = Automatic;
+					};
+					9F1968712023BA7D00C1D0B4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7599LA8ABZ;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 9F1968362023BA7C00C1D0B4 /* Build configuration list for PBXProject "projectCARE" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F1968322023BA7C00C1D0B4;
+			productRefGroup = 9F19683C2023BA7D00C1D0B4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F19683A2023BA7C00C1D0B4 /* projectCARE */,
+				9F19684E2023BA7D00C1D0B4 /* projectCARETests */,
+				9F1968592023BA7D00C1D0B4 /* projectCAREUITests */,
+				9F1968622023BA7D00C1D0B4 /* projectCARE WatchKit App */,
+				9F1968712023BA7D00C1D0B4 /* projectCARE WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F1968392023BA7C00C1D0B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F1968492023BA7D00C1D0B4 /* LaunchScreen.storyboard in Resources */,
+				9F1968462023BA7D00C1D0B4 /* Assets.xcassets in Resources */,
+				2C7AC485203D995E00C4A9FB /* NEOTERICc - Bold DEMO VERSION.ttf in Resources */,
+				2C7AC486203D995E00C4A9FB /* NEOTERICc - Regular DEMO VERSION.ttf in Resources */,
+				9F1968442023BA7D00C1D0B4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F19684D2023BA7D00C1D0B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F1968582023BA7D00C1D0B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F1968612023BA7D00C1D0B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C0C5D4A203D5EBF0053B6F9 /* Interface.storyboard in Resources */,
+				9F19686C2023BA7D00C1D0B4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F1968702023BA7D00C1D0B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01196302203E6A960059FAC3 /* airHornSound.wav in Resources */,
+				9F1968802023BA7D00C1D0B4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+<<<<<<< Updated upstream
+		03069A7202CB215C1D1116F4 /* [CP] Copy Pods Resources */ = {
+=======
+		04DE24ED6E786147F04489C0 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		03571548CC5AE426F7555633 /* [CP] Check Pods Manifest.lock */ = {
+=======
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCAREUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		09B593FF1C570909E7857DCC /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+<<<<<<< Updated upstream
+				"$(DERIVED_FILE_DIR)/Pods-projectCARETests-checkManifestLockResult.txt",
+=======
+				"$(DERIVED_FILE_DIR)/Pods-projectCARE WatchKit Extension-checkManifestLockResult.txt",
+>>>>>>> Stashed changes
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+<<<<<<< Updated upstream
+		223E66B6091806A752A438E2 /* [CP] Embed Pods Frameworks */ = {
+=======
+		1FB49FE5979710092CA3ECC4 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25B6D90C07F1D22244285B7E /* [CP] Embed Pods Frameworks */ = {
+=======
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCARE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20C5F60A66D8D83D6EE78B7D /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C3FEEDA0CE773CBBE13173B /* [CP] Copy Pods Resources */ = {
+=======
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCARETests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20E9EC3C8FB19FE06B1A5CFE /* [CP] Copy Pods Resources */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+<<<<<<< Updated upstream
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71D03D82D0664C4C5FFD7304 /* [CP] Copy Pods Resources */ = {
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39588C00F8912186EC359F52 /* [CP] Copy Pods Resources */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+<<<<<<< Updated upstream
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D21A5090A39EFE49DA346D0 /* [CP] Check Pods Manifest.lock */ = {
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		441297E4712F788F6A085841 /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCARE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94F2F917882672587DC7B5A0 /* [CP] Embed Pods Frameworks */ = {
+=======
+				"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7608853C9C5B5B428EA043F9 /* [CP] Copy Pods Resources */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+				"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE/Pods-projectCARE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C526457AFCCCC17BEC10E07 /* [CP] Embed Pods Frameworks */ = {
+=======
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE WatchKit App/Pods-projectCARE WatchKit App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84CC6ECBA59A8194D607AE5E /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+<<<<<<< Updated upstream
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC8D1B52156A0A46E566EC5A /* [CP] Copy Pods Resources */ = {
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE WatchKit Extension/Pods-projectCARE WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94520CC9FFC68F58643FFB79 /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+<<<<<<< Updated upstream
+			name = "[CP] Copy Pods Resources";
+=======
+			name = "[CP] Embed Pods Frameworks";
+>>>>>>> Stashed changes
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+<<<<<<< Updated upstream
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARE WatchKit App/Pods-projectCARE WatchKit App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B959E9021A7AB921CF19E1DD /* [CP] Copy Pods Resources */ = {
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A83FB2C4E009ED48DB6703E /* [CP] Copy Pods Resources */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+<<<<<<< Updated upstream
+		E5BED5B74B7A3106CF61964A /* [CP] Check Pods Manifest.lock */ = {
+=======
+		9BB6D1C74F1DCFB68D338E2A /* [CP] Copy Pods Resources */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCAREUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDECD4C0C397563C2DB4A71F /* [CP] Check Pods Manifest.lock */ = {
+=======
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCARETests/Pods-projectCARETests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A32FE3A7C79CFD96614AB852 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCARE WatchKit App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+<<<<<<< Updated upstream
+		F62E8B65F181FD0D48303D92 /* [CP] Check Pods Manifest.lock */ = {
+=======
+		D24B82BE35F74F85D6DF7C99 /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> Stashed changes
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< Updated upstream
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectCARE WatchKit Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+=======
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectCAREUITests/Pods-projectCAREUITests-frameworks.sh\"\n";
+>>>>>>> Stashed changes
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F1968372023BA7C00C1D0B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F1968412023BA7D00C1D0B4 /* ViewController.swift in Sources */,
+				9F4C7DA2203D635A00E834DE /* HealthStore.swift in Sources */,
+				2C7AC482203D906500C4A9FB /* WorkoutTableViewController.swift in Sources */,
+				9F4C7DA3203D635A00E834DE /* Workout.swift in Sources */,
+				9F19683F2023BA7D00C1D0B4 /* AppDelegate.swift in Sources */,
+				2C0C5D6A203D81660053B6F9 /* WorkoutTableViewCell.swift in Sources */,
+				9F4C7DA6203D635A00E834DE /* WorkoutUtilities.swift in Sources */,
+				9F4C7DA4203D635A00E834DE /* WorkoutFacade.swift in Sources */,
+<<<<<<< Updated upstream
+				01F6E03C20400F9E00C7EB32 /* chartsGenerator.swift in Sources */,
+=======
+				84E539DA2040197E001D894B /* chartsGenerator.swift in Sources */,
+>>>>>>> Stashed changes
+				9F4C7DA5203D635A00E834DE /* WorkoutList.swift in Sources */,
+				2C735F41203C912F00FCB804 /* SleepAnalysisViewController.swift in Sources */,
+				2C735F3F203C89D500FCB804 /* WorkoutSessionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F19684B2023BA7D00C1D0B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F0B5187203E92EF00C6B4E2 /* WorkoutUtilities.swift in Sources */,
+				9F0B5186203E92EC00C6B4E2 /* WorkoutList.swift in Sources */,
+				9F1968542023BA7D00C1D0B4 /* projectCARETests.swift in Sources */,
+				9F0B5181203E92BF00C6B4E2 /* WorkoutUtilitiesTests.swift in Sources */,
+				9F0B517F203E929800C6B4E2 /* HealthStoreTests.swift in Sources */,
+				9F0B5184203E92E600C6B4E2 /* Workout.swift in Sources */,
+				9F0B5183203E92CE00C6B4E2 /* WorkoutTests.swift in Sources */,
+				9F0B5188203E92F200C6B4E2 /* HealthStore.swift in Sources */,
+				9F0B5185203E92E900C6B4E2 /* WorkoutFacade.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F1968562023BA7D00C1D0B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F19685F2023BA7D00C1D0B4 /* projectCAREUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F19686E2023BA7D00C1D0B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F19687E2023BA7D00C1D0B4 /* NotificationController.swift in Sources */,
+				016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */,
+				016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */,
+				2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */,
+				2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */,
+				9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */,
+				9F19687A2023BA7D00C1D0B4 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F1968512023BA7D00C1D0B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F19683A2023BA7C00C1D0B4 /* projectCARE */;
+			targetProxy = 9F1968502023BA7D00C1D0B4 /* PBXContainerItemProxy */;
+		};
+		9F19685C2023BA7D00C1D0B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F19683A2023BA7C00C1D0B4 /* projectCARE */;
+			targetProxy = 9F19685B2023BA7D00C1D0B4 /* PBXContainerItemProxy */;
+		};
+		9F1968662023BA7D00C1D0B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1968622023BA7D00C1D0B4 /* projectCARE WatchKit App */;
+			targetProxy = 9F1968652023BA7D00C1D0B4 /* PBXContainerItemProxy */;
+		};
+		9F1968752023BA7D00C1D0B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1968712023BA7D00C1D0B4 /* projectCARE WatchKit Extension */;
+			targetProxy = 9F1968742023BA7D00C1D0B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C0C5D48203D5EBF0053B6F9 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C0C5D49203D5EBF0053B6F9 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		9F1968422023BA7D00C1D0B4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F1968432023BA7D00C1D0B4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F1968472023BA7D00C1D0B4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F1968482023BA7D00C1D0B4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F1968822023BA7D00C1D0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9F1968832023BA7D00C1D0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F1968852023BA7D00C1D0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = 8E139BE053333B980F08F4D6 /* Pods-projectCARE WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = BA5W6527X2;
+=======
+			baseConfigurationReference = F8F53994B93044DD9597F982 /* Pods-projectCARE WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+>>>>>>> Stashed changes
+				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Wadaskar.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		9F1968862023BA7D00C1D0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = 0A1BC620F2B396A76F12AD06 /* Pods-projectCARE WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = BA5W6527X2;
+=======
+			baseConfigurationReference = 448039F35B26322D762F0A99 /* Pods-projectCARE WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "projectCARE WatchKit Extension/projectCARE WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+>>>>>>> Stashed changes
+				INFOPLIST_FILE = "projectCARE WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Wadaskar.projectCARE.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		9F1968892023BA7D00C1D0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = F71F85CD43FF2D1177EE15F7 /* Pods-projectCARE WatchKit App.debug.xcconfig */;
+=======
+			baseConfigurationReference = 352EDDA63EB47E5052B85790 /* Pods-projectCARE WatchKit App.debug.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				IBSC_MODULE = projectCARE_WatchKit_Extension;
+				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = Wadaskar.projectCARE.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		9F19688A2023BA7D00C1D0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = 1312C14DF95CBDC2A93EDB39 /* Pods-projectCARE WatchKit App.release.xcconfig */;
+=======
+			baseConfigurationReference = 0E0C2F09786DDA525E03634F /* Pods-projectCARE WatchKit App.release.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				IBSC_MODULE = projectCARE_WatchKit_Extension;
+				INFOPLIST_FILE = "projectCARE WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = Wadaskar.projectCARE.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		9F19688D2023BA7D00C1D0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = F5FFBAB73A95194C5B5EFDD3 /* Pods-projectCARE.debug.xcconfig */;
+=======
+			baseConfigurationReference = 7F872A4C75A6D568BB47FB2C /* Pods-projectCARE.debug.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				INFOPLIST_FILE = projectCARE/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Wadaskar.projectCARE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		9F19688E2023BA7D00C1D0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = A2985BBAF81FDD97D0D29F32 /* Pods-projectCARE.release.xcconfig */;
+=======
+			baseConfigurationReference = 7B069B042CB9E0C4877A6EB5 /* Pods-projectCARE.release.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = projectCARE/projectCARE.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				INFOPLIST_FILE = projectCARE/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Wadaskar.projectCARE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		9F1968902023BA7D00C1D0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = 24F86114CA3990ADD59E8990 /* Pods-projectCARETests.debug.xcconfig */;
+=======
+			baseConfigurationReference = 80DF577E468DD198EC8C857A /* Pods-projectCARETests.debug.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				INFOPLIST_FILE = projectCARETests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/projectCARE.app/projectCARE";
+			};
+			name = Debug;
+		};
+		9F1968912023BA7D00C1D0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = D817510B2F9F866D52C9F295 /* Pods-projectCARETests.release.xcconfig */;
+=======
+			baseConfigurationReference = 380162BF2AA99C210DB68926 /* Pods-projectCARETests.release.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				INFOPLIST_FILE = projectCARETests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCARETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/projectCARE.app/projectCARE";
+			};
+			name = Release;
+		};
+		9F1968932023BA7D00C1D0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = 2FA6E508AEEB0DCB3C24CDF1 /* Pods-projectCAREUITests.debug.xcconfig */;
+=======
+			baseConfigurationReference = 457F2F1C43C97823582ACE6F /* Pods-projectCAREUITests.debug.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				INFOPLIST_FILE = projectCAREUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = projectCARE;
+			};
+			name = Debug;
+		};
+		9F1968942023BA7D00C1D0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
+			baseConfigurationReference = E1531E8A963975BD5D4D54FC /* Pods-projectCAREUITests.release.xcconfig */;
+=======
+			baseConfigurationReference = A8021F292EE85F2E97D98004 /* Pods-projectCAREUITests.release.xcconfig */;
+>>>>>>> Stashed changes
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7599LA8ABZ;
+				INFOPLIST_FILE = projectCAREUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Shahani.projectCAREUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = projectCARE;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F1968362023BA7C00C1D0B4 /* Build configuration list for PBXProject "projectCARE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1968822023BA7D00C1D0B4 /* Debug */,
+				9F1968832023BA7D00C1D0B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F1968842023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARE WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1968852023BA7D00C1D0B4 /* Debug */,
+				9F1968862023BA7D00C1D0B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F1968882023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARE WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1968892023BA7D00C1D0B4 /* Debug */,
+				9F19688A2023BA7D00C1D0B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F19688C2023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F19688D2023BA7D00C1D0B4 /* Debug */,
+				9F19688E2023BA7D00C1D0B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F19688F2023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCARETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1968902023BA7D00C1D0B4 /* Debug */,
+				9F1968912023BA7D00C1D0B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F1968922023BA7D00C1D0B4 /* Build configuration list for PBXNativeTarget "projectCAREUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1968932023BA7D00C1D0B4 /* Debug */,
+				9F1968942023BA7D00C1D0B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F1968332023BA7C00C1D0B4 /* Project object */;
+}

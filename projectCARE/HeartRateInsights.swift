@@ -69,15 +69,24 @@ class HeartRateInsights {
     }
     
     public func getMaxHR() -> Double? {
-        return maxHR
+        if(maxHR != nil) {
+            return maxHR
+        }
+        return 0
     }
     
     public func getMinHR() -> Double? {
-        return minHR
+        if(minHR != nil) {
+            return minHR
+        }
+        return 0
     }
     
     public func getAvgHR() -> Double? {
-        return avgHR
+        if(avgHR != nil) {
+            return avgHR
+        }
+        return 0
     }
     
     public func getInsights() -> String {

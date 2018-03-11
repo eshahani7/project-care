@@ -13,6 +13,7 @@ class WorkoutTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
     @IBAction func WorkoutSessionSelected(_ sender: Any) {
     }

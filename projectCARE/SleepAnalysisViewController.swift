@@ -7,62 +7,69 @@
 //
 
 import UIKit
+import Charts
 
 class SleepAnalysisViewController: UIViewController {
+    
+    @IBOutlet weak var maxSleep: UILabel!
+    @IBOutlet weak var minSleep: UILabel!
+    @IBOutlet weak var avgSleep: UILabel!
+    @IBOutlet weak var sleepInsights: UILabel!
+    
+    @IBOutlet weak var maxActivity: UILabel!
+    @IBOutlet weak var minActivity: UILabel!
+    @IBOutlet weak var avgActivity: UILabel!
+    
+    let SAI:SleepActivityInsights = SleepActivityInsights()
+    
     let store:HealthStore = HealthStore.getInstance()
+    
+    var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 150, width: 340, height: 280))
+
+    var sleepData : [(title: String, graph: [Double])] = []
+    var activityData : [(title: String, graph: [Double])] = []
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let width = view.bounds.size.width
-        let height = view.bounds.size.height
-        var sleepData = [(title: String, graph: [(min: Double, max: Double)])]()
-        var chart = generateCharts.createSleepActivityChart(groupsData: sleepData, horizontal: false, width: width, height: height)
+        
+        maxSleep.text = String(format: "%.2f", SAI.getMaxSleep()!) + " hour"
+        minSleep.text = String(format: "%.2f", SAI.getMinSleep()!) + " hour"
+        avgSleep.text = String(format: "%.2f", SAI.getAvgSleep()!) + " hour"
+        sleepInsights.text = SAI.getSleepActivityInsights()
+        maxActivity.text = String(format: "%.2f", SAI.getMaxActivity()!) + " hour"
+        minActivity.text = String(format: "%.2f", SAI.getMinActivity()!) + " hour"
+        avgActivity.text = String(format: "%.2f", SAI.getAvgActivity()!) + " hour"
+        
+        //sleep analysis chart
         let group = DispatchGroup()
         group.enter()
-
         store.getExerciseTime() { activeTime in
-            print("Exercise Time")
             for elm in activeTime {
-                sleepData.append((title: elm.date, [(min: 0, max: elm.time)]))
+                self.activityData.append((title: elm.date, graph: [(elm.time)]))
             }
-            print("Finish Exercise Time")
             group.leave()
         }
-        print(sleepData)
         group.wait()
-        
-        print("Between both functions")
-        
         group.enter()
         self.store.getSleepHours(){ hours in
-            print("Sleep Hours")
             for elm in hours {
-                for i in 0...6 {
-                    if(sleepData[i].title == elm.date) {
-                        sleepData[i].1.append((min: 0, max: elm.time))
-                    }
-                }
+                self.sleepData.append((title: elm.date, graph: [(elm.time)]))
             }
-            print(sleepData)
-
-            print("Finish Sleep Hours")
             group.leave()
         }
         group.wait()
+        generateCharts.updateSleepActivityGraph(sleepData: sleepData, activityData: activityData, chart: sleepActivityChart)
+        view.addSubview(sleepActivityChart)
+        
 
-        print("Done with both async functions")
-            //combine the data here
-
-        let groupsData = sleepData
-        chart = generateCharts.createSleepActivityChart(groupsData: groupsData, horizontal: false, width: width, height: height)
-        view.addSubview(chart.view)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

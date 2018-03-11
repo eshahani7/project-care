@@ -6,7 +6,7 @@ target 'projectCARE' do
   use_frameworks!
 
   # Pods for projectCARE
-  pod 'SwiftCharts', '~> 0.6.1'
+  pod 'Charts'
 
   target 'projectCARETests' do
     inherit! :search_paths
