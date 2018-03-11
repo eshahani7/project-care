@@ -36,16 +36,15 @@ class SleepAnalysisViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //  RICHA: FIX   error:'Unable to parse factorization string count/hour'
-//        maxSleep.text = String(describing: SAI.getMaxSleep())
-//        minSleep.text = String(describing: SAI.getMinSleep())
-//        avgSleep.text = String(describing: SAI.getAvgSleep())
-//        sleepInsights.text = SAI.getSleepInsights()
-//        maxActivity.text = String(describing: SAI.getMaxActivity())
-//        minActivity.text = String(describing: SAI.getMinActivity())
-//        avgActivity.text = String(describing: SAI.getAvgActivity())
-//        activityInsi ghts.text = SAI.getActivityInsights()
-        
+        maxSleep.text = String(describing: SAI.getMaxSleep()!)
+        minSleep.text = String(describing: SAI.getMinSleep()!)
+        avgSleep.text = String(describing: SAI.getAvgSleep()!)
+        sleepInsights.text = SAI.getSleepInsights()
+        maxActivity.text = String(describing: SAI.getMaxActivity()!)
+        minActivity.text = String(describing: SAI.getMinActivity()!)
+        avgActivity.text = String(describing: SAI.getAvgActivity()!)
+        activityInsights.text = SAI.getActivityInsights()
+        print("Activity Insights: " + activityInsights.text!)
         
         //sleep analysis chart
         let group = DispatchGroup()

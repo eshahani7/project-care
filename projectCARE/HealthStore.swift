@@ -162,8 +162,8 @@ class HealthStore {
     }
     
     func retrieveStepCount(completion: @escaping (_ stepRetrieved: [(date: String, steps: Double)]) -> Void) {
-        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        let endDate = Date()
+        let startDate = Calendar.current.date(byAdding: .day, value: -8, to: Date())
+        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictStartDate)
         var interval = DateComponents()
         interval.day = 1
@@ -173,15 +173,33 @@ class HealthStore {
                 print("Error: ", error!)
                 return
             }
+            
             let statsCollection = results
             var arr = [(date: String, steps: Double)]()
-            statsCollection?.enumerateStatistics(from: startDate!, to: endDate) { statistics, stop in
+            var dates = [String]()
+            var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+            let end = Calendar.current.date(byAdding: .day, value: -1, to: Date());
+            let fmt = DateFormatter()
+            fmt.dateFormat = "YYYY-MM-dd"
+            while (date?.compare(end!) != .orderedDescending) {
+                dates.append(fmt.string(from: date!))
+                arr.append((date: fmt.string(from: date!), steps: 0))
+                date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
+            }
+            print(dates)
+            print("Finished printing steps dates")
+            
+            statsCollection?.enumerateStatistics(from: startDate!, to: endDate!) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
                     let index = date.description.index(date.description.startIndex, offsetBy: 10)
                     let parsedData = date.description[..<index]
                     let value = quantity.doubleValue(for: HKUnit.count())
-                    arr.append((String(parsedData), value))
+                    let indx = dates.index(of: String(parsedData))
+                    print(String(parsedData) + ", " + String(value))
+                    if((indx) != nil){
+                        arr[indx!] = (String(parsedData), value)
+                    }
                 }
             }
             completion(arr)
@@ -202,15 +220,30 @@ class HealthStore {
                 print(error!)
                 return
             }
+            
             let statsCollection = results
             var arr = [(date: String, time: Double)]()
+            var dates = [String]()
+            var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+            let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date());
+            let fmt = DateFormatter()
+            fmt.dateFormat = "YYYY-MM-dd"
+            while (date?.compare(endDate!) != .orderedDescending) {
+                dates.append(fmt.string(from: date!))
+                arr.append((date: fmt.string(from: date!), time: 0))
+                date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
+            }
+            
             statsCollection?.enumerateStatistics(from: startDate!, to: endDate!) { statistics, stop in
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
                     let index = date.description.index(date.description.startIndex, offsetBy: 10)
                     let parsedData = date.description[..<index]
                     let value = quantity.doubleValue(for: HKUnit.hour())
-                    arr.append((String(parsedData), value))
+                    let indx = dates.index(of: String(parsedData))
+                    if((indx) != nil){
+                        arr[indx!] = (String(parsedData), value)
+                    }
                 }
             }
             completion(arr)
@@ -221,7 +254,7 @@ class HealthStore {
     public func getSleepHours(completion: @escaping (_ sleepAnalysis: [(date: String, time: Double)]) -> Void) {
         if let sleepType = HealthValues.sleepHours {
             // Use a sortDescriptor to get the recent data first
-            let startDate = Calendar.current.date(byAdding: .day, value: -9, to: Date())
+            let startDate = Calendar.current.date(byAdding: .day, value: -8, to: Date())
             let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
             let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions.strictStartDate)
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
@@ -231,7 +264,22 @@ class HealthStore {
                     print("why do you hate me sleep")
                     return
                 }
+                
                 var arr = [(date: String, time: Double)]()
+                var dates = [String]()
+                var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+                let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date());
+                let fmt = DateFormatter()
+                fmt.dateFormat = "YYYY-MM-dd"
+                
+                while (date?.compare(endDate!) != .orderedDescending) {
+                    dates.append(fmt.string(from: date!))
+                    arr.append((date: fmt.string(from: date!), time: 0))
+                    date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
+                }
+                //print(dates)
+                //print("Completed printing dates.")
+                
                 if let result = tmpResult {
                     // do something with my data
                     for item in result {
@@ -242,7 +290,11 @@ class HealthStore {
                             let seconds = sample.endDate.timeIntervalSince(sample.startDate)
                             let minutes = seconds/60
                             let hours = minutes/60
-                            arr.append((String(parsedData), hours))
+                            print(parsedData)
+                            let indx = dates.index(of: String(parsedData))
+                            if((indx) != nil){
+                                arr[indx!] = (String(parsedData), hours)
+                            }
                         }
                     }
                     completion(arr)

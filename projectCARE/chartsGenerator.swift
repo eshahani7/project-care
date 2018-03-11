@@ -17,19 +17,20 @@ class generateCharts {
     public static func updateStepsGraph(stepsData: [(title: String, stepCount: Int)], chtChart: BarChartView) {
         var barChartEntry = [BarChartDataEntry]()
         var xValues = [String]()
+        print(stepsData)
         
         var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        let endDate = Date();
+        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         let fmt = DateFormatter()
         fmt.dateFormat = "YYYY-MM-dd"
-        while (date?.compare(endDate) != .orderedDescending) {
+        while (date?.compare(endDate!) != .orderedDescending) {
             xValues.append(getDayOfWeek(date: fmt.string(from: date!)))
             date = Calendar.current.date(byAdding: .day, value: 1, to: date!)!
         }
+        //print(xValues)
 
         if(stepsData.count != 0){
             for i in 0..<stepsData.count {
-                print(getDayOfWeek(date: stepsData[i].title))
                 let value = BarChartDataEntry(x: Double(i), y: Double(stepsData[i].stepCount))
                 barChartEntry.append(value)
             }
@@ -71,10 +72,8 @@ class generateCharts {
         chtChart.gridBackgroundColor = UIColor.white
         barChartDataSet.colors = [UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1)]
         barChartDataSet.setColor(UIColor(red: 1, green: 0.8196, blue: 0.9373, alpha: 1))
-    }
-    
-    func setBarChart() {
-    
+        
+        
     }
 
     public static func updateSleepActivityGraph(sleepData: [(title: String, graph: [Double])], activityData: [(title: String, graph: [Double])], chart: BarChartView) {
@@ -82,10 +81,12 @@ class generateCharts {
         var barChartActivityEntry = [BarChartDataEntry]()
 
         var xValues = [String]()
-        print("sleepData!!!")
-        print(sleepData)
+//        print("sleepData!!!")
+//        print(sleepData)
+        
         if(sleepData.count != 0) {
             for i in 0...sleepData.count - 1 {
+                // Get index of date in sleepData. Then, append to barChartSleepEntry?!?
                 xValues.append(getDayOfWeek(date: sleepData[i].title))
                 let value = BarChartDataEntry(x: Double(i), y: Double(sleepData[i].graph[0]))
                 barChartSleepEntry.append(value)
@@ -116,7 +117,6 @@ class generateCharts {
 //            let value = BarChartDataEntry(x: Double(i), y: Double(activityData[i].graph[0]))
 //            barChartActivityEntry.append(value)
 //        }
-
 
         let data = BarChartData()
         data.addDataSet(barChartSleepDataSet)
@@ -159,7 +159,7 @@ class generateCharts {
     public static func getDayOfWeek(date: String) -> String{
         let df  = DateFormatter()
         df.dateFormat = "YYYY-MM-dd"
-        var date = df.date(from: date)!
+        let date = df.date(from: date)!
         df.dateFormat = "EEEE"
         let day = df.string(from: date);
         let index = day.index(day.startIndex, offsetBy: 3)
@@ -170,7 +170,12 @@ class generateCharts {
     private class BarChartFormatter: NSObject, IAxisValueFormatter {
         var labels: [String] = []
         func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-            return labels[Int(value)]
+            //print("Count: " + String(labels.count))
+            if (value <= Double(labels.count)) {
+                //print(value)
+                return labels[Int(value)];
+            }
+            return "no work";
         }
         init(labels: [String]) {
             super.init()
