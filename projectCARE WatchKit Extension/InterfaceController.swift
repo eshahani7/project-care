@@ -35,7 +35,8 @@ class InterfaceController: WKInterfaceController {
 
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
         if segueIdentifier == "timeNext" {
-             return MyVariables.timePickerValue
+            print("<*> Time selected: \(MyVariables.timePickerValue)")
+            return MyVariables.timePickerValue
         }
         else {
             return ""
@@ -45,6 +46,7 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        print("<*> Ready")
         
         // Configure interface objects here.
         
@@ -67,6 +69,7 @@ class InterfaceController: WKInterfaceController {
             return timePickerItem
         }
         timePicker.setItems(timePickerItems)
+        print("<*> Ready to select time.")
         
     }
     

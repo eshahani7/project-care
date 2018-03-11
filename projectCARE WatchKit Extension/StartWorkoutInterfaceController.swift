@@ -63,8 +63,8 @@ class StartWorkoutInterfaceController: WKInterfaceController {
             intensity = (dict!["intensity"] as! Int) + 1
         }
         
-        print ("Time: \(time)")
-        print ("Intensity: \(intensity)")
+        print ("<*> Time passed in: \(time)")
+        print ("<*> Intensity passed in: \(intensity)")
     }
     
     @IBAction func StartEndAction() {
@@ -74,23 +74,27 @@ class StartWorkoutInterfaceController: WKInterfaceController {
             WorkoutTimer.stop()
             self.StartEndButton.setTitle("Start")
             if let workout = workoutSession.session {
+                print("<*> Ending workout.")
                 healthStore.stop(self.currenQuery!)
                 workoutSession.endWorkout(intensity: self.intensity, time: self.time, calorieBurnGoal: self.workoutUtilities?.predictCalorieBurn(), completion: {(success, error) in
                     if let Error = error{
-                        print ("*** There was an error ending workout: \(Error.localizedDescription)")
+                        print ("<*> There was an error ending workout: \(Error.localizedDescription)")
                         self.displayNotAllowed()
                     }
                     else{
                         self.HeartRateLabel.setText("Workout Saved!")
-                        print ("Workout Saved!")
+                        print ("<*> Workout Saved!")
+                        self.paceLabel.setText("")
                     }
                 })
                 healthStore.end(workout)
             }
         } else {
             //start a new workout
+            print("<*> Starting workout.")
             workoutSession.workoutActive = true
             wkTimerReset(timer: WorkoutTimer, interval: 0.0)
+            startDate = Date()
             
             //Change button
             self.StartEndButton.setTitle("Stop")
@@ -102,7 +106,7 @@ class StartWorkoutInterfaceController: WKInterfaceController {
             workoutSession.startWorkout(completion: {(success) in
                 if let Success = success{
                     if(Success){
-                        print("Workout started.")
+                        print("<*> Workout started.")
                         self.HeartRateLabel.setText("Workout Started!")
                         if let query:HKAnchoredObjectQuery = self.workoutSession.createHeartRateStreamingQuery(Date()) {
                             query.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
@@ -116,7 +120,7 @@ class StartWorkoutInterfaceController: WKInterfaceController {
 
                     }
                     else{
-                        print ("Could not start workout.")
+                        print ("<*> Could not start workout.")
                         self.HeartRateLabel.setText("Could not start workout")
                     }
                 }
@@ -147,6 +151,7 @@ class StartWorkoutInterfaceController: WKInterfaceController {
     }
     
     func displayNotAllowed() {
+        print("<*> Not allowed.")
         HeartRateLabel.setText("not allowed")
     }
     
@@ -160,20 +165,20 @@ class StartWorkoutInterfaceController: WKInterfaceController {
             let heartRateForIntervalSample = sample
             self.workoutSession.heartRateIntervalSamples.append(heartRateForIntervalSample)
             //print("Added heart rate sample. \(heartRateForIntervalSample.quantity.doubleValue(for: self.heartRateUnit))")
-            
+
             self.HeartRateLabel.setText("Heart Rate: " + String(UInt16(value)))
-            print("Heart Rate: " + String(UInt16(value)))
+            print("<*> Heart Rate: " + String(UInt16(value)))
             
             if (self.workoutUtilities?.isTooFast(currHR: value, startDate: self.startDate))!{
-                print ("Going too fast!!!")
+                print ("<*> Going too fast!!!")
                 self.paceLabel.setText("GOING TOO FAST!")
             }
             else if (self.workoutUtilities?.isTooSlow(currHR: value, startDate: self.startDate))!{
-                print ("Going too SLOW.")
+                print ("<*> Going too SLOW.")
                 self.paceLabel.setText("GOING TOO SLOW!")
             }
             else {
-                print ("Going at a good pace!")
+                print ("<*> Going at a good pace!")
             }
         }
         

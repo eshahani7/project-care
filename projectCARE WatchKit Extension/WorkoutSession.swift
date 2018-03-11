@@ -163,8 +163,10 @@ class WorkoutSession: NSObject, HKWorkoutSessionDelegate {
                     return
                 }
                 
+                print("<*> HeartRateSamples: ")
                 for sample in self.heartRateIntervalSamples {
                     samples.append(sample)
+                    print(" <*> \(sample.quantity.doubleValue(for: self.heartRateUnit))")
                 }
                 
                 healthStore.add(samples, to: workout, completion: { (success, error) -> Void in
@@ -175,7 +177,6 @@ class WorkoutSession: NSObject, HKWorkoutSessionDelegate {
                     }
                     
                     // Provide clear feedback that the workout saved successfully here…
-                    print("Workout saved!")
                     completion(true, nil)
                     //self.HeartRateLabel.setText("Workout Saved!")
                 })

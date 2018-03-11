@@ -32,33 +32,38 @@ class WorkoutUtilities {
         fatBurnZone = Double(maxHR)  * 0.5
         warmUp = workoutMins * 0.2
         coolDown = workoutMins - (workoutMins * 0.2)
-        print("Warm up time: \(warmUp)")
-        print("Cool Down time: \(coolDown)")
+        print("<*> Warm up time: \(warmUp)")
+        print("<*> Cool Down time: \(coolDown)")
         self.workoutMins = workoutMins
         self.intensityLevel = intensityLevel
     }
     
     public func isTooSlow(currHR:Double, startDate:Date) -> Bool {
         let timePassed = (Date().timeIntervalSince(startDate))/60
-        print("Time Passed: \(timePassed)")
-        print("Zone: \(getBestZone(timePassed: timePassed))")
+        print("<*> Time Passed: \(timePassed)")
         
-        return getCurrentZone(currHR: currHR) < getBestZone(timePassed: timePassed)
+        let bestZone = getBestZone(timePassed: timePassed)
+        
+        print("<*> Zone: \(bestZone)")
+        
+        return getCurrentZone(currHR: currHR) < bestZone
     }
     
     public func isTooFast(currHR:Double, startDate:Date) -> Bool {
         let timePassed = (Date().timeIntervalSince(startDate))/60
-        print("Time Passed: \(timePassed)")
-        print("Zone: \(getBestZone(timePassed: timePassed))")
+        print("<*> Time Passed: \(timePassed)")
+        let bestZone = getBestZone(timePassed: timePassed)
         
-        return getCurrentZone(currHR: currHR) > getBestZone(timePassed: timePassed)
+        print("<*> Zone: \(bestZone)")
+        
+        return getCurrentZone(currHR: currHR) > bestZone
     }
     
     public func predictCalorieBurn() -> Double {
         let group = DispatchGroup()
         group.enter()
         
-        store?.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date.distantPast, endDate: Date()) { (sample, error) in
+        store?.getSamples(sampleType: HealthValues.bodyMass!, startDate: Date().addingTimeInterval(-60*60*24*7), endDate: Date()) { (sample, error) in
             
             guard let samples = sample else {
                 if let error = error {
@@ -66,11 +71,11 @@ class WorkoutUtilities {
                 }
                 return
             }
-            
+            print("Sample count: \(samples.count)")
             //samples is an array, use to pass into another function or whatever you need
             if samples.count > 0 {
                 self.weight = samples[samples.count-1].quantity.doubleValue(for: HKUnit.pound())
-                print("Weight: \(self.weight)")
+                print("Weight is: \(self.weight)")
             }
             group.leave()
         }
@@ -86,8 +91,12 @@ class WorkoutUtilities {
             met = 11;
         }
         
-        calorieGoal = weight!/2.2 * met * workoutMins/60
-        
+        if weight != nil {
+            calorieGoal = weight!/2.2 * met * workoutMins/60
+        }
+        else{
+            print("Weight is nil!")
+        }
         return calorieGoal
     }
     
@@ -95,7 +104,7 @@ class WorkoutUtilities {
     
     private func getBestZone(timePassed:Double) -> Double {
         if timePassed <= warmUp || timePassed >= coolDown{
-            print ("Is in warm-up/cool-down.")
+            print ("<*> Is in warm-up/cool-down.")
             if workoutMins < 15 {
                 return peakZone*0.80
             }
@@ -105,7 +114,7 @@ class WorkoutUtilities {
             return cardioZone*0.80
         }
         else{
-            print ("Doing actual workout.")
+            print ("<*> Doing actual workout.")
             if workoutMins < 15 {
                 return peakZone
             }

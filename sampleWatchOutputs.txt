@@ -1,0 +1,1067 @@
+Watch app started.
+Notifications Authorized!
+<*> Ready
+<*> Ready to select time.
+<*> Time selected: 0
+<*> Ready to select intensity.
+<*> Intensity Selected: 0
+2018-03-05 20:27:58.994604-0800 projectCARE WatchKit Extension[12917:2022565] [default] containerAppExtensionEntitlementsWithCompletion: failed with error: (null)
+2018-03-05 20:27:58.998441-0800 projectCARE WatchKit Extension[12917:2022565] [default] containerAppExtensionEntitlementsWithCompletion: failed with error: (null)
+data found
+HealthKit Successfully Authorized.
+<*> Time passed in: 10.0
+<*> Intensity passed in: 1
+<*> Starting workout.
+can't get dob
+<*> Warm up time: 2.0
+<*> Cool Down time: 8.0
+<*> Workout started.
+<*> Heart Rate: 128
+<*> Time Passed: 0.0738581657409668
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.0738668998082479
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 0.143252531687419
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.143253564834595
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 0.210992165406545
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.210993482669195
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 0.288109882672628
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.288110331694285
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 0.358986049890518
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.35898646513621
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 0.434357766310374
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.434358366330465
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 0.500995882352193
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.500996414820353
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 117
+<*> Time Passed: 0.584327248732249
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.584328148762385
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 115
+<*> Time Passed: 0.661642883221308
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.661643465360006
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 0.742925182978312
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.742926516135534
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 116
+<*> Time Passed: 0.809948515892029
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.80994944969813
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 0.876586516698202
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.876587716738383
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 0.943309432268143
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 0.943310366074244
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 115
+<*> Time Passed: 1.02653091549873
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.02653154929479
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 1.10578639904658
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.10578699906667
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 1.18909131487211
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.1890921831131
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 1.2576958656311
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.25769678155581
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 1.34092621604602
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.34092744986216
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 1.42199978232384
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.42200051546097
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 115
+<*> Time Passed: 1.49754058321317
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.49754156668981
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 112
+<*> Time Passed: 1.58068521618843
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.5806859989961
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 122
+<*> Time Passed: 1.6559447824955
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.65594536662102
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 116
+<*> Time Passed: 1.72716198166211
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.72716263333956
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 1.79374534885089
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.79374641577403
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 1.8604702492555
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.86047153274218
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 1.9271139661471
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.92711461583773
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 1.99382571578026
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 1.99382658203443
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 2.06044749816259
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.06044839819272
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 126
+<*> Time Passed: 2.12711544831594
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.12711604833603
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 2.20487193266551
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.2048724492391
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 2.27104443311691
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.27104496558507
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 2.33772831559181
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.33772888183594
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 127
+<*> Time Passed: 2.40437718232473
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.40437771479289
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 2.47106501658758
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.47106588284175
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 2.53777189850807
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.53777276674906
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 2.62100081642469
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.62100163300832
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 116
+<*> Time Passed: 2.70328139861425
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.70328199863434
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 2.78658404946327
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.78658459981283
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 2.85326094826063
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.85326178272565
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 2.92236616611481
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.92236661513646
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 2.99381254911423
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 2.99381319880486
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 3.0607183655103
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.06071923176448
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 3.13276346524556
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.13276434938113
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 3.19946059981982
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.19946108261744
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 3.26705989837646
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.26706029971441
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 3.35025173226992
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.3502522667249
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 3.41691250006358
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.41691344976425
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 3.48771414955457
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.48771506547928
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 118
+<*> Time Passed: 3.55695526599884
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.55695586601893
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 3.62360695004463
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.62360741496086
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 3.6902579665184
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.6902584652106
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 3.75699084997177
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.75699179967244
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 3.82365748286247
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.82365836501122
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 3.89033528168996
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.89033579826355
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 3.95696126619975
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 3.95696216622988
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 4.02364121476809
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.02364221612612
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 4.09030831654867
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.09030923247337
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 112
+<*> Time Passed: 4.15696988304456
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.15697048306465
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 4.22365088264147
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.22365179856618
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 4.29593051671982
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.29593098163605
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 118
+<*> Time Passed: 4.36506021618843
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.3650611658891
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 4.43170146544774
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.43170188268026
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 126
+<*> Time Passed: 4.49836928248405
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.49836978316307
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 118
+<*> Time Passed: 4.57103008230527
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.5710306485494
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 118
+<*> Time Passed: 4.6377123316129
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.63771286606789
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 4.71119953195254
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.71120048165321
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 4.77787334918976
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.77787454922994
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 4.84456926584244
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.84457053144773
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 4.91123741666476
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.91123801668485
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 4.97884748180707
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 4.9788483997186
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 116
+<*> Time Passed: 5.04552388191223
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.04552434881528
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 116
+<*> Time Passed: 5.11223504940669
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.11223599910736
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 5.17889531652133
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.17889628211657
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 122
+<*> Time Passed: 5.24552354812622
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.24552404880524
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 5.31220256487528
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.31220374902089
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 5.37891134818395
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.37891218264898
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 127
+<*> Time Passed: 5.44558209975561
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.44558308323224
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 5.5210638821125
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.52106453180313
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 112
+<*> Time Passed: 5.58770634929339
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.58770686586698
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 5.65440761645635
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.65440813302994
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 115
+<*> Time Passed: 5.72113313277562
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.72113398313522
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 5.78782816529274
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.78782916665077
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 5.85442538261414
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.85442611575127
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 5.92126963337263
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.92127014994621
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 122
+<*> Time Passed: 5.99634409944216
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 5.99634504914284
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 6.07109571496646
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.07109629909198
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 127
+<*> Time Passed: 6.13777343233426
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.13777409990629
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 6.20444636543592
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.20444733301798
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 6.27112081646919
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.27112133304278
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 6.33782519896825
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.33782604932785
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 6.40445943276087
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.40445996522903
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 116
+<*> Time Passed: 6.47112843195597
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.47112906575203
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 6.54623104929924
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.54623151620229
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 6.61291641592979
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.61291694839795
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 118
+<*> Time Passed: 6.67960391640663
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.67960484822591
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 6.74627588192622
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.74627711574237
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 6.81290358304977
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.81290416518847
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 127
+<*> Time Passed: 6.87958671649297
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.87958741585414
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 127
+<*> Time Passed: 6.946252566576
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 6.94625349839528
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 117
+<*> Time Passed: 7.01295831600825
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.01295881668727
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 7.0877313653628
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.08773198326429
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 123
+<*> Time Passed: 7.15439346631368
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.15439388155937
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 113
+<*> Time Passed: 7.22103434999784
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.22103501558304
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 112
+<*> Time Passed: 7.28771526614825
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.28771568338076
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 114
+<*> Time Passed: 7.35438619852066
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.35438666542371
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 125
+<*> Time Passed: 7.42105349898338
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.42105398178101
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 122
+<*> Time Passed: 7.48774669965108
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.48774723211924
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 124
+<*> Time Passed: 7.55440881649653
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.55440971652667
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 7.62104671597481
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.62104721665382
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 7.69982673327128
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.699828149875
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 121
+<*> Time Passed: 7.76653998295466
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.76654094854991
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 128
+<*> Time Passed: 7.83317016561826
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.83317066629728
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 119
+<*> Time Passed: 7.89986613194148
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.89986716508865
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 120
+<*> Time Passed: 7.96652149955432
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Time Passed: 7.96652198235194
+<*> Doing actual workout.
+<*> Zone: 187.0
+<*> Going too SLOW.
+<*> Heart Rate: 115
+<*> Time Passed: 8.04979516665141
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 8.04979606668154
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Heart Rate: 115
+<*> Time Passed: 8.11761891643206
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Time Passed: 8.1176198164622
+<*> Is in warm-up/cool-down.
+<*> Zone: 149.6
+<*> Going too SLOW.
+<*> Ending workout.
+Duration: 491.574183940887
+<*> HeartRateSamples: 
+ <*> 128.0
+ <*> 114.0
+ <*> 123.0
+ <*> 120.0
+ <*> 128.0
+ <*> 114.0
+ <*> 125.0
+ <*> 117.0
+ <*> 115.0
+ <*> 124.0
+ <*> 116.0
+ <*> 128.0
+ <*> 124.0
+ <*> 115.0
+ <*> 128.0
+ <*> 121.0
+ <*> 121.0
+ <*> 114.0
+ <*> 113.0
+ <*> 115.0
+ <*> 112.0
+ <*> 122.0
+ <*> 116.0
+ <*> 120.0
+ <*> 121.0
+ <*> 120.0
+ <*> 119.0
+ <*> 123.0
+ <*> 126.0
+ <*> 124.0
+ <*> 128.0
+ <*> 119.0
+ <*> 127.0
+ <*> 125.0
+ <*> 123.0
+ <*> 128.0
+ <*> 116.0
+ <*> 124.0
+ <*> 120.0
+ <*> 113.0
+ <*> 119.0
+ <*> 124.0
+ <*> 128.0
+ <*> 124.0
+ <*> 124.0
+ <*> 121.0
+ <*> 119.0
+ <*> 123.0
+ <*> 118.0
+ <*> 113.0
+ <*> 123.0
+ <*> 125.0
+ <*> 113.0
+ <*> 114.0
+ <*> 114.0
+ <*> 125.0
+ <*> 114.0
+ <*> 112.0
+ <*> 124.0
+ <*> 120.0
+ <*> 118.0
+ <*> 124.0
+ <*> 126.0
+ <*> 118.0
+ <*> 118.0
+ <*> 125.0
+ <*> 114.0
+ <*> 125.0
+ <*> 120.0
+ <*> 128.0
+ <*> 116.0
+ <*> 116.0
+ <*> 124.0
+ <*> 122.0
+ <*> 124.0
+ <*> 121.0
+ <*> 127.0
+ <*> 128.0
+ <*> 112.0
+ <*> 125.0
+ <*> 115.0
+ <*> 121.0
+ <*> 113.0
+ <*> 113.0
+ <*> 122.0
+ <*> 128.0
+ <*> 127.0
+ <*> 121.0
+ <*> 123.0
+ <*> 113.0
+ <*> 124.0
+ <*> 116.0
+ <*> 114.0
+ <*> 113.0
+ <*> 118.0
+ <*> 119.0
+ <*> 125.0
+ <*> 127.0
+ <*> 127.0
+ <*> 117.0
+ <*> 119.0
+ <*> 123.0
+ <*> 113.0
+ <*> 112.0
+ <*> 114.0
+ <*> 125.0
+ <*> 122.0
+ <*> 124.0
+ <*> 119.0
+ <*> 128.0
+ <*> 121.0
+ <*> 128.0
+ <*> 119.0
+ <*> 120.0
+ <*> 115.0
+ <*> 115.0
+<*> Workout Saved!
+
