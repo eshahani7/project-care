@@ -22,15 +22,15 @@ class SleepActivityInsights {
 //    private let sleepUnit = HKUnit(from: "count/hour")
 //    private let activityUnit = HKUnit(from: "count/hour")
     
-    private let sleepInsights = ["Your sleep time for the week is way below average. You need to sleep more!",
-                            "Your sleep time for the week is just about average. With more activity, you can increase it.",
-                            "Your sleep time is healthy. Great job!",
-                            "Error retrieving sleepInsights."]
-    
-    private let activityInsights = ["Your active time for the week is low. You need to exercise more!",
-                                 "Your active time for the week is just about average. You can exercise a bit more to get better sleep",
-                                 "Your active time is healthy. Great job!",
-                                 "Error retrieving activityInsights."]
+    private let sleepActivityInsights =
+        ["Your sleep time for the week is way below average. Your active hours for the week are also below average. Try to increase your exercise time to improve your sleep.",
+         "Your active hours for the week look good, but you're not getting enough sleep. Try to increase the intensity of your workouts, and listen to guided meditaion before going to bed.",
+         "Your sleep time for the week is just about average. With more activity, you can increase the duration of your sleep.",
+         "You're not exercising enough. Try to exercise at least 3 times a week for 30 minutes each day.",
+         "Your active time for the week is just about average. You can exercise a bit more to get better sleep",
+         "You're getting lots of sleep and exercise! Great job!",
+         "Error retrieving Insights."
+        ]
     
     init() {
         let group = DispatchGroup()
@@ -51,7 +51,7 @@ class SleepActivityInsights {
                 avg += quantity
             }
             if(activeTime.count != 0) {
-                avg /= Double(activeTime.count)
+                avg /= 7.0
                 self.avgActivity = avg
                 self.minActivity = min
                 self.maxActivity = max
@@ -76,7 +76,7 @@ class SleepActivityInsights {
                 avg += quantity
             }
             if(hours.count != 0) {
-                avg /= Double(hours.count)
+                avg /= 7.0
                 self.avgSleep = avg
                 self.minSleep = min
                 self.maxSleep = max
@@ -128,28 +128,27 @@ class SleepActivityInsights {
         return 0;
     }
     
-    public func getSleepInsights() -> String {
-        if avgSleep == nil{
-            return sleepInsights[3]
+    public func getSleepActivityInsights() -> String {
+        print("Average sleep: " + String(describing: avgSleep!))
+        if (avgSleep == nil && avgActivity == nil) {
+            return sleepActivityInsights[6]
         }
+        if (avgSleep! <= 6.0 && avgActivity! < 1) {
+            return sleepActivityInsights[0]
+        }
+        if (avgSleep! <= 6 && avgActivity! >= 1) {
+            return sleepActivityInsights[1]
+        }
+        if (avgSleep! >= 5.6 && avgSleep! <= 7.5 && avgActivity! <= 1) {
+            return sleepActivityInsights[2]
+        }
+        if (avgActivity! <= 0.7) {
+            return sleepActivityInsights[3]
+        }
+        if (avgActivity! > 0.7 && avgActivity! <= 1.3) {
+            return sleepActivityInsights[4]
+        }
+        return sleepActivityInsights[5]
+    }
 
-        if avgSleep! <= 6 {
-            return sleepInsights[0]
-        } else if avgSleep! <= 7 {
-            return sleepInsights[1]
-        }
-        return sleepInsights[2]
-    }
-    
-    public func getActivityInsights() -> String {
-        if avgActivity == nil{
-            return activityInsights[3]
-        }
-        if avgActivity! <= 0.2 {
-            return activityInsights[0]
-        } else if avgActivity! <= 0.5 {
-            return activityInsights[1]
-        }
-        return activityInsights[2]
-    }
 }

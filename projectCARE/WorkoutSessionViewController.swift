@@ -52,7 +52,7 @@ class WorkoutSessionViewController: UIViewController {
         
         //charts
         //@CINDY - you can edit size if you want
-        let HRTimeChart = ScatterChartView(frame: CGRect(x: 25, y: 180, width: 330, height: 250))
+        let HRTimeChart = ScatterChartView(frame: CGRect(x: 25, y: 180, width: 330, height: 230))
         let pointsData = mapThis.getHRTuples()
         print(pointsData)
 

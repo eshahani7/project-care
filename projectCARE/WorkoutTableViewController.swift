@@ -92,9 +92,11 @@ class WorkoutTableViewController: UITableViewController {
         let calender = Calendar.current
         let day = calender.component(.day, from: date)
         let dayString = String(day)
+        let duration = String(format: "%.1f", workout.getDuration())
         
         cell.dateLabel.text = myDate
         cell.dayLabel.text = dayString
+        cell.durationLabel.text = duration + " MIN."
         cell.WorkoutSessionSelected.tag = indexPath.row
         
         

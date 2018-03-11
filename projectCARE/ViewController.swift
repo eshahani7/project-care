@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     let store:HealthStore = HealthStore.getInstance()
     let screenHeight = UIScreen.main.bounds.height
 
-    var chtChart = BarChartView(frame: CGRect(x: 15, y: 150, width: 330, height: 310))
+    var chtChart = BarChartView(frame: CGRect(x: 15, y: 160, width: 330, height: 310))
     var barsData : [(title: String, stepCount: Int)] = []
 
     @IBAction func SleepAnalysis(_ sender: UIButton) {
