@@ -29,10 +29,9 @@ extension UIColor {
 class ViewController: UIViewController {
 
     let store:HealthStore = HealthStore.getInstance()
-//    var chart: Chart?
-//    @IBOutlet weak var chtChart: BarChartView!
-    var chtChart = BarChartView(frame: CGRect(x: 15, y: 200, width: 350, height: 350))
-    
+    let screenHeight = UIScreen.main.bounds.height
+
+    var chtChart = BarChartView(frame: CGRect(x: 15, y: 150, width: 330, height: 310))
     var barsData : [(title: String, stepCount: Int)] = []
 
     @IBAction func SleepAnalysis(_ sender: UIButton) {
@@ -41,39 +40,45 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var navigationTitle: UINavigationItem!
     
-    // Screen width.
-    public var screenWidth: CGFloat {
-        return UIScreen.main.bounds.width
+    private let imageView = UIImageView(image: UIImage(named: "heart"))
+    private struct Const {
+        /// Image height/width for Large NavBar state
+        static let ImageSizeForLargeState: CGFloat = 45
+        /// Margin from right anchor of safe area to right anchor of Image
+        static let ImageRightMargin: CGFloat = 16
+        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Large NavBar state
+        static let ImageBottomMarginForLargeState: CGFloat = 12
+        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Small NavBar state
+        static let ImageBottomMarginForSmallState: CGFloat = 6
+        /// Image height/width for Small NavBar state
+        static let ImageSizeForSmallState: CGFloat = 32
+        /// Height of NavBar for Small state. Usually it's just 44
+        static let NavBarHeightSmallState: CGFloat = 44
+        /// Height of NavBar for Large state. Usually it's just 96.5 but if you have a custom font for the title, please make sure to edit this value since it changes the height for Large state of NavBar
+        static let NavBarHeightLargeState: CGFloat = 96.5
     }
-    
-    // Screen height.
-    public var screenHeight: CGFloat {
-        return UIScreen.main.bounds.height
+    private func setupUI() {
+        
+        // Initial setup for image for Large NavBar state since the the screen always has Large NavBar once it gets opened
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        navigationBar.addSubview(imageView)
+        imageView.layer.cornerRadius = Const.ImageSizeForLargeState / 2
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -Const.ImageRightMargin),
+            imageView.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -Const.ImageBottomMarginForLargeState),
+            imageView.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+            ])
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI();
         
         navigationTitle.title = "CARE"
-        //navigationTitle.
         
-        
-        //gradient background
-//        let layer = CAGradientLayer()
-//        layer.frame = CGRect(x: 0, y: 100, width: screenWidth, height: screenHeight)
-//        layer.colors = [UIColor(red: 0.2196, green: 0.2588, blue: 0.3882, alpha: 1.0), UIColor.black.cgColor]
-//        //view.layer.addSublayer(layer)
-//        self.view.layer.insertSublayer(layer, at: 0)
-
-        
-//        //STEP label
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
-//        label.center = CGPoint(x: 200, y: 180)
-//        label.textAlignment = .center
-//        label.text = "Steps for last 7 days "
-//        label.font = UIFont(name:"Helvetica", size: 15.0)
-//        label.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
-//        self.view.addSubview(label)
         
         //step count chart
         let group = DispatchGroup()
@@ -101,19 +106,16 @@ class ViewController: UIViewController {
         nav?.tintColor = fontColor
         
         // 3
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: 40, height: 40))
         imageView.contentMode = .scaleAspectFit
         
         // 4
-        //let image = UIImage(named: "heart")
-        //imageView.image = image
+        let image = UIImage(named: "heart")
+        imageView.image = image
         
         // 5
-        navigationItem.titleView = imageView
+        //navigationItem.titleView = imageView
         
-        nav?.topItem?.title = "CARE";
-        //nav?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.red, NSAttributedStringKey.font: UIFont(name: "mplus-1c-regular", size: 21)!]
-
     }
     
     override func didReceiveMemoryWarning() {

@@ -25,7 +25,7 @@ class SleepAnalysisViewController: UIViewController {
     
     let store:HealthStore = HealthStore.getInstance()
     
-    var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 200, width: 330, height: 300))
+    var sleepActivityChart = BarChartView(frame: CGRect(x: 25, y: 180, width: 330, height: 285))
     
     var sleepData : [(title: String, graph: [Double])] = []
     var activityData : [(title: String, graph: [Double])] = []
@@ -34,14 +34,14 @@ class SleepAnalysisViewController: UIViewController {
         super.viewDidLoad()
         
         //  RICHA: FIX   error:'Unable to parse factorization string count/hour'
-//        maxSleep.text = String(describing: SAI.getMaxSleep())
-//        minSleep.text = String(describing: SAI.getMinSleep())
-//        avgSleep.text = String(describing: SAI.getAvgSleep())
-//        sleepInsights.text = SAI.getSleepInsights()
-//        maxActivity.text = String(describing: SAI.getMaxActivity())
-//        minActivity.text = String(describing: SAI.getMinActivity())
-//        avgActivity.text = String(describing: SAI.getAvgActivity())
-//        activityInsights.text = SAI.getActivityInsights()
+        maxSleep.text = String(format: "%.2f", SAI.getMaxSleep()!) + " hour"
+        minSleep.text = String(format: "%.2f", SAI.getMinSleep()!) + " hour"
+        avgSleep.text = String(format: "%.2f", SAI.getAvgSleep()!) + " hour"
+        sleepInsights.text = SAI.getSleepInsights()
+        maxActivity.text = String(format: "%.2f", SAI.getMaxActivity()!) + " hour"
+        minActivity.text = String(format: "%.2f", SAI.getMinActivity()!) + " hour"
+        avgActivity.text = String(format: "%.2f", SAI.getAvgActivity()!) + " hour"
+        activityInsights.text = SAI.getActivityInsights()
         
         
         //sleep analysis chart

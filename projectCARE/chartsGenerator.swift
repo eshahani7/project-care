@@ -182,6 +182,8 @@ class generateCharts {
         
         let data = ScatterChartData(dataSets:workoutHRDataSet)
         chart.data = data
+        dataSet.setScatterShape(.circle)
+        dataSet.scatterShapeSize = 10
         chart.chartDescription?.text = "Heart vs Activity"
         chart.setScaleMinima(1, scaleY: 1)
         
@@ -193,8 +195,9 @@ class generateCharts {
         chart.xAxis.labelPosition = .bottom
         chart.xAxis.labelTextColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
         chart.legend.textColor = UIColor(red: 0.8902, green: 0.902, blue: 0.9137, alpha: 0.75)
-        
-        
+
+        //chart.xAxis.axisMinimum = 0;
+        //chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
         
         print(data)
 

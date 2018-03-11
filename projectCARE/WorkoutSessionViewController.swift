@@ -52,7 +52,7 @@ class WorkoutSessionViewController: UIViewController {
         
         //charts
         //@CINDY - you can edit size if you want
-        let HRTimeChart = ScatterChartView(frame: CGRect(x: 30, y: 230, width: 330, height: 250))
+        let HRTimeChart = ScatterChartView(frame: CGRect(x: 25, y: 180, width: 330, height: 250))
         let pointsData = mapThis.getHRTuples()
         print(pointsData)
 
@@ -62,7 +62,7 @@ class WorkoutSessionViewController: UIViewController {
         
     
         let av = String(format: "%.2f", mapThis.getAvgHeartRate()) + " BPM"
-        let cal = String(describing: mapThis.getCalsBurned()!) + " CAL"
+        let cal = String(format: "%.2f", mapThis.getCalsBurned()!) + " CAL"
         let du =  durationToString(min:mapThis.getDuration())
         let da = dateFormate(date: mapThis.getWorkoutDate())
         let calb = String(format: "%.2f", mapThis.getCalorieBurnGoal())

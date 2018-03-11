@@ -21,9 +21,13 @@ class HeartRateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        avg.text = String(describing: HR.getAvgHR()!)
-        min.text = String(describing: HR.getMinHR()!)
-        max.text = String(describing: HR.getMaxHR()!)
+        let av = String(format: "%.0f", HR.getAvgHR()!) + " BPM"
+        let mi = String(format: "%.0f", HR.getMinHR()!) + " BPM"
+        let ma = String(format: "%.0f", HR.getMaxHR()!) + " BPM"
+
+        avg.text = av
+        min.text = mi
+        max.text = ma
         insights.text = HR.getInsights()
         
         // Do any additional setup after loading the view.

@@ -35,6 +35,7 @@ class Workout {
         self.calsBurned = (hkworkout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()))
         self.dateOfWorkout = hkworkout.startDate
         setGoalValues()
+        setWorkoutGoalMet()
     }
     
     public func setGoalValues() -> Void {
@@ -53,6 +54,7 @@ class Workout {
         }
         if hkworkout.metadata?["CalorieBurnGoal"] != nil{
             calorieBurnGoal = hkworkout.metadata?["CalorieBurnGoal"] as! Double
+            print("<*> Calorie Burn Goal: \(calorieBurnGoal)")
         }
         else{
             print("No calorie burn goal")

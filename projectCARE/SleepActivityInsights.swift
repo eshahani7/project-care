@@ -19,8 +19,8 @@ class SleepActivityInsights {
     private var minActivity:Double?
     private var avgActivity:Double?
     
-    private let sleepUnit = HKUnit(from: "count/hour")
-    private let activityUnit = HKUnit(from: "count/hour")
+//    private let sleepUnit = HKUnit(from: "count/hour")
+//    private let activityUnit = HKUnit(from: "count/hour")
     
     private let sleepInsights = ["Your sleep time for the week is way below average. You need to sleep more!",
                             "Your sleep time for the week is just about average. With more activity, you can increase it.",
@@ -87,27 +87,45 @@ class SleepActivityInsights {
     }
     
     public func getMaxSleep() -> Double? {
-        return maxSleep
+        if((maxSleep) != nil) {
+            return maxSleep
+        }
+        return 0;
     }
     
     public func getMinSleep() -> Double? {
-        return minSleep
+        if((minSleep) != nil) {
+            return minSleep
+        }
+        return 0;
     }
     
     public func getAvgSleep() -> Double? {
-        return avgSleep
+        if((avgSleep) != nil) {
+            return avgSleep
+        }
+        return 0;
     }
     
     public func getMaxActivity() -> Double? {
-        return maxActivity
+        if((maxActivity) != nil) {
+            return maxActivity
+        }
+        return 0;
     }
     
     public func getMinActivity() -> Double? {
-        return minActivity
+        if((minActivity) != nil) {
+            return minActivity
+        }
+        return 0;
     }
     
     public func getAvgActivity() -> Double? {
-        return avgActivity
+        if((avgActivity) != nil) {
+            return avgActivity
+        }
+        return 0;
     }
     
     public func getSleepInsights() -> String {
@@ -125,7 +143,7 @@ class SleepActivityInsights {
     
     public func getActivityInsights() -> String {
         if avgActivity == nil{
-            return activityInsights[4]
+            return activityInsights[3]
         }
         if avgActivity! <= 0.2 {
             return activityInsights[0]
