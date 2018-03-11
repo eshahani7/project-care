@@ -2,7 +2,7 @@
 //  HeartRateInsights.swift
 //  projectCARE
 //
-//  Created by Cindy Lu on 3/3/18.
+//  Created by Ekta Shahani on 2/25/18.
 //  Copyright © 2018 Ekta Shahani. All rights reserved.
 //
 

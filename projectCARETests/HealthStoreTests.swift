@@ -221,14 +221,20 @@ class HealthStoreTests: XCTestCase {
                 var samples: [HKQuantitySample] = []
                 let heartRateUnit = HKUnit(from: "count/min")
                 let heartRateQuantity = HKQuantity(unit: heartRateUnit, doubleValue: 95)
+                let heartRateQuantity2 = HKQuantity(unit: heartRateUnit, doubleValue: 96)
+                let heartRateQuantity3 = HKQuantity(unit: heartRateUnit, doubleValue: 94)
                 let heartRateForIntervalSample =
                     HKQuantitySample(type: HealthValues.heartRate!, quantity: heartRateQuantity,
                                      start: Date(), end: Date())
                 let heartRateForIntervalSample2 =
-                    HKQuantitySample(type: HealthValues.heartRate!, quantity: heartRateQuantity,
-                                     start: Date().addingTimeInterval(20), end: Date().addingTimeInterval(40))
+                    HKQuantitySample(type: HealthValues.heartRate!, quantity: heartRateQuantity2,
+                                     start: Date().addingTimeInterval(10), end: Date().addingTimeInterval(20))
+                let heartRateForIntervalSample3 =
+                    HKQuantitySample(type: HealthValues.heartRate!, quantity: heartRateQuantity3,
+                                     start: Date().addingTimeInterval(20), end: Date().addingTimeInterval(30))
                 samples.append(heartRateForIntervalSample)
                 samples.append(heartRateForIntervalSample2)
+                samples.append(heartRateForIntervalSample3)
                 
                 appleStore.add(samples, to: workout) {
                     (success, error) in
