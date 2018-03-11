@@ -127,7 +127,12 @@ class generateCharts {
         //chart.XAxisPosition = BOTTOM
         chart.chartDescription?.text = "Heart vs Activity"
         chart.setVisibleXRange(minXRange: 0, maxXRange: 150)
-        //chart.
+        
+        //cindy copy paste these two lines into workout graph anyhwere
+        chart.legend.enabled = false
+        data.setDrawValues(false)
+        //done with copy paste
+        
         chart.setScaleMinima(0, scaleY: 0)
         chart.rightAxis.enabled=false
         print(data)
