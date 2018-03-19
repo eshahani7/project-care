@@ -27,6 +27,7 @@ class IntensityInterfaceController: WKInterfaceController {
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
         if segueIdentifier == "intensityNext" {
+            print("<*> Intensity Selected: \(MyVariables.intensityPickerValue)")
             return ["time":  MyVariables.timePickerValue,
                     "intensity": MyVariables.intensityPickerValue]
         }
@@ -49,7 +50,7 @@ class IntensityInterfaceController: WKInterfaceController {
             return intensityPickerItem
         }
         intensityPicker.setItems(intensityPickerItems)
-        
+        print("<*> Ready to select intensity.")
     }
 
     override func willActivate() {

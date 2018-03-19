@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01196302203E6A960059FAC3 /* airHornSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01196301203E6A960059FAC3 /* airHornSound.wav */; };
+		0139EF32205F482A00C55F0D /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0139EF31205F482A00C55F0D /* WorkoutSession.swift */; };
 		016B2584203D7A5F0037FBCC /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7D9D203D635A00E834DE /* HealthStore.swift */; };
 		016B2585203D7AD70037FBCC /* WorkoutUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C7DA1203D635A00E834DE /* WorkoutUtilities.swift */; };
 		016B2588203D80C60037FBCC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016B2587203D80C60037FBCC /* HealthKit.framework */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		01196301203E6A960059FAC3 /* airHornSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = airHornSound.wav; sourceTree = "<group>"; };
+		0139EF31205F482A00C55F0D /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		016B2586203D80C60037FBCC /* projectCARE WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "projectCARE WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		016B2587203D80C60037FBCC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		01F6E03B20400F9D00C7EB32 /* chartsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chartsGenerator.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				9F19687D2023BA7D00C1D0B4 /* NotificationController.swift */,
 				9F19687F2023BA7D00C1D0B4 /* Assets.xcassets */,
 				9F1968812023BA7D00C1D0B4 /* Info.plist */,
+				0139EF31205F482A00C55F0D /* WorkoutSession.swift */,
 			);
 			path = "projectCARE WatchKit Extension";
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				2C735F39203BA92400FCB804 /* IntensityInterfaceController.swift in Sources */,
 				2C735F3B203BAE3B00FCB804 /* StartWorkoutInterfaceController.swift in Sources */,
 				9F19687C2023BA7D00C1D0B4 /* ExtensionDelegate.swift in Sources */,
+				0139EF32205F482A00C55F0D /* WorkoutSession.swift in Sources */,
 				9F19687A2023BA7D00C1D0B4 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
