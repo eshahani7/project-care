@@ -27,14 +27,32 @@ class WorkoutUtilitiesTests: XCTestCase {
     func testIsTooFast() {
         let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 2)
         let maxHR:Double = 225
-        let tooFast:Bool = wu.isTooFast(currHR: maxHR)
+        let time:Date = Date()
+        let tooFast:Bool = wu.isTooFast(currHR: maxHR, startDate: time)
         XCTAssertEqual(tooFast, true)
     }
     
     func testIsTooSlow() {
         let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 2)
         let minHR:Double = 0
-        let tooSlow:Bool = wu.isTooSlow(currHR: minHR)
+        let time:Date = Date().addingTimeInterval(-60*10)
+        let tooSlow:Bool = wu.isTooSlow(currHR: minHR, startDate: time)
+        XCTAssertEqual(tooSlow, true)
+    }
+    
+    func testIsTooFastWarmUp() {
+        let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 2)
+        let maxHR:Double = 225
+        let time:Date = Date()
+        let tooFast:Bool = wu.isTooFast(currHR: maxHR, startDate: time)
+        XCTAssertEqual(tooFast, true)
+    }
+    
+    func testIsTooSlowCoolDown() {
+        let wu:WorkoutUtilities = WorkoutUtilities(workoutMins: 20, intensityLevel: 2)
+        let minHR:Double = 0
+        let time:Date = Date().addingTimeInterval(-60*18)
+        let tooSlow:Bool = wu.isTooSlow(currHR: minHR, startDate: time)
         XCTAssertEqual(tooSlow, true)
     }
     
